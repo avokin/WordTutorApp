@@ -9,15 +9,38 @@
 import Foundation
 
 public class Word {
-    var id: Int
-    var text: String
-    var comment: String
-    var typeId: Int
-    var customIntField1: Int
-    var customStringField1: String
+    var id: Int = 0
+    var text: String = ""
+    var comment: String = ""
+    var typeId: Int = 1
+    var customIntField1: Int = 0
+    var customStringField1: String = ""
 
-    var translations: [Word]
-    var synonims: [Word]
+    var translations: [Word] = []
+    var synonims: [Word] = []
+
+    init(json: String) throws {
+        let JSONData = json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+        let JSONDictionary = try NSJSONSerialization.JSONObjectWithData(JSONData!, options: []) as! NSDictionary
+
+        for (key, value) in JSONDictionary {
+            let keyName = key as! String
+
+            if "id" == keyName {
+                self.id = (value as! NSNumber).integerValue
+            } else if "text" == keyName {
+                self.text = value as! String
+            } else if "comment" == keyName {
+                self.comment = value as! String
+            } else if "typeId" == keyName {
+                self.typeId = (value as! NSNumber).integerValue
+            } else if "customIntField1" == keyName {
+                self.customIntField1 = (value as! NSNumber).integerValue
+            } else if "customStringField1" == keyName {
+                self.customStringField1 = value as! String
+            }
+        }
+    }
 
     convenience init(id: Int, text: String) {
         self.init(id: id, text: text, translation: nil)
@@ -41,5 +64,25 @@ public class Word {
 
     public func getText() -> String {
         return self.text
+    }
+
+    public func getId() -> Int {
+        return self.id
+    }
+
+    public func getTypeId() -> Int {
+        return self.typeId
+    }
+
+    public func getComment() -> String {
+        return self.comment
+    }
+
+    public func getCustomIntField1() -> Int {
+        return self.customIntField1
+    }
+
+    public func getCustomStringField1() -> String {
+        return self.customStringField1
     }
 }
