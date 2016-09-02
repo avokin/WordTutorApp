@@ -11,7 +11,7 @@ public class JsonParser {
             let word = try Word(json: text)
             return word
         } catch {
-            print("Ok")
+            print(error)
         }
         return nil
     }

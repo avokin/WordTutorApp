@@ -15,6 +15,9 @@ public class Word {
     var typeId: Int = 1
     var customIntField1: Int = 0
     var customStringField1: String = ""
+    var languageId: Int = 0
+
+    var language: Language?
 
     var translations: [Word] = []
     var synonims: [Word] = []
@@ -25,18 +28,23 @@ public class Word {
 
         for (key, value) in JSONDictionary {
             let keyName = key as! String
+            if value is NSNull {
+                continue
+            }
 
             if "id" == keyName {
                 self.id = (value as! NSNumber).integerValue
+            } else if "language_id" == keyName {
+                self.languageId = (value as! NSNumber).integerValue
             } else if "text" == keyName {
                 self.text = value as! String
             } else if "comment" == keyName {
                 self.comment = value as! String
-            } else if "typeId" == keyName {
+            } else if "type_id" == keyName {
                 self.typeId = (value as! NSNumber).integerValue
-            } else if "customIntField1" == keyName {
+            } else if "custom_int_field1" == keyName {
                 self.customIntField1 = (value as! NSNumber).integerValue
-            } else if "customStringField1" == keyName {
+            } else if "custom_string_field1" == keyName {
                 self.customStringField1 = value as! String
             }
         }
@@ -68,6 +76,10 @@ public class Word {
 
     public func getId() -> Int {
         return self.id
+    }
+
+    public func getLanguageId() -> Int {
+        return self.languageId
     }
 
     public func getTypeId() -> Int {
