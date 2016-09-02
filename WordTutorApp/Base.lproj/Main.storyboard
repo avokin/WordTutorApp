@@ -1,11 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fs4-or-gPQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Login Controller-->
+        <scene sceneID="TVA-k0-QAd">
+            <objects>
+                <viewController id="fs4-or-gPQ" customClass="LoginController" customModule="WordTutorApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zG6-4U-1WH"/>
+                        <viewControllerLayoutGuide type="bottom" id="vjY-f1-5vo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZQe-h6-rDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y4D-s6-ww2">
+                                <rect key="frame" x="20" y="194" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nmC-o6-LK7">
+                                <rect key="frame" x="20" y="261" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U59-Hu-Kqj">
+                                <rect key="frame" x="20" y="165" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFl-rD-dVF">
+                                <rect key="frame" x="20" y="232" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8YR-bn-qdO">
+                                <rect key="frame" x="240" y="306" width="120" height="22"/>
+                                <color key="backgroundColor" red="1" green="0.28756250991858801" blue="0.3050817295717142" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="fs4-or-gPQ" eventType="touchUpInside" id="i5g-lH-qEB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y4D-s6-ww2" firstAttribute="leading" secondItem="ZQe-h6-rDZ" secondAttribute="leadingMargin" id="DSI-YM-Gzk"/>
+                            <constraint firstItem="nmC-o6-LK7" firstAttribute="trailing" secondItem="ZQe-h6-rDZ" secondAttribute="trailingMargin" id="LgW-1H-YHH"/>
+                            <constraint firstItem="8YR-bn-qdO" firstAttribute="centerX" secondItem="ZQe-h6-rDZ" secondAttribute="centerX" id="dWs-em-X18"/>
+                            <constraint firstItem="y4D-s6-ww2" firstAttribute="trailing" secondItem="ZQe-h6-rDZ" secondAttribute="trailingMargin" id="hfT-rm-MBf"/>
+                            <constraint firstItem="nmC-o6-LK7" firstAttribute="leading" secondItem="ZQe-h6-rDZ" secondAttribute="leadingMargin" id="vpC-ZF-ioc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="loginSuccessful" animates="NO" action="showDetailViewController:sender:" id="xZ3-Z0-adc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YPr-58-hKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="225" y="-680"/>
+        </scene>
         <!--Reveal View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -19,6 +79,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bYU-I5-tU1"/>
                     <connections>
                         <segue destination="c8U-hf-vWv" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="jNl-dZ-ht5"/>
                         <segue destination="dXH-rC-dKS" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="tWZ-CD-OTO"/>
@@ -577,8 +638,8 @@
         <image name="training" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tWZ-CD-OTO"/>
-        <segue reference="Miw-yV-1tq"/>
-        <segue reference="Oag-4L-BHp"/>
+        <segue reference="foL-zu-uHU"/>
+        <segue reference="HEv-Mo-2Nc"/>
+        <segue reference="se3-R7-X4p"/>
     </inferredMetricsTieBreakers>
 </document>
