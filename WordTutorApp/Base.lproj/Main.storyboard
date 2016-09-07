@@ -23,11 +23,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nmC-o6-LK7">
-                                <rect key="frame" x="20" y="261" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U59-Hu-Kqj">
                                 <rect key="frame" x="20" y="165" width="91" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -48,6 +43,11 @@
                                     <action selector="loginAction:" destination="fs4-or-gPQ" eventType="touchUpInside" id="i5g-lH-qEB"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nmC-o6-LK7">
+                                <rect key="frame" x="20" y="261" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -59,6 +59,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="passwordField" destination="nmC-o6-LK7" id="PUN-Ct-YIj"/>
+                        <outlet property="usernameField" destination="y4D-s6-ww2" id="d0C-H4-Cn6"/>
                         <segue destination="vXZ-lx-hvc" kind="show" identifier="loginSuccessful" animates="NO" action="showDetailViewController:sender:" id="xZ3-Z0-adc"/>
                     </connections>
                 </viewController>

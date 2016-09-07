@@ -22,6 +22,7 @@
 		AC38FB7FC82DF4C2E37E690A /* GermanNounController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FDA1929E11A5E94246CF /* GermanNounController.swift */; };
 		AC38FB8540684F000BCBBB7B /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F80D72B675142209FF64 /* Word.swift */; };
 		AC38FBA403E1656010765087 /* WordCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F329F064F441B06FC82D /* WordCategory.swift */; };
+		AC38FCA79C4E6498F31C7996 /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F99F4D5C806D72E8BFFF /* LoginHelper.swift */; };
 		AC38FE97BD229242E876F5DF /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FC4F47F3AB6DC0549DE4 /* Language.swift */; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
 		F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47029FC1A7F27DB00E30A3C /* Images.xcassets */; };
@@ -55,6 +56,7 @@
 		AC38F6B215368FD168081158 /* WordListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListController.swift; sourceTree = "<group>"; };
 		AC38F80D72B675142209FF64 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		AC38F81C9DEEDDCBF0020590 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		AC38F99F4D5C806D72E8BFFF /* LoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginHelper.swift; sourceTree = "<group>"; };
 		AC38FA02EB68D7CF1279AA10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC38FC4F47F3AB6DC0549DE4 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		AC38FC87FEB2020708326767 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				AC38F304233567688509DF0F /* DataProvider.swift */,
 				AC38F07C855D3B1093697E74 /* JsonParser.swift */,
+				AC38F99F4D5C806D72E8BFFF /* LoginHelper.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				TargetAttributes = {
 					F47029EF1A7F27DB00E30A3C = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = S2XS892B4S;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -330,6 +334,7 @@
 				AC38F999FB8D3EC62BCF000E /* GermanUtil.swift in Sources */,
 				AC38F4BA582BA856414BE77C /* JsonParser.swift in Sources */,
 				AC38F298E0197CAFFE6B9383 /* LoginController.swift in Sources */,
+				AC38FCA79C4E6498F31C7996 /* LoginHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,10 +461,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WordTutorApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.avokin.WordTutorApp;
 				PRODUCT_NAME = WordTutorApp;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WordTutorApp/WordTutorApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -470,10 +478,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WordTutorApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.avokin.WordTutorApp;
 				PRODUCT_NAME = WordTutorApp;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WordTutorApp/WordTutorApp-Bridging-Header.h";
 			};
 			name = Release;
