@@ -11,7 +11,8 @@ class LoginController : UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
 
     @IBAction func loginAction(sender: AnyObject) {
-        let url = NSURL(string: "http://127.0.0.1:3000/sessions.json?session[email]=" + passwordField.text! + "&session[password]=" + passwordField.text!)
+        let url = NSURL(string: "http://127.0.0.1:3000/sessions.json?session[email]=" + usernameField.text! +
+                "&session[password]=" + passwordField.text!)
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -31,7 +32,10 @@ class LoginController : UIViewController {
             }
 
             LoginHelper.getInstance().authorisationToken = JSONDictionary["token"] as! String
-            self.performSegueWithIdentifier("loginSuccessful", sender: self)
+
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+                self.performSegueWithIdentifier("loginSuccessful", sender: self)
+            }
         }
 
         task.resume()
