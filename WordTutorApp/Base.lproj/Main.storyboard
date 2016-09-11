@@ -48,17 +48,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYK-Cd-gUk">
+                                <rect key="frame" x="20" y="336" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="y4D-s6-ww2" firstAttribute="leading" secondItem="ZQe-h6-rDZ" secondAttribute="leadingMargin" id="DSI-YM-Gzk"/>
                             <constraint firstItem="nmC-o6-LK7" firstAttribute="trailing" secondItem="ZQe-h6-rDZ" secondAttribute="trailingMargin" id="LgW-1H-YHH"/>
+                            <constraint firstItem="YYK-Cd-gUk" firstAttribute="trailing" secondItem="ZQe-h6-rDZ" secondAttribute="trailingMargin" id="XRi-yV-yFu"/>
                             <constraint firstItem="8YR-bn-qdO" firstAttribute="centerX" secondItem="ZQe-h6-rDZ" secondAttribute="centerX" id="dWs-em-X18"/>
                             <constraint firstItem="y4D-s6-ww2" firstAttribute="trailing" secondItem="ZQe-h6-rDZ" secondAttribute="trailingMargin" id="hfT-rm-MBf"/>
+                            <constraint firstItem="YYK-Cd-gUk" firstAttribute="leading" secondItem="ZQe-h6-rDZ" secondAttribute="leadingMargin" id="vGp-9L-pEP"/>
                             <constraint firstItem="nmC-o6-LK7" firstAttribute="leading" secondItem="ZQe-h6-rDZ" secondAttribute="leadingMargin" id="vpC-ZF-ioc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="YYK-Cd-gUk" id="4gu-3r-jsQ"/>
                         <outlet property="passwordField" destination="nmC-o6-LK7" id="PUN-Ct-YIj"/>
                         <outlet property="usernameField" destination="y4D-s6-ww2" id="d0C-H4-Cn6"/>
                         <segue destination="vXZ-lx-hvc" kind="show" identifier="loginSuccessful" animates="NO" action="showDetailViewController:sender:" id="xZ3-Z0-adc"/>
