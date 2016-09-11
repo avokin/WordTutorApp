@@ -20,7 +20,7 @@ public class Word {
     var language: Language?
 
     var translations: [Word] = []
-    var synonims: [Word] = []
+    var synonyms: [Word] = []
 
     init(json: String) throws {
         let JSONData = json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
@@ -57,7 +57,7 @@ public class Word {
     init(id: Int, text: String, translation: Word?) {
         self.id = id
         self.text = text
-        self.synonims = [Word]()
+        self.synonyms = [Word]()
 
         self.typeId = 1
         self.comment = "comment"

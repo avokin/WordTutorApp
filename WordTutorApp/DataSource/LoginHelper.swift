@@ -5,7 +5,7 @@
 
 import Foundation
 
-class LoginHelper {
+public class LoginHelper {
     var authorisationToken: String = ""
     static var instance: LoginHelper? = nil
 
