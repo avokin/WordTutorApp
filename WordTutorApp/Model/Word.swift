@@ -23,13 +23,13 @@ public class Word {
     var synonyms: [Word] = []
 
     convenience init(json: String) throws {
-        let JSONData = json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        let JSONDictionary = try NSJSONSerialization.JSONObjectWithData(JSONData!, options: []) as! NSDictionary
-        self.init(JSONDictionary: JSONDictionary)
+        let jsonData = json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+        let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: []) as! NSDictionary
+        self.init(dictionary: jsonDictionary)
     }
 
-    init(JSONDictionary: NSDictionary) {
-        for (key, value) in JSONDictionary {
+    init(dictionary: NSDictionary) {
+        for (key, value) in dictionary {
             let keyName = key as! String
             if value is NSNull {
                 continue

@@ -6,7 +6,7 @@
 import Foundation
 
 public class DataProvider {
-    public static let HOST = "http://localhost:3000/"
+    public static let HOST = "http://word-tutor.herokuapp.com/"
 
     var words: [Word]? = nil
     var categories: [Category]? = nil
@@ -51,6 +51,10 @@ public class DataProvider {
     }
 
     private func requestData() {
+        words = [Word]()
+        categories = [Category]()
+        wordsCategories = [WordCategory]()
+
         let url = NSURL(string: DataProvider.HOST + "export/export.json")
         let request = NSMutableURLRequest(URL: url!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -69,17 +73,14 @@ public class DataProvider {
             if (JSONDictionary["words"] != nil) {
                 let words_json = JSONDictionary["words"] as! NSArray;
                 for word_dictionary in words_json {
-                    let word = Word(JSONDictionary: word_dictionary as! NSDictionary)
-                    self.words!.append(word)
+                    self.words!.append(Word(JSONDictionary: word_dictionary as! NSDictionary))
                 }
             }
             if (JSONDictionary["categories"] != nil) {
                 self.categories = [Category]()
                 let categories_json = JSONDictionary["categories"] as! NSArray;
                 for category_dictionary in categories_json {
-                    let id = (category_dictionary["id"] as! NSNumber).integerValue
-                    let category = Category(id: id, name: category_dictionary["name"] as! String)
-                    self.categories!.append(category)
+                    self.categories!.append(Category(dictionary: category_dictionary as! NSDictionary))
                 }
             }
         }

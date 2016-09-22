@@ -16,6 +16,11 @@ public class Category {
         self.name = name
     }
 
+    convenience init(dictionary: NSDictionary) {
+        let id = (dictionary["id"] as! NSNumber).integerValue
+        self.init(id: id, name: dictionary["name"] as! String)
+    }
+
     public func getWords() -> [Word] {
         if words == nil {
             var wordIds = [Int]()
