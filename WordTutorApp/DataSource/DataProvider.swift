@@ -6,7 +6,7 @@
 import Foundation
 
 public class DataProvider {
-    public static let HOST = "http://word-tutor.herokuapp.com/"
+    public static let HOST = "http://localhost:3000/"
 
     var words: [Word]? = nil
     var categories: [Category]? = nil
@@ -21,7 +21,36 @@ public class DataProvider {
         return instance!
     }
 
+    public func getWords() -> [Word] {
+        if words == nil {
+            loadData()
+        }
+        return words!
+    }
+
+    public func getCategories() -> [Category] {
+        if categories == nil {
+            loadData()
+        }
+        return categories!
+    }
+
+    public func getWordsCategories() -> [WordCategory] {
+        if wordsCategories == nil {
+            loadData()
+        }
+        return wordsCategories!
+    }
+
     private func loadData() {
+        if NSProcessInfo.processInfo().environment["XCTestConfigurationFilePath"] != nil {
+            loadTestData()
+        } else {
+            requestData()
+        }
+    }
+
+    private func requestData() {
         let url = NSURL(string: DataProvider.HOST + "export/export.json")
         let request = NSMutableURLRequest(URL: url!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -58,53 +87,8 @@ public class DataProvider {
         task.resume()
     }
 
-    public func getWords() -> [Word] {
-        if words == nil {
-            words = [Word]()
-            if NSProcessInfo.processInfo().environment["XCTestConfigurationFilePath"] != nil {
-                fillTestData()
-            } else {
-                loadData()
-            }
-        }
-
-        return words!
-    }
-
-    public func getCategories() -> [Category] {
-        if categories == nil {
-            categories = [Category]()
-
-            if NSProcessInfo.processInfo().environment["XCTestConfigurationFilePath"] != nil {
-                categories!.append(Category(id: 1, name: "Haus"))
-                categories!.append(Category(id: 2, name: "Tiere"))
-                categories!.append(Category(id: 3, name: "Herb"))
-            }
-        }
-
-        return categories!
-    }
-
-    public func getWordsCategories() -> [WordCategory] {
-        if wordsCategories == nil {
-            wordsCategories = [WordCategory]()
-
-            wordsCategories!.append(WordCategory(wordId: 1, categoryId: 1))
-            wordsCategories!.append(WordCategory(wordId: 17, categoryId: 1))
-            wordsCategories!.append(WordCategory(wordId: 19, categoryId: 1))
-            wordsCategories!.append(WordCategory(wordId: 21, categoryId: 1))
-
-            wordsCategories!.append(WordCategory(wordId: 3, categoryId: 2))
-            wordsCategories!.append(WordCategory(wordId: 25, categoryId: 2))
-
-            wordsCategories!.append(WordCategory(wordId: 1, categoryId: 3))
-            wordsCategories!.append(WordCategory(wordId: 23, categoryId: 3))
-        }
-
-        return wordsCategories!
-    }
-
-    private func fillTestData() {
+    private func loadTestData() {
+        words = [Word]()
         words!.append(Word(id: 1, text: "Zapfel", translation: Word(id: 2, text: "шишка")))
         words!.append(Word(id: 3, text: "Hund", translation: Word(id: 4, text: "собака")))
         words!.append(Word(id: 5, text: "Fenster", translation: Word(id: 6, text: "окно")))
@@ -119,5 +103,20 @@ public class DataProvider {
         words!.append(Word(id: 23, text: "Baum", translation: Word(id: 24, text: "дерево")))
         words!.append(Word(id: 25, text: "Katz", translation: Word(id: 26, text: "кот")))
         words!.append(Word(id: 27, text: "Küh", translation: Word(id: 28, text: "корова")))
+
+        categories = [Category]()
+        categories!.append(Category(id: 1, name: "Haus"))
+        categories!.append(Category(id: 2, name: "Tiere"))
+        categories!.append(Category(id: 3, name: "Herb"))
+
+        wordsCategories = [WordCategory]()
+        wordsCategories!.append(WordCategory(wordId: 1, categoryId: 1))
+        wordsCategories!.append(WordCategory(wordId: 17, categoryId: 1))
+        wordsCategories!.append(WordCategory(wordId: 19, categoryId: 1))
+        wordsCategories!.append(WordCategory(wordId: 21, categoryId: 1))
+        wordsCategories!.append(WordCategory(wordId: 3, categoryId: 2))
+        wordsCategories!.append(WordCategory(wordId: 25, categoryId: 2))
+        wordsCategories!.append(WordCategory(wordId: 1, categoryId: 3))
+        wordsCategories!.append(WordCategory(wordId: 23, categoryId: 3))
     }
 }
