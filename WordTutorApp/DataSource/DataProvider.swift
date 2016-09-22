@@ -43,8 +43,15 @@ public class DataProvider {
                     let word = Word(JSONDictionary: word_dictionary as! NSDictionary)
                     self.words!.append(word)
                 }
-                let languages_json = JSONDictionary["languages"] as! NSArray;
-                return;
+            }
+            if (JSONDictionary["categories"] != nil) {
+                self.categories = [Category]()
+                let categories_json = JSONDictionary["categories"] as! NSArray;
+                for category_dictionary in categories_json {
+                    let id = (category_dictionary["id"] as! NSNumber).integerValue
+                    let category = Category(id: id, name: category_dictionary["name"] as! String)
+                    self.categories!.append(category)
+                }
             }
         }
 
@@ -68,9 +75,11 @@ public class DataProvider {
         if categories == nil {
             categories = [Category]()
 
-            categories!.append(Category(id: 1, text: "Haus"))
-            categories!.append(Category(id: 2, text: "Tiere"))
-            categories!.append(Category(id: 3, text: "Herb"))
+            if NSProcessInfo.processInfo().environment["XCTestConfigurationFilePath"] != nil {
+                categories!.append(Category(id: 1, name: "Haus"))
+                categories!.append(Category(id: 2, name: "Tiere"))
+                categories!.append(Category(id: 3, name: "Herb"))
+            }
         }
 
         return categories!

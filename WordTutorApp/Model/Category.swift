@@ -7,13 +7,13 @@ import Foundation
 
 public class Category {
     var id: Int
-    var text: String
+    var name: String
 
     var words: [Word]? = nil
 
-    init(id: Int, text: String) {
+    init(id: Int, name: String) {
         self.id = id
-        self.text = text
+        self.name = name
     }
 
     public func getWords() -> [Word] {

@@ -33,7 +33,7 @@ class CategoriesController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Category", forIndexPath: indexPath)
 
         let category = modelProvider.getCategories()[indexPath.row]
-        cell.textLabel!.text = category.text
+        cell.textLabel!.text = category.name
 
         return cell
     }
