@@ -43,6 +43,10 @@ public class DataProvider {
     }
 
     private func loadData() {
+        words = [Word]()
+        categories = [Category]()
+        wordsCategories = [WordCategory]()
+
         if NSProcessInfo.processInfo().environment["XCTestConfigurationFilePath"] != nil {
             loadTestData()
         } else {
@@ -51,10 +55,6 @@ public class DataProvider {
     }
 
     private func requestData() {
-        words = [Word]()
-        categories = [Category]()
-        wordsCategories = [WordCategory]()
-
         let url = NSURL(string: DataProvider.HOST + "export/export.json")
         let request = NSMutableURLRequest(URL: url!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -67,18 +67,18 @@ public class DataProvider {
             }
             let responseBody = NSString(data: data!, encoding: NSUTF8StringEncoding)
             let JSONData = responseBody!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-            let JSONDictionary = try! NSJSONSerialization.JSONObjectWithData(JSONData!, options: []) as! NSDictionary
+            let jsonDictionary = try! NSJSONSerialization.JSONObjectWithData(JSONData!, options: []) as! NSDictionary
 
             self.words = [Word]()
-            if (JSONDictionary["words"] != nil) {
-                let words_json = JSONDictionary["words"] as! NSArray;
+            if (jsonDictionary["words"] != nil) {
+                let words_json = jsonDictionary["words"] as! NSArray;
                 for word_dictionary in words_json {
-                    self.words!.append(Word(JSONDictionary: word_dictionary as! NSDictionary))
+                    self.words!.append(Word(dictionary: word_dictionary as! NSDictionary))
                 }
             }
-            if (JSONDictionary["categories"] != nil) {
+            if (jsonDictionary["categories"] != nil) {
                 self.categories = [Category]()
-                let categories_json = JSONDictionary["categories"] as! NSArray;
+                let categories_json = jsonDictionary["categories"] as! NSArray;
                 for category_dictionary in categories_json {
                     self.categories!.append(Category(dictionary: category_dictionary as! NSDictionary))
                 }
@@ -89,7 +89,6 @@ public class DataProvider {
     }
 
     private func loadTestData() {
-        words = [Word]()
         words!.append(Word(id: 1, text: "Zapfel", translation: Word(id: 2, text: "шишка")))
         words!.append(Word(id: 3, text: "Hund", translation: Word(id: 4, text: "собака")))
         words!.append(Word(id: 5, text: "Fenster", translation: Word(id: 6, text: "окно")))
@@ -105,12 +104,10 @@ public class DataProvider {
         words!.append(Word(id: 25, text: "Katz", translation: Word(id: 26, text: "кот")))
         words!.append(Word(id: 27, text: "Küh", translation: Word(id: 28, text: "корова")))
 
-        categories = [Category]()
         categories!.append(Category(id: 1, name: "Haus"))
         categories!.append(Category(id: 2, name: "Tiere"))
         categories!.append(Category(id: 3, name: "Herb"))
 
-        wordsCategories = [WordCategory]()
         wordsCategories!.append(WordCategory(wordId: 1, categoryId: 1))
         wordsCategories!.append(WordCategory(wordId: 17, categoryId: 1))
         wordsCategories!.append(WordCategory(wordId: 19, categoryId: 1))
