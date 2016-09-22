@@ -13,7 +13,10 @@ class WordController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.lblTranslations.text = self.word!.translations[0].text
+        if self.word!.translations.count > 0 {
+            self.lblTranslations.text = self.word!.translations[0].text
+        }
+
         self.lblComment.text = self.word!.comment
         self.lblTitle.title = self.word!.text
     }

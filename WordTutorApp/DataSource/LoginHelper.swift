@@ -7,7 +7,7 @@ import Foundation
 
 public class LoginHelper {
     var authorisationToken: String = ""
-    static var instance: LoginHelper? = nil
+    private static var instance: LoginHelper? = nil
 
     public static func getInstance() -> LoginHelper {
         if instance == nil {

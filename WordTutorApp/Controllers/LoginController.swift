@@ -11,7 +11,7 @@ class LoginController : UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
 
     @IBAction func loginAction(sender: AnyObject) {
-        let url = NSURL(string: "http://127.0.0.1:3000/sessions.json?session[email]=" + usernameField.text! +
+        let url = NSURL(string: DataProvider.HOST + "sessions.json?session[email]=" + usernameField.text! +
                 "&session[password]=" + passwordField.text!)
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
