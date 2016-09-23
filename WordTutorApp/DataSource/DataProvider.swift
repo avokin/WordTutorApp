@@ -8,11 +8,13 @@ import Foundation
 public class DataProvider {
     public static let HOST = "http://word-tutor.herokuapp.com/"
 
+    private static var instance: DataProvider? = nil
+
+    public var serviceResponse: (() -> Void)? = nil
+
     var words: [Word]? = nil
     var categories: [Category]? = nil
     var wordsCategories: [WordCategory]? = nil
-
-    static var instance: DataProvider? = nil
 
     public static func getInstance() -> DataProvider {
         if instance == nil {
@@ -82,6 +84,9 @@ public class DataProvider {
                 for category_dictionary in categories_json {
                     self.categories!.append(Category(dictionary: category_dictionary as! NSDictionary))
                 }
+            }
+            if self.serviceResponse != nil {
+                self.serviceResponse!()
             }
         }
 

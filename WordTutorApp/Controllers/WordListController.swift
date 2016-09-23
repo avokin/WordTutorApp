@@ -28,6 +28,14 @@ class WordListController: UITableViewController {
         }
 
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Word")
+        DataProvider.getInstance().serviceResponse = serviceResponseCallback
+    }
+
+    func serviceResponseCallback() {
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            self.words = DataProvider.getInstance().getWords()
+            self.tableView.reloadData()
+        }
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
