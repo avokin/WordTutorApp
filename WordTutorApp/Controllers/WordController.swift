@@ -13,9 +13,12 @@ class WordController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if self.word!.translations.count > 0 {
-            self.lblTranslations.text = self.word!.translations[0].text
+        var translations = ""
+        for translation in self.word!.translations {
+            translations += translation.getText() + "\n"
         }
+        translations = translations.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        self.lblTranslations.text = translations
 
         self.lblComment.text = self.word!.comment
         self.lblTitle.title = self.word!.text
