@@ -12,7 +12,7 @@ class WordListController: UITableViewController {
     @IBOutlet var menuButton:UIBarButtonItem!
     @IBOutlet var extraButton:UIBarButtonItem!
 
-    var words = DataProvider.getInstance().getWords()
+    var words = DataProvider.getInstance().getWordsOfDestinationLanguage()
     var menuEnabled = true
 
     override func viewDidLoad() {

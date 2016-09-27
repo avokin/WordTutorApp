@@ -8,6 +8,7 @@ class WordController: UIViewController {
     @IBOutlet weak var lblTitle: UINavigationItem!
 
     @IBOutlet weak var lblTranslations: UILabel!
+    @IBOutlet weak var lblSynonyms: UILabel!
     @IBOutlet weak var lblComment: UILabel!
 
     override func viewDidLoad() {
@@ -19,6 +20,14 @@ class WordController: UIViewController {
         }
         translations = translations.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         self.lblTranslations.text = translations
+
+        var synonyms = ""
+        for synonym in self.word!.synonyms {
+            synonyms += synonym.getText() + "\n"
+        }
+        synonyms = synonyms.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        self.lblSynonyms.text = synonyms
+
 
         self.lblComment.text = self.word!.comment
         self.lblTitle.title = self.word!.text
