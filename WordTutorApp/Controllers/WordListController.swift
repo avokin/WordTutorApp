@@ -33,7 +33,7 @@ class WordListController: UITableViewController {
 
     func serviceResponseCallback() {
         NSOperationQueue.mainQueue().addOperationWithBlock {
-            self.words = DataProvider.getInstance().getWords()
+            self.words = DataProvider.getInstance().getWordsOfDestinationLanguage()
             self.tableView.reloadData()
         }
     }
@@ -54,7 +54,7 @@ class WordListController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let word: Word = words[indexPath.row]
         var segue = "Word"
-        if word.typeId == 1 {
+        if word.typeId == 2 {
             segue = "GermanNoun"
         }
         self.performSegueWithIdentifier(segue, sender: word)
