@@ -20,11 +20,11 @@ class WordListController: UITableViewController {
 
         if revealViewController() != nil && menuEnabled {
             menuButton.target = revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
 
             revealViewController().rightViewRevealWidth = 150
             extraButton.target = revealViewController()
-            extraButton.action = "rightRevealToggle:"
+            extraButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
         }
 
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Word")

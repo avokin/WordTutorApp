@@ -19,7 +19,7 @@ class CategoriesController: UITableViewController {
 
         if revealViewController() != nil {
             menuButton.target = revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         }
 
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Category")
