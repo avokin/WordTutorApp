@@ -22,6 +22,8 @@ public class Word {
     var translations: [Word] = []
     var synonyms: [Word] = []
 
+    public static var ids: [Int: Word] = [Int: Word]()
+
     convenience init(json: String) throws {
         let jsonData = json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: []) as! NSDictionary
@@ -51,6 +53,7 @@ public class Word {
                 self.customStringField1 = value as! String
             }
         }
+        Word.ids[self.id] = self
     }
 
     convenience init(id: Int, text: String) {
@@ -71,6 +74,7 @@ public class Word {
         } else {
             self.translations = [Word]()
         }
+        Word.ids[self.id] = self
     }
 
     public func getText() -> String {

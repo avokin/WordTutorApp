@@ -9,11 +9,15 @@ public class Category {
     var id: Int
     var name: String
 
-    var words: [Word]? = nil
+    public var words: [Word] = [Word]()
+
+    public static var ids: [Int: Category] = [Int: Category]()
 
     init(id: Int, name: String) {
         self.id = id
         self.name = name
+
+        Category.ids[self.id] = self
     }
 
     convenience init(dictionary: NSDictionary) {
@@ -22,23 +26,6 @@ public class Category {
     }
 
     public func getWords() -> [Word] {
-        if words == nil {
-            var wordIds = [Int]()
-            let allWordsCategories = DataProvider.getInstance().getWordsCategories()
-            for wordCategory in allWordsCategories {
-                if wordCategory.categoryId == self.id {
-                    wordIds.append(wordCategory.wordId)
-                }
-            }
-
-            words = [Word]()
-            let allWords = DataProvider.getInstance().getWords()
-            for word in allWords {
-                if wordIds.contains(word.id) {
-                    words!.append(word)
-                }
-            }
-        }
-        return words!
+        return words
     }
 }

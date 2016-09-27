@@ -15,12 +15,24 @@ public class DataProvider {
     var words: [Word]? = nil
     var categories: [Category]? = nil
     var wordsCategories: [WordCategory]? = nil
+    var idsWord: [Int:Word] = [Int:Word]()
+    var idsCategory: [Int:Category] = [Int:Category]()
 
     public static func getInstance() -> DataProvider {
         if instance == nil {
             instance = DataProvider()
         }
         return instance!
+    }
+
+    public func getWordsOfDestinationLanguage() -> [Word] {
+        var result = [Word]()
+        for word in getWords() {
+            if word.getLanguageId() == 3 {
+                result.append(word)
+            }
+        }
+        return result
     }
 
     public func getWords() -> [Word] {
@@ -85,6 +97,36 @@ public class DataProvider {
                     self.categories!.append(Category(dictionary: category_dictionary as! NSDictionary))
                 }
             }
+
+            if (jsonDictionary["word_relations"] != nil) {
+                let word_relations_json = jsonDictionary["word_relations"] as! NSArray;
+                for word_relation_dictionary in word_relations_json {
+                    let source_word_id = (word_relation_dictionary["source_user_word_id"] as! NSNumber).integerValue
+                    let related_word_id = (word_relation_dictionary["related_user_word_id"] as! NSNumber).integerValue
+                    let relation_type = (word_relation_dictionary["relation_type"] as! NSNumber).integerValue
+
+                    let source_word = Word.ids[source_word_id]!
+                    let related_word = Word.ids[related_word_id]!
+
+                    if relation_type == 1 {
+                        source_word.translations.append(related_word)
+                        related_word.translations.append(source_word)
+                    } else {
+                        source_word.synonyms.append(related_word)
+                        related_word.synonyms.append(source_word)
+                    }
+                }
+            }
+
+            if (jsonDictionary["word_categories"] != nil) {
+                let word_categories = jsonDictionary["word_categories"] as! NSArray;
+                for word_category_dictionary in word_categories {
+                    let user_word_id = (word_category_dictionary["user_word_id"] as! NSNumber).integerValue
+                    let user_category_id = (word_category_dictionary["user_category_id"] as! NSNumber).integerValue
+                    WordCategory.create(user_word_id, categoryId: user_category_id)
+                }
+            }
+
             if self.serviceResponse != nil {
                 self.serviceResponse!()
             }
@@ -113,13 +155,13 @@ public class DataProvider {
         categories!.append(Category(id: 2, name: "Tiere"))
         categories!.append(Category(id: 3, name: "Herb"))
 
-        wordsCategories!.append(WordCategory(wordId: 1, categoryId: 1))
-        wordsCategories!.append(WordCategory(wordId: 17, categoryId: 1))
-        wordsCategories!.append(WordCategory(wordId: 19, categoryId: 1))
-        wordsCategories!.append(WordCategory(wordId: 21, categoryId: 1))
-        wordsCategories!.append(WordCategory(wordId: 3, categoryId: 2))
-        wordsCategories!.append(WordCategory(wordId: 25, categoryId: 2))
-        wordsCategories!.append(WordCategory(wordId: 1, categoryId: 3))
-        wordsCategories!.append(WordCategory(wordId: 23, categoryId: 3))
+        WordCategory.create(1, categoryId: 1)
+        WordCategory.create(17, categoryId: 1)
+        WordCategory.create(19, categoryId: 1)
+        WordCategory.create(21, categoryId: 1)
+        WordCategory.create(3, categoryId: 2)
+        WordCategory.create(25, categoryId: 2)
+        WordCategory.create(1, categoryId: 3)
+        WordCategory.create(23, categoryId: 3)
     }
 }

@@ -6,25 +6,10 @@
 import Foundation
 
 public class WordCategory {
-    var wordId: Int
-    var categoryId: Int
+    public static func create(wordId: Int, categoryId: Int) {
+        let word = Word.ids[wordId]!
+        let category = Category.ids[categoryId]!
 
-    var word: Word? = nil
-
-    init(wordId: Int, categoryId: Int) {
-        self.wordId = wordId
-        self.categoryId = categoryId
-    }
-
-    func getWord() -> Word {
-        if word == nil {
-            for w in DataProvider.getInstance().getWords() {
-                if w.id == wordId {
-                    word = w
-                    break
-                }
-            }
-        }
-        return word!
+        category.words.append(word)
     }
 }
