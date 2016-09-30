@@ -3,33 +3,57 @@
 // Copyright (c) 2016 avokin. All rights reserved.
 //
 
-class WordController: UIViewController {
+class WordController: UITableViewController {
     var word: Word? = nil
-    @IBOutlet weak var lblTitle: UINavigationItem!
-
-    @IBOutlet weak var lblTranslations: UILabel!
-    @IBOutlet weak var lblSynonyms: UILabel!
-    @IBOutlet weak var lblComment: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.title = word!.text
+    }
 
-        var translations = ""
-        for translation in self.word!.translations {
-            translations += translation.getText() + "\n"
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return word!.translations.count
+        } else if section == 1 {
+            return word!.synonyms.count
+        } else {
+            if word!.comment.characters.count > 0 {
+                return 1
+            }
+            return 0
         }
-        translations = translations.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        self.lblTranslations.text = translations
+    }
 
-        var synonyms = ""
-        for synonym in self.word!.synonyms {
-            synonyms += synonym.getText() + "\n"
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 3
+    }
+
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
+    override internal func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Translations"
         }
-        synonyms = synonyms.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        self.lblSynonyms.text = synonyms
+        if section == 1 {
+            return "Related words"
+        }
+        return "Comment"
+    }
 
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Word", forIndexPath: indexPath)
 
-        self.lblComment.text = self.word!.comment
-        self.lblTitle.title = self.word!.text
+        if indexPath.section == 0 {
+            cell.textLabel!.text = word!.translations[indexPath.row].text
+        } else if indexPath.section == 1 {
+            cell.textLabel!.text = word!.synonyms[indexPath.row].text
+        } else {
+            cell.textLabel!.text = word!.comment
+        }
+
+        return cell
     }
 }

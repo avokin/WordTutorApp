@@ -53,11 +53,7 @@ class WordListController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let word: Word = words[indexPath.row]
-        var segue = "Word"
-        if word.typeId == 2 {
-            segue = "GermanNoun"
-        }
-        self.performSegueWithIdentifier(segue, sender: word)
+        self.performSegueWithIdentifier("Word", sender: word)
     }
 
     @available(iOS 5.0, *) override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
