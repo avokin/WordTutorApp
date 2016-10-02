@@ -532,7 +532,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="bfF-yt-XRS" kind="replace" identifier="RelatedWord" splitViewControllerTargetIndex="1" id="wBQ-on-HCP"/>
+                                    <segue destination="bfF-yt-XRS" kind="custom" identifier="RelatedWord" customClass="ReplaceSegue" customModule="WordTutorApp" customModuleProvider="target" id="wBQ-on-HCP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
