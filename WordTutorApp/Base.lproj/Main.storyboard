@@ -531,6 +531,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="bfF-yt-XRS" kind="replace" identifier="RelatedWord" splitViewControllerTargetIndex="1" id="wBQ-on-HCP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -573,6 +576,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="foL-zu-uHU"/>
-        <segue reference="jva-KO-4fr"/>
+        <segue reference="46K-cQ-XNx"/>
     </inferredMetricsTieBreakers>
 </document>
