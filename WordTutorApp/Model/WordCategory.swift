@@ -11,5 +11,6 @@ public class WordCategory {
         let category = Category.ids[categoryId]!
 
         category.words.append(word)
+        word.categories.append(category)
     }
 }

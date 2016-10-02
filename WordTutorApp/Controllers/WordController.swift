@@ -8,6 +8,7 @@ class WordController: UITableViewController {
 
     var translations_section = -1
     var related_words_section = -1
+    var categories_section = -1
     var comment_section = -1
     var section_count = 0
 
@@ -27,6 +28,11 @@ class WordController: UITableViewController {
             self.section_count += 1
         }
 
+        if self.word!.categories.count > 0 {
+            self.categories_section = self.section_count
+            self.section_count += 1
+        }
+
         if self.word!.comment.characters.count > 0 {
             comment_section = self.section_count
             self.section_count += 1
@@ -38,6 +44,8 @@ class WordController: UITableViewController {
             return word!.translations.count
         } else if section == related_words_section {
             return word!.synonyms.count
+        } else if section == categories_section {
+            return word!.categories.count
         } else {
             if word!.comment.characters.count > 0 {
                 return 1
@@ -57,6 +65,9 @@ class WordController: UITableViewController {
         if section == related_words_section {
             return "Related words"
         }
+        if section == categories_section {
+            return "Categories"
+        }
         return "Comment"
     }
 
@@ -69,6 +80,9 @@ class WordController: UITableViewController {
         } else if indexPath.section == related_words_section {
             cell.textLabel!.text = word!.synonyms[indexPath.row].text
             cell.tag = word!.synonyms[indexPath.row].id
+        } else if indexPath.section == categories_section {
+            cell.textLabel!.text = word!.categories[indexPath.row].name
+            cell.tag = word!.categories[indexPath.row].id
         } else {
             cell.textLabel!.text = word!.comment
             cell.tag = 0

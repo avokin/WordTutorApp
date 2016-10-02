@@ -21,6 +21,7 @@ public class Word {
 
     var translations: [Word] = []
     var synonyms: [Word] = []
+    var categories: [Category] = []
 
     public static var ids: [Int: Word] = [Int: Word]()
 
