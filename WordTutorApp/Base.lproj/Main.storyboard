@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fs4-or-gPQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,7 @@
         <!--Login Controller-->
         <scene sceneID="TVA-k0-QAd">
             <objects>
-                <viewController id="fs4-or-gPQ" customClass="LoginController" customModule="WordTutorApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginController" id="fs4-or-gPQ" customClass="LoginController" customModule="WordTutorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zG6-4U-1WH"/>
                         <viewControllerLayoutGuide type="bottom" id="vjY-f1-5vo"/>
@@ -80,7 +80,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="vXZ-lx-hvc" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -532,7 +532,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="bfF-yt-XRS" kind="custom" identifier="RelatedWord" customClass="ReplaceSegue" customModule="WordTutorApp" customModuleProvider="target" id="wBQ-on-HCP"/>
+                                    <segue destination="bfF-yt-XRS" kind="custom" identifier="RelatedWord" id="wBQ-on-HCP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -575,7 +575,7 @@
         <image name="training" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="foL-zu-uHU"/>
-        <segue reference="46K-cQ-XNx"/>
+        <segue reference="tWZ-CD-OTO"/>
+        <segue reference="jva-KO-4fr"/>
     </inferredMetricsTieBreakers>
 </document>
