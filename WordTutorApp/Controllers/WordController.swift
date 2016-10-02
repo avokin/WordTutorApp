@@ -72,18 +72,21 @@ class WordController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Word", forIndexPath: indexPath)
-
+        var cell: UITableViewCell
         if indexPath.section == translations_section {
+            cell = tableView.dequeueReusableCellWithIdentifier("Word", forIndexPath: indexPath)
             cell.textLabel!.text = word!.translations[indexPath.row].text
             cell.tag = word!.translations[indexPath.row].id
         } else if indexPath.section == related_words_section {
+            cell = tableView.dequeueReusableCellWithIdentifier("Word", forIndexPath: indexPath)
             cell.textLabel!.text = word!.synonyms[indexPath.row].text
             cell.tag = word!.synonyms[indexPath.row].id
         } else if indexPath.section == categories_section {
+            cell = tableView.dequeueReusableCellWithIdentifier("Category", forIndexPath: indexPath)
             cell.textLabel!.text = word!.categories[indexPath.row].name
             cell.tag = word!.categories[indexPath.row].id
         } else {
+            cell = tableView.dequeueReusableCellWithIdentifier("Other", forIndexPath: indexPath)
             cell.textLabel!.text = word!.comment
             cell.tag = 0
         }
@@ -92,7 +95,13 @@ class WordController: UITableViewController {
     }
 
     @available(iOS 5.0, *) override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let wordController = segue.destinationViewController as! WordController
-        wordController.word = Word.ids[(sender as! UITableViewCell).tag]
+        if segue.destinationViewController is WordListController {
+            let wordListController = segue.destinationViewController as! WordListController
+            wordListController.words = Category.ids[(sender as! UITableViewCell).tag]!.getWords()
+            wordListController.menuEnabled = false
+        } else {
+            let wordController = segue.destinationViewController as! WordController
+            wordController.word = Word.ids[(sender as! UITableViewCell).tag]
+        }
     }
 }
