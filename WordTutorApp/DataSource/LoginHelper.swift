@@ -6,7 +6,7 @@
 import Foundation
 
 public class LoginHelper {
-    var authorisationToken: String = ""
+    private static let AUTHORIZATION_TOKEN = "AuthorizationToken"
     private static var instance: LoginHelper? = nil
 
     public static func getInstance() -> LoginHelper {
@@ -16,4 +16,12 @@ public class LoginHelper {
         return instance!
     }
 
+    public func getAuthorizationToken() -> String? {
+        return NSUserDefaults.standardUserDefaults().stringForKey(LoginHelper.AUTHORIZATION_TOKEN)
+    }
+
+    public func setAuthorizationToken(token: String) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(token, forKey: LoginHelper.AUTHORIZATION_TOKEN)
+    }
 }

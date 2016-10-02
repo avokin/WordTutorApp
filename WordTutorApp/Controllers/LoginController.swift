@@ -10,6 +10,15 @@ class LoginController : UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if LoginHelper.getInstance().getAuthorizationToken() != nil {
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+                self.performSegueWithIdentifier("loginSuccessful", sender: self)
+            }
+        }
+    }
+
     @IBAction func loginAction(sender: AnyObject) {
         let url = NSURL(string: DataProvider.HOST + "sessions.json?session[email]=" + usernameField.text! +
                 "&session[password]=" + passwordField.text!)
@@ -31,7 +40,7 @@ class LoginController : UIViewController {
                 return;
             }
 
-            LoginHelper.getInstance().authorisationToken = JSONDictionary["token"] as! String
+            LoginHelper.getInstance().setAuthorizationToken(JSONDictionary["token"] as! String)
 
             NSOperationQueue.mainQueue().addOperationWithBlock {
                 self.performSegueWithIdentifier("loginSuccessful", sender: self)

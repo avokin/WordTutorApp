@@ -72,7 +72,7 @@ public class DataProvider {
         let url = NSURL(string: DataProvider.HOST + "export/export.json")
         let request = NSMutableURLRequest(URL: url!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(LoginHelper.getInstance().authorisationToken, forHTTPHeaderField: "AUTHORIZATION")
+        request.setValue(LoginHelper.getInstance().getAuthorizationToken(), forHTTPHeaderField: "AUTHORIZATION")
 
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {(data, response, error) in
             if (error != nil) {
