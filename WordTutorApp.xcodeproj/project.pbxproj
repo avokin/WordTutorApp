@@ -15,10 +15,12 @@
 		AC38F4C7F6934CC0ABC4FA0E /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F56429553EC9BAA9764D /* CategoriesController.swift */; };
 		AC38F50BBF138EF66FAA444F /* WordRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1B5BBE173BE42E001EB /* WordRelation.swift */; };
 		AC38F518DC4045606C1001F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38F064498111784C5E4B6B /* Main.storyboard */; };
+		AC38F56EE8AEF4A9403C6985 /* TrainingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1AC33D07976E4540E58 /* TrainingTest.swift */; };
+		AC38F67E50F9564E2633B125 /* CategoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F18365031D6E24E09B05 /* CategoryTest.swift */; };
 		AC38F69E4A394D3B58679D95 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F304233567688509DF0F /* DataProvider.swift */; };
 		AC38F999FB8D3EC62BCF000E /* GermanUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1F074B9F99521C36A66 /* GermanUtil.swift */; };
 		AC38FA68225661CC70F400E3 /* ReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F6A529793202D1BF0485 /* ReplaceSegue.swift */; };
-		AC38FADDE26E362A704CE1F2 /* CategoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F47E1A12501B360715D7 /* CategoryTest.swift */; };
+		AC38FA9F6EB77CFE98F6A2FA /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F526A09D9912FE4BB35E /* Training.swift */; };
 		AC38FB08D6CE0F0793117361 /* WordListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F6B215368FD168081158 /* WordListController.swift */; };
 		AC38FB7FC82DF4C2E37E690A /* GermanNounController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FDA1929E11A5E94246CF /* GermanNounController.swift */; };
 		AC38FB8540684F000BCBBB7B /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F80D72B675142209FF64 /* Word.swift */; };
@@ -46,12 +48,14 @@
 
 /* Begin PBXFileReference section */
 		AC38F07C855D3B1093697E74 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		AC38F18365031D6E24E09B05 /* CategoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTest.swift; sourceTree = "<group>"; };
+		AC38F1AC33D07976E4540E58 /* TrainingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingTest.swift; sourceTree = "<group>"; };
 		AC38F1B5BBE173BE42E001EB /* WordRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordRelation.swift; sourceTree = "<group>"; };
 		AC38F1F074B9F99521C36A66 /* GermanUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GermanUtil.swift; sourceTree = "<group>"; };
 		AC38F2AB9A6B5A643B61BBCA /* WordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordController.swift; sourceTree = "<group>"; };
 		AC38F304233567688509DF0F /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		AC38F329F064F441B06FC82D /* WordCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCategory.swift; sourceTree = "<group>"; };
-		AC38F47E1A12501B360715D7 /* CategoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTest.swift; sourceTree = "<group>"; };
+		AC38F526A09D9912FE4BB35E /* Training.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		AC38F54A5AC22026898ADE11 /* JsonParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParserTest.swift; sourceTree = "<group>"; };
 		AC38F56429553EC9BAA9764D /* CategoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		AC38F6A529793202D1BF0485 /* ReplaceSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceSegue.swift; sourceTree = "<group>"; };
@@ -127,6 +131,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		AC38FB4EC2704E40E4342252 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC38F18365031D6E24E09B05 /* CategoryTest.swift */,
+				AC38F1AC33D07976E4540E58 /* TrainingTest.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AC38FCC00687DBD6ED583C0F /* Languages */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +156,7 @@
 				AC38FC4F47F3AB6DC0549DE4 /* Language.swift */,
 				AC38F81C9DEEDDCBF0020590 /* Category.swift */,
 				AC38F329F064F441B06FC82D /* WordCategory.swift */,
+				AC38F526A09D9912FE4BB35E /* Training.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,8 +212,8 @@
 			children = (
 				F4702A0B1A7F27DC00E30A3C /* WordTutorAppTests.swift */,
 				F4702A091A7F27DC00E30A3C /* Supporting Files */,
-				AC38F47E1A12501B360715D7 /* CategoryTest.swift */,
 				AC38F54A5AC22026898ADE11 /* JsonParserTest.swift */,
+				AC38FB4EC2704E40E4342252 /* Model */,
 			);
 			path = WordTutorAppTests;
 			sourceTree = "<group>";
@@ -347,6 +361,7 @@
 				AC38F298E0197CAFFE6B9383 /* LoginController.swift in Sources */,
 				AC38FCA79C4E6498F31C7996 /* LoginHelper.swift in Sources */,
 				AC38FA68225661CC70F400E3 /* ReplaceSegue.swift in Sources */,
+				AC38FA9F6EB77CFE98F6A2FA /* Training.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,8 +370,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4702A0C1A7F27DC00E30A3C /* WordTutorAppTests.swift in Sources */,
-				AC38FADDE26E362A704CE1F2 /* CategoryTest.swift in Sources */,
 				AC38F3D2B5C461DBF616EDA3 /* JsonParserTest.swift in Sources */,
+				AC38F67E50F9564E2633B125 /* CategoryTest.swift in Sources */,
+				AC38F56EE8AEF4A9403C6985 /* TrainingTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

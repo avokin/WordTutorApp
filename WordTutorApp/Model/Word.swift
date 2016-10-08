@@ -9,7 +9,7 @@
 import Foundation
 
 public class Word {
-    var id: Int = 0
+    public var id: Int = 0
     var text: String = ""
     var comment: String = ""
     var typeId: Int = 1

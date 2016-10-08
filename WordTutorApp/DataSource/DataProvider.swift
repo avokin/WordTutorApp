@@ -14,6 +14,7 @@ public class DataProvider {
 
     var words: [Word]? = nil
     var categories: [Category]? = nil
+    var trainings: [Training]? = nil
     var wordsCategories: [WordCategory]? = nil
     var idsWord: [Int:Word] = [Int:Word]()
     var idsCategory: [Int:Category] = [Int:Category]()
@@ -47,6 +48,17 @@ public class DataProvider {
             loadData()
         }
         return categories!
+    }
+
+    public func getTrainings() -> [Training] {
+        if trainings == nil {
+            trainings = [Training]()
+            let categories = getCategories()
+            for category in categories {
+                trainings!.append(Training(category: category))
+            }
+        }
+        return trainings!
     }
 
     public func getWordsCategories() -> [WordCategory] {
