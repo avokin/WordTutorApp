@@ -14,7 +14,7 @@ public class Training {
     }
 
     public func getGroupsCount() -> Int {
-        return (self.category.getWords().count + 1) / GROUP_SIZE - 1
+        return (self.category.getWords().count - 1) / GROUP_SIZE + 1
     }
 
     public func getGroup(number: Int) -> [Word] {
