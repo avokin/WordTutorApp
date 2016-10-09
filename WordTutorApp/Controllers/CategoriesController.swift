@@ -44,8 +44,7 @@ class CategoriesController: UITableViewController {
     }
 
     @available(iOS 5.0, *) override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let wordListController = segue.destinationViewController as! WordListController
-        wordListController.words = (sender as! Category).getWords()
-        wordListController.menuEnabled = false
+        let wordListController = segue.destinationViewController as! CategoryController
+        wordListController.category = sender as! Category
     }
 }

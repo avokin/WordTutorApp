@@ -9,33 +9,17 @@
 import UIKit
 
 class WordListController: UITableViewController {
-    @IBOutlet var menuButton:UIBarButtonItem!
-    @IBOutlet var extraButton:UIBarButtonItem!
-
-    var words = DataProvider.getInstance().getWordsOfDestinationLanguage()
-    var menuEnabled = true
+    var words = [Word]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if revealViewController() != nil && menuEnabled {
-            menuButton.target = revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-
-            revealViewController().rightViewRevealWidth = 150
-            extraButton.target = revealViewController()
-            extraButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
-        }
-
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Word")
-        DataProvider.getInstance().serviceResponse = serviceResponseCallback
+        words = self.getWords()
     }
 
-    func serviceResponseCallback() {
-        NSOperationQueue.mainQueue().addOperationWithBlock {
-            self.words = DataProvider.getInstance().getWordsOfDestinationLanguage()
-            self.tableView.reloadData()
-        }
+    func getWords() -> [Word] {
+        return [Word]();
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

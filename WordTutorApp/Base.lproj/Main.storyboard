@@ -125,7 +125,7 @@
         <!--Dictionary-->
         <scene sceneID="3qE-8D-r7Z">
             <objects>
-                <tableViewController id="RaP-X2-i0v" customClass="WordListController" customModule="WordTutorApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="RaP-X2-i0v" customClass="AllWordsController" customModule="WordTutorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="Idv-M6-Zjl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -481,7 +481,7 @@
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Word" textLabel="hes-zF-mgu" style="IBUITableViewCellStyleDefault" id="19T-Sa-YKM">
-                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="19T-Sa-YKM" id="xMD-j8-nVk">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -501,7 +501,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Category" textLabel="n1n-Tf-emI" style="IBUITableViewCellStyleDefault" id="0ZA-pI-cxR">
-                                <rect key="frame" x="0.0" y="93.5" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="157.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ZA-pI-cxR" id="Y2v-4h-pg5">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -521,7 +521,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Other" textLabel="ype-TI-dt1" style="IBUITableViewCellStyleDefault" id="WLH-fm-P0H">
-                                <rect key="frame" x="0.0" y="137.5" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="201.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WLH-fm-P0H" id="3Do-lq-0zh">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -551,7 +551,7 @@
         <!--Category-->
         <scene sceneID="0T0-cd-bd2">
             <objects>
-                <tableViewController title="Category" id="ch0-mx-F6K" customClass="WordListController" customModule="WordTutorApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Category" id="ch0-mx-F6K" customClass="CategoryController" customModule="WordTutorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BB5-cT-GaW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -654,7 +654,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tWZ-CD-OTO"/>
+        <segue reference="fGu-A2-mX0"/>
         <segue reference="jva-KO-4fr"/>
-        <segue reference="6Cj-zg-oBV"/>
     </inferredMetricsTieBreakers>
 </document>

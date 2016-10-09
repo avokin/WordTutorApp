@@ -95,10 +95,9 @@ class WordController: UITableViewController {
     }
 
     @available(iOS 5.0, *) override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.destinationViewController is WordListController {
-            let wordListController = segue.destinationViewController as! WordListController
-            wordListController.words = Category.ids[(sender as! UITableViewCell).tag]!.getWords()
-            wordListController.menuEnabled = false
+        if segue.destinationViewController is CategoryController {
+            let categoryWordsController = segue.destinationViewController as! CategoryController
+            categoryWordsController.category = Category.ids[(sender as! UITableViewCell).tag]
         } else {
             let wordController = segue.destinationViewController as! WordController
             wordController.word = Word.ids[(sender as! UITableViewCell).tag]

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC38F181087379816F93DD26 /* TrainingPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F0928E5647E3F7EF9ACB /* TrainingPreviewController.swift */; };
 		AC38F1BA46D05121E139B055 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F81C9DEEDDCBF0020590 /* Category.swift */; };
 		AC38F265E5168B0B2C5C9253 /* WordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F2AB9A6B5A643B61BBCA /* WordController.swift */; };
 		AC38F298E0197CAFFE6B9383 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FC87FEB2020708326767 /* LoginController.swift */; };
@@ -18,6 +19,7 @@
 		AC38F56EE8AEF4A9403C6985 /* TrainingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1AC33D07976E4540E58 /* TrainingTest.swift */; };
 		AC38F67E50F9564E2633B125 /* CategoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F18365031D6E24E09B05 /* CategoryTest.swift */; };
 		AC38F69E4A394D3B58679D95 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F304233567688509DF0F /* DataProvider.swift */; };
+		AC38F713891CF27563A1E500 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FE810575E14E6894C472 /* CategoryController.swift */; };
 		AC38F999FB8D3EC62BCF000E /* GermanUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1F074B9F99521C36A66 /* GermanUtil.swift */; };
 		AC38FA68225661CC70F400E3 /* ReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F6A529793202D1BF0485 /* ReplaceSegue.swift */; };
 		AC38FA9F6EB77CFE98F6A2FA /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F526A09D9912FE4BB35E /* Training.swift */; };
@@ -28,6 +30,7 @@
 		AC38FBEBDF5787736AB64980 /* TrainingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1C6C2BCBE291EFCA42F /* TrainingsController.swift */; };
 		AC38FCA79C4E6498F31C7996 /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F99F4D5C806D72E8BFFF /* LoginHelper.swift */; };
 		AC38FE97BD229242E876F5DF /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FC4F47F3AB6DC0549DE4 /* Language.swift */; };
+		AC38FFBC7983E5EF09EF7B8D /* AllWordsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FF7E018A1EB1F2AC9D9B /* AllWordsController.swift */; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
 		F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47029FC1A7F27DB00E30A3C /* Images.xcassets */; };
 		F4702A001A7F27DC00E30A3C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47029FE1A7F27DB00E30A3C /* LaunchScreen.xib */; };
@@ -49,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		AC38F07C855D3B1093697E74 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		AC38F0928E5647E3F7EF9ACB /* TrainingPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingPreviewController.swift; sourceTree = "<group>"; };
 		AC38F18365031D6E24E09B05 /* CategoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTest.swift; sourceTree = "<group>"; };
 		AC38F1AC33D07976E4540E58 /* TrainingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingTest.swift; sourceTree = "<group>"; };
 		AC38F1B5BBE173BE42E001EB /* WordRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordRelation.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 		AC38FC4F47F3AB6DC0549DE4 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		AC38FC87FEB2020708326767 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		AC38FDA1929E11A5E94246CF /* GermanNounController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GermanNounController.swift; sourceTree = "<group>"; };
+		AC38FE810575E14E6894C472 /* CategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
+		AC38FF7E018A1EB1F2AC9D9B /* AllWordsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllWordsController.swift; sourceTree = "<group>"; };
 		F47029F01A7F27DB00E30A3C /* WordTutorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordTutorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47029F41A7F27DB00E30A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		F47029F51A7F27DB00E30A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +136,9 @@
 				AC38FDA1929E11A5E94246CF /* GermanNounController.swift */,
 				AC38FC87FEB2020708326767 /* LoginController.swift */,
 				AC38F1C6C2BCBE291EFCA42F /* TrainingsController.swift */,
+				AC38F0928E5647E3F7EF9ACB /* TrainingPreviewController.swift */,
+				AC38FF7E018A1EB1F2AC9D9B /* AllWordsController.swift */,
+				AC38FE810575E14E6894C472 /* CategoryController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -366,6 +375,9 @@
 				AC38FA68225661CC70F400E3 /* ReplaceSegue.swift in Sources */,
 				AC38FA9F6EB77CFE98F6A2FA /* Training.swift in Sources */,
 				AC38FBEBDF5787736AB64980 /* TrainingsController.swift in Sources */,
+				AC38F181087379816F93DD26 /* TrainingPreviewController.swift in Sources */,
+				AC38FFBC7983E5EF09EF7B8D /* AllWordsController.swift in Sources */,
+				AC38F713891CF27563A1E500 /* CategoryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
