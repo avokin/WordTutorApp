@@ -594,9 +594,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="T21-I0-kTj" kind="show" id="vzo-cd-brS"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -611,16 +608,17 @@
                     <connections>
                         <outlet property="extraButton" destination="rJR-gS-UXN" id="5uN-s4-bwX"/>
                         <outlet property="menuButton" destination="bit-xD-9ZC" id="6Gk-IW-4m7"/>
+                        <segue destination="T21-I0-kTj" kind="show" identifier="TrainingWordGroup" id="X37-BE-VcL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9GD-zd-mEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2577" y="780"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Training Word Group Controller-->
         <scene sceneID="Dst-hw-YnZ">
             <objects>
-                <tableViewController id="T21-I0-kTj" sceneMemberID="viewController">
+                <tableViewController id="T21-I0-kTj" customClass="TrainingWordGroupController" customModule="WordTutorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wEX-tt-0aj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

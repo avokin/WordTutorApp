@@ -50,4 +50,17 @@ class TrainingsController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("TrainingWordGroup", sender: indexPath)
+    }
+
+    @available(iOS 5.0, *) override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let indexPath = sender as! NSIndexPath
+        let training = trainings[indexPath.section]
+        let trainingWordGroupController = segue.destinationViewController as! TrainingWordGroupController
+
+        trainingWordGroupController.training = training
+        trainingWordGroupController.groupIndex = indexPath.row
+    }
 }
