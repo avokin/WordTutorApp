@@ -16,6 +16,7 @@ public class Word {
     var customIntField1: Int = 0
     var customStringField1: String = ""
     var languageId: Int = 0
+    var timeToCheck = NSDate()
 
     var language: Language?
 
@@ -32,6 +33,9 @@ public class Word {
     }
 
     init(dictionary: NSDictionary) {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+
         for (key, value) in dictionary {
             let keyName = key as! String
             if value is NSNull {
@@ -52,6 +56,9 @@ public class Word {
                 self.customIntField1 = (value as! NSNumber).integerValue
             } else if "custom_string_field1" == keyName {
                 self.customStringField1 = value as! String
+            } else if "time_to_check" == keyName {
+                let string = value as! String
+                self.timeToCheck = dateFormatter.dateFromString(string)!
             }
         }
         Word.ids[self.id] = self

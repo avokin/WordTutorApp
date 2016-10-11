@@ -20,7 +20,7 @@ public class LoginHelper {
         return NSUserDefaults.standardUserDefaults().stringForKey(LoginHelper.AUTHORIZATION_TOKEN)
     }
 
-    public func setAuthorizationToken(token: String) {
+    public func setAuthorizationToken(token: String?) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(token, forKey: LoginHelper.AUTHORIZATION_TOKEN)
     }

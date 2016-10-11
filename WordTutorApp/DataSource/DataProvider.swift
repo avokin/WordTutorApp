@@ -96,6 +96,11 @@ public class DataProvider {
             let jsonDictionary = try! NSJSONSerialization.JSONObjectWithData(JSONData!, options: []) as! NSDictionary
 
             self.words = [Word]()
+            if (jsonDictionary["error"] != nil) {
+                print(jsonDictionary["error"])
+                LoginHelper.getInstance().setAuthorizationToken(nil)
+                return
+            }
             if (jsonDictionary["words"] != nil) {
                 let words_json = jsonDictionary["words"] as! NSArray;
                 for word_dictionary in words_json {
