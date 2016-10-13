@@ -9,10 +9,6 @@ class TrainingWordGroupController: WordListController {
     var training: Training?
     var groupIndex = 0
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func getWords() -> [Word] {
         return training!.getGroup(groupIndex);
     }
