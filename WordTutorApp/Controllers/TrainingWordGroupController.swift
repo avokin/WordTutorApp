@@ -19,5 +19,11 @@ class TrainingWordGroupController: WordListController {
             let wordListController = segue.destinationViewController as! CategoryController
             wordListController.category = sender as! Category
         }
+
+        if segue.destinationViewController is TrainingController {
+            let trainingController = segue.destinationViewController as! TrainingController
+            trainingController.training = training
+            trainingController.groupNumber = groupIndex
+        }
     }
 }

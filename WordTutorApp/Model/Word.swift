@@ -112,4 +112,8 @@ public class Word {
     public func getCustomStringField1() -> String {
         return self.customStringField1
     }
+
+    public func getTranslations() -> String {
+        return translations.map{$0.text}.joinWithSeparator("\n")
+    }
 }
