@@ -17,13 +17,11 @@ class TrainingWordGroupController: WordListController {
         return training!.getGroup(groupIndex);
     }
 
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let category = modelProvider.getCategories()[indexPath.row]
-//        self.performSegueWithIdentifier("Category", sender: category)
-//    }
-
     @available(iOS 5.0, *) override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let wordListController = segue.destinationViewController as! CategoryController
-        wordListController.category = sender as! Category
+        super.prepareForSegue(segue, sender: sender)
+        if segue.destinationViewController is CategoryController {
+            let wordListController = segue.destinationViewController as! CategoryController
+            wordListController.category = sender as! Category
+        }
     }
 }

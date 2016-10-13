@@ -41,7 +41,9 @@ class WordListController: UITableViewController {
     }
 
     @available(iOS 5.0, *) override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let wordController = segue.destinationViewController as! WordController
-        wordController.word = (sender as! Word)
+        if segue.destinationViewController is WordController {
+            let wordController = segue.destinationViewController as! WordController
+            wordController.word = (sender as! Word)
+        }
     }
 }
