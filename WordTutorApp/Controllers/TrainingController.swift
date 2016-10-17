@@ -31,8 +31,10 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
             controllers.append(controller)
         }
 
-        controllers[0].leftSibling = controllers[words.count - 1]
-        controllers[words.count - 1].rightSibling = controllers[0]
+        if words.count > 1 {
+            controllers[0].leftSibling = controllers[words.count - 1]
+            controllers[words.count - 1].rightSibling = controllers[0]
+        }
 
         setViewControllers([controllers[0]], direction: UIPageViewControllerNavigationDirection.Forward,
             animated: false, completion: nil)
@@ -67,12 +69,12 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
     func pageViewController(pageViewController: UIPageViewController,
                             viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         let current = viewController as! WordTrainingController
-        return current.leftSibling!
+        return current.leftSibling
     }
 
     func pageViewController(pageViewController: UIPageViewController,
                             viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         let current = viewController as! WordTrainingController
-        return current.rightSibling!;
+        return current.rightSibling;
     }
 }
