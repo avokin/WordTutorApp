@@ -58,7 +58,7 @@ class TrainingsController: UITableViewController {
     @available(iOS 5.0, *) override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let indexPath = sender as! NSIndexPath
         let training = trainings[indexPath.section]
-        let trainingWordGroupController = segue.destinationViewController as! TrainingWordGroupController
+        let trainingWordGroupController = segue.destinationViewController as! TrainingPreview
 
         trainingWordGroupController.training = training
         trainingWordGroupController.groupIndex = indexPath.row

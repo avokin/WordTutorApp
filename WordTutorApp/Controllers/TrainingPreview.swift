@@ -5,7 +5,7 @@
 
 import Foundation
 
-class TrainingWordGroupController: WordListController {
+class TrainingPreview: WordListController {
     var training: Training?
     var groupIndex = 0
 
