@@ -27,7 +27,7 @@ class AllWordsController: WordListController {
     }
 
     func serviceResponseCallback() {
-        NSOperationQueue.mainQueue().addOperationWithBlock {
+        OperationQueue.main.addOperation {
             self.words = DataProvider.getInstance().getWordsOfDestinationLanguage()
             self.tableView.reloadData()
         }

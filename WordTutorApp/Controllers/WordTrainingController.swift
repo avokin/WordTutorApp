@@ -26,11 +26,11 @@ class WordTrainingController: UIViewController {
         lblTranslations.text = ""
     }
 
-    @IBAction func rememberAction(sender: AnyObject) {
+    @IBAction func rememberAction(_ sender: AnyObject) {
         initTest()
     }
     
-    @IBAction func forgotAction(sender: AnyObject) {
+    @IBAction func forgotAction(_ sender: AnyObject) {
         if lblTranslations.text == "" {
             lblTranslations.text = word!.getTranslations()
         } else {

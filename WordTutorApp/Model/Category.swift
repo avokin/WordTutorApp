@@ -5,13 +5,13 @@
 
 import Foundation
 
-public class Category {
+open class Category {
     var id: Int
     var name: String
 
-    public var words: [Word] = [Word]()
+    open var words: [Word] = [Word]()
 
-    public static var ids: [Int: Category] = [Int: Category]()
+    open static var ids: [Int: Category] = [Int: Category]()
 
     init(id: Int, name: String) {
         self.id = id
@@ -21,11 +21,11 @@ public class Category {
     }
 
     convenience init(dictionary: NSDictionary) {
-        let id = (dictionary["id"] as! NSNumber).integerValue
+        let id = (dictionary["id"] as! NSNumber).intValue
         self.init(id: id, name: dictionary["name"] as! String)
     }
 
-    public func getWords() -> [Word] {
+    open func getWords() -> [Word] {
         return words
     }
 }

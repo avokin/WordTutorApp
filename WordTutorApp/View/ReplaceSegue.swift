@@ -7,8 +7,8 @@ import Foundation
 
 class ReplaceSegue: UIStoryboardSegue {
     override func perform() {
-        let navigationController = sourceViewController.navigationController
-        navigationController!.popViewControllerAnimated(false)
-        navigationController!.pushViewController(destinationViewController, animated: true)
+        let navigationController = source.navigationController
+        navigationController!.popViewController(animated: false)
+        navigationController!.pushViewController(destination, animated: true)
     }
 }

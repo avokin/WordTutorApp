@@ -24,43 +24,43 @@ class TrainingsController: UITableViewController {
         DataProvider.getInstance().serviceResponse = serviceResponseCallback
     }
 
-    override internal func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override internal func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let training = trainings[section]
         return trainings[section].category.name + " (" + String(training.category.getWords().count) + ")"
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return self.trainings.count
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.trainings[section].getGroupsCount()
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let training = trainings[indexPath.section]
-        let cell = tableView.dequeueReusableCellWithIdentifier("WordGroup", forIndexPath: indexPath)
-        cell.textLabel!.text = "  " + training.category.name + " #" + String(indexPath.row + 1)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let training = trainings[(indexPath as NSIndexPath).section]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WordGroup", for: indexPath)
+        cell.textLabel!.text = "  " + training.category.name + " #" + String((indexPath as NSIndexPath).row + 1)
         return cell
     }
 
     func serviceResponseCallback() {
-        NSOperationQueue.mainQueue().addOperationWithBlock {
+        OperationQueue.main.addOperation {
             self.trainings = DataProvider.getInstance().getTrainings()
             self.tableView.reloadData()
         }
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("TrainingWordGroup", sender: indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "TrainingWordGroup", sender: indexPath)
     }
 
-    @available(iOS 5.0, *) override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let indexPath = sender as! NSIndexPath
-        let training = trainings[indexPath.section]
-        let trainingWordGroupController = segue.destinationViewController as! TrainingPreview
+    @available(iOS 5.0, *) override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath = sender as! IndexPath
+        let training = trainings[(indexPath as NSIndexPath).section]
+        let trainingWordGroupController = segue.destination as! TrainingPreview
 
         trainingWordGroupController.training = training
-        trainingWordGroupController.groupIndex = indexPath.row
+        trainingWordGroupController.groupIndex = (indexPath as NSIndexPath).row
     }
 }

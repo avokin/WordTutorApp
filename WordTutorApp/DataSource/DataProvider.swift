@@ -5,12 +5,12 @@
 
 import Foundation
 
-public class DataProvider {
-    public static let HOST = "http://word-tutor.herokuapp.com/"
+open class DataProvider {
+    open static let HOST = "http://word-tutor.herokuapp.com/"
 
-    private static var instance: DataProvider? = nil
+    fileprivate static var instance: DataProvider? = nil
 
-    public var serviceResponse: (() -> Void)? = nil
+    open var serviceResponse: (() -> Void)? = nil
 
     var words: [Word]? = nil
     var categories: [Category]? = nil
@@ -19,14 +19,14 @@ public class DataProvider {
     var idsWord: [Int:Word] = [Int:Word]()
     var idsCategory: [Int:Category] = [Int:Category]()
 
-    public static func getInstance() -> DataProvider {
+    open static func getInstance() -> DataProvider {
         if instance == nil {
             instance = DataProvider()
         }
         return instance!
     }
 
-    public func getWordsOfDestinationLanguage() -> [Word] {
+    open func getWordsOfDestinationLanguage() -> [Word] {
         var result = [Word]()
         for word in getWords() {
             if word.getLanguageId() == 3 {
@@ -36,21 +36,21 @@ public class DataProvider {
         return result
     }
 
-    public func getWords() -> [Word] {
+    open func getWords() -> [Word] {
         if words == nil {
             loadData()
         }
         return words!
     }
 
-    public func getCategories() -> [Category] {
+    open func getCategories() -> [Category] {
         if categories == nil {
             loadData()
         }
         return categories!
     }
 
-    public func getTrainings() -> [Training] {
+    open func getTrainings() -> [Training] {
         if trainings == nil {
             trainings = [Training]()
             let categories = getCategories()
@@ -61,39 +61,39 @@ public class DataProvider {
         return trainings!
     }
 
-    public func getWordsCategories() -> [WordCategory] {
+    open func getWordsCategories() -> [WordCategory] {
         if wordsCategories == nil {
             loadData()
         }
         return wordsCategories!
     }
 
-    private func loadData() {
+    fileprivate func loadData() {
         words = [Word]()
         categories = [Category]()
         wordsCategories = [WordCategory]()
 
-        if NSProcessInfo.processInfo().environment["XCTestConfigurationFilePath"] != nil {
+        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
             loadTestData()
         } else {
             requestData()
         }
     }
 
-    private func requestData() {
-        let url = NSURL(string: DataProvider.HOST + "export/export.json")
-        let request = NSMutableURLRequest(URL: url!)
+    fileprivate func requestData() {
+        let url = URL(string: DataProvider.HOST + "export/export.json")
+        let request = NSMutableURLRequest(url: url!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(LoginHelper.getInstance().getAuthorizationToken(), forHTTPHeaderField: "AUTHORIZATION")
 
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {(data, response, error) in
+        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
             if (error != nil) {
                 print(error!.localizedDescription)
                 return;
             }
-            let responseBody = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            let JSONData = responseBody!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-            let jsonDictionary = try! NSJSONSerialization.JSONObjectWithData(JSONData!, options: []) as! NSDictionary
+            let responseBody = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            let JSONData = responseBody!.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)
+            let jsonDictionary = try! JSONSerialization.jsonObject(with: JSONData!, options: []) as! NSDictionary
 
             self.words = [Word]()
             if (jsonDictionary["error"] != nil) {
@@ -117,10 +117,10 @@ public class DataProvider {
 
             if (jsonDictionary["word_relations"] != nil) {
                 let word_relations_json = jsonDictionary["word_relations"] as! NSArray;
-                for word_relation_dictionary in word_relations_json {
-                    let source_word_id = (word_relation_dictionary["source_user_word_id"] as! NSNumber).integerValue
-                    let related_word_id = (word_relation_dictionary["related_user_word_id"] as! NSNumber).integerValue
-                    let relation_type = (word_relation_dictionary["relation_type"] as! NSNumber).integerValue
+                for word_relation_dictionary in (word_relations_json as? [[String:Any]])! {
+                    let source_word_id = (word_relation_dictionary["source_user_word_id"] as! NSNumber).intValue
+                    let related_word_id = (word_relation_dictionary["related_user_word_id"] as! NSNumber).intValue
+                    let relation_type = (word_relation_dictionary["relation_type"] as! NSNumber).intValue
 
                     let source_word = Word.ids[source_word_id]!
                     let related_word = Word.ids[related_word_id]!
@@ -137,9 +137,9 @@ public class DataProvider {
 
             if (jsonDictionary["word_categories"] != nil) {
                 let word_categories = jsonDictionary["word_categories"] as! NSArray;
-                for word_category_dictionary in word_categories {
-                    let user_word_id = (word_category_dictionary["user_word_id"] as! NSNumber).integerValue
-                    let user_category_id = (word_category_dictionary["user_category_id"] as! NSNumber).integerValue
+                for word_category_dictionary in (word_categories as? [[String:Any]])! {
+                    let user_word_id = (word_category_dictionary["user_word_id"] as! NSNumber).intValue
+                    let user_category_id = (word_category_dictionary["user_category_id"] as! NSNumber).intValue
                     WordCategory.create(user_word_id, categoryId: user_category_id)
                 }
             }
@@ -147,12 +147,12 @@ public class DataProvider {
             if self.serviceResponse != nil {
                 self.serviceResponse!()
             }
-        }
+        }) 
 
         task.resume()
     }
 
-    private func loadTestData() {
+    fileprivate func loadTestData() {
         words!.append(Word(id: 1, text: "Zapfel", translation: Word(id: 2, text: "шишка")))
         words!.append(Word(id: 3, text: "Hund", translation: Word(id: 4, text: "собака")))
         words!.append(Word(id: 5, text: "Fenster", translation: Word(id: 6, text: "окно")))

@@ -10,21 +10,21 @@ class LoginController : UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
 
-    @IBAction func loginAction(sender: AnyObject) {
-        let url = NSURL(string: DataProvider.HOST + "sessions.json?session[email]=" + usernameField.text! +
+    @IBAction func loginAction(_ sender: AnyObject) {
+        let url = URL(string: DataProvider.HOST + "sessions.json?session[email]=" + usernameField.text! +
                 "&session[password]=" + passwordField.text!)
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "POST"
+        let request = NSMutableURLRequest(url: url!)
+        request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {(data, response, error) in
+        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
             if (error != nil) {
                 self.errorLabel.text = error!.localizedDescription;
                 return;
             }
-            let responseBody = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            let JSONData = responseBody!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-            let JSONDictionary = try! NSJSONSerialization.JSONObjectWithData(JSONData!, options: []) as! NSDictionary
+            let responseBody = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            let JSONData = responseBody!.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)
+            let JSONDictionary = try! JSONSerialization.jsonObject(with: JSONData!, options: []) as! NSDictionary
 
             if (JSONDictionary["error"] != nil) {
                 self.errorLabel.text = JSONDictionary["error"] as! String;
@@ -33,10 +33,10 @@ class LoginController : UIViewController {
 
             LoginHelper.getInstance().setAuthorizationToken(JSONDictionary["token"] as! String)
 
-            NSOperationQueue.mainQueue().addOperationWithBlock {
-                self.performSegueWithIdentifier("loginSuccessful", sender: self)
+            OperationQueue.main.addOperation {
+                self.performSegue(withIdentifier: "loginSuccessful", sender: self)
             }
-        }
+        }) 
 
         task.resume()
     }

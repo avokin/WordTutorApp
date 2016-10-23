@@ -11,8 +11,8 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
     var words = [Word]()
     var controllers = [WordTrainingController]()
 
-    private var currentIndex: Int = 0
-    private var pendingIndex: Int?
+    fileprivate var currentIndex: Int = 0
+    fileprivate var pendingIndex: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,44 +36,44 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
             controllers[words.count - 1].rightSibling = controllers[0]
         }
 
-        setViewControllers([controllers[0]], direction: UIPageViewControllerNavigationDirection.Forward,
+        setViewControllers([controllers[0]], direction: UIPageViewControllerNavigationDirection.forward,
             animated: false, completion: nil)
 
         self.dataSource = self
     }
 
 
-    func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
         let controller = pendingViewControllers.first! as! WordTrainingController
         pendingIndex = controller.wordIndex
     }
 
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {
             currentIndex = pendingIndex!
         }
     }
 
-    private func getWordTrainingController() -> WordTrainingController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("WordTrainingController") as! WordTrainingController
+    fileprivate func getWordTrainingController() -> WordTrainingController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WordTrainingController") as! WordTrainingController
     }
 
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return self.words.count
     }
 
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return currentIndex
     }
 
-    func pageViewController(pageViewController: UIPageViewController,
-                            viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let current = viewController as! WordTrainingController
         return current.leftSibling
     }
 
-    func pageViewController(pageViewController: UIPageViewController,
-                            viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let current = viewController as! WordTrainingController
         return current.rightSibling;
     }

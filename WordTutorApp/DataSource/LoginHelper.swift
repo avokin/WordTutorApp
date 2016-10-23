@@ -5,23 +5,23 @@
 
 import Foundation
 
-public class LoginHelper {
-    private static let AUTHORIZATION_TOKEN = "AuthorizationToken"
-    private static var instance: LoginHelper? = nil
+open class LoginHelper {
+    fileprivate static let AUTHORIZATION_TOKEN = "AuthorizationToken"
+    fileprivate static var instance: LoginHelper? = nil
 
-    public static func getInstance() -> LoginHelper {
+    open static func getInstance() -> LoginHelper {
         if instance == nil {
             instance = LoginHelper()
         }
         return instance!
     }
 
-    public func getAuthorizationToken() -> String? {
-        return NSUserDefaults.standardUserDefaults().stringForKey(LoginHelper.AUTHORIZATION_TOKEN)
+    open func getAuthorizationToken() -> String? {
+        return UserDefaults.standard.string(forKey: LoginHelper.AUTHORIZATION_TOKEN)
     }
 
-    public func setAuthorizationToken(token: String?) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(token, forKey: LoginHelper.AUTHORIZATION_TOKEN)
+    open func setAuthorizationToken(_ token: String?) {
+        let defaults = UserDefaults.standard
+        defaults.set(token, forKey: LoginHelper.AUTHORIZATION_TOKEN)
     }
 }

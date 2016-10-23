@@ -8,15 +8,15 @@
 
 import Foundation
 
-public class Word {
-    public var id: Int = 0
+open class Word {
+    open var id: Int = 0
     var text: String = ""
     var comment: String = ""
     var typeId: Int = 1
     var customIntField1: Int = 0
     var customStringField1: String = ""
     var languageId: Int = 0
-    var timeToCheck = NSDate()
+    var timeToCheck = Date()
 
     var language: Language?
 
@@ -24,16 +24,16 @@ public class Word {
     var synonyms: [Word] = []
     var categories: [Category] = []
 
-    public static var ids: [Int: Word] = [Int: Word]()
+    open static var ids: [Int: Word] = [Int: Word]()
 
     convenience init(json: String) throws {
-        let jsonData = json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: []) as! NSDictionary
+        let jsonData = json.data(using: String.Encoding.utf8, allowLossyConversion: false)
+        let jsonDictionary = try JSONSerialization.jsonObject(with: jsonData!, options: []) as! NSDictionary
         self.init(dictionary: jsonDictionary)
     }
 
     init(dictionary: NSDictionary) {
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
         for (key, value) in dictionary {
@@ -43,22 +43,22 @@ public class Word {
             }
 
             if "id" == keyName {
-                self.id = (value as! NSNumber).integerValue
+                self.id = (value as! NSNumber).intValue
             } else if "language_id" == keyName {
-                self.languageId = (value as! NSNumber).integerValue
+                self.languageId = (value as! NSNumber).intValue
             } else if "text" == keyName {
                 self.text = value as! String
             } else if "comment" == keyName {
                 self.comment = value as! String
             } else if "type_id" == keyName {
-                self.typeId = (value as! NSNumber).integerValue
+                self.typeId = (value as! NSNumber).intValue
             } else if "custom_int_field1" == keyName {
-                self.customIntField1 = (value as! NSNumber).integerValue
+                self.customIntField1 = (value as! NSNumber).intValue
             } else if "custom_string_field1" == keyName {
                 self.customStringField1 = value as! String
             } else if "time_to_check" == keyName {
                 let string = value as! String
-                self.timeToCheck = dateFormatter.dateFromString(string)!
+                self.timeToCheck = dateFormatter.date(from: string)!
             }
         }
         Word.ids[self.id] = self
@@ -85,35 +85,35 @@ public class Word {
         Word.ids[self.id] = self
     }
 
-    public func getText() -> String {
+    open func getText() -> String {
         return self.text
     }
 
-    public func getId() -> Int {
+    open func getId() -> Int {
         return self.id
     }
 
-    public func getLanguageId() -> Int {
+    open func getLanguageId() -> Int {
         return self.languageId
     }
 
-    public func getTypeId() -> Int {
+    open func getTypeId() -> Int {
         return self.typeId
     }
 
-    public func getComment() -> String {
+    open func getComment() -> String {
         return self.comment
     }
 
-    public func getCustomIntField1() -> Int {
+    open func getCustomIntField1() -> Int {
         return self.customIntField1
     }
 
-    public func getCustomStringField1() -> String {
+    open func getCustomStringField1() -> String {
         return self.customStringField1
     }
 
-    public func getTranslations() -> String {
-        return translations.map{$0.text}.joinWithSeparator("\n")
+    open func getTranslations() -> String {
+        return translations.map{$0.text}.joined(separator: "\n")
     }
 }

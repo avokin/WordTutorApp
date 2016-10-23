@@ -5,8 +5,8 @@
 
 import Foundation
 
-public class WordCategory {
-    public static func create(wordId: Int, categoryId: Int) {
+open class WordCategory {
+    open static func create(_ wordId: Int, categoryId: Int) {
         let word = Word.ids[wordId]!
         let category = Category.ids[categoryId]!
 

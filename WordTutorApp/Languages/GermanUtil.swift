@@ -5,8 +5,8 @@
 
 import Foundation
 
-public class GermanUtil {
-    public static func getWordTypePresentation(typeId: Int) -> String {
+open class GermanUtil {
+    open static func getWordTypePresentation(_ typeId: Int) -> String {
         if typeId == 1 {
             return "Noun"
         } else if typeId == 2 {
@@ -15,7 +15,7 @@ public class GermanUtil {
         return "Unknown"
     }
 
-    public static func getGenderPresentation(genderId: Int) -> String {
+    open static func getGenderPresentation(_ genderId: Int) -> String {
         if genderId == 1 {
             return "Maskulin"
         } else if genderId == 2 {

@@ -7,17 +7,17 @@ import UIKit
 import XCTest
 import WordTutorApp
 
-public class CategoryTest: XCTestCase {
+open class CategoryTest: XCTestCase {
     func testGetWords() {
         let categories = DataProvider.getInstance().getCategories()
         let first = categories[0]
         let words = first.getWords()
 
         XCTAssertEqual(4, words.count)
-        if !words.contains({ $0.getText() == "Zapfel" }) ||
-                !words.contains({ $0.getText() == "Shrank" }) ||
-                !words.contains({ $0.getText() == "Kleidung" }) ||
-                !words.contains({ $0.getText() == "Hemd" }) {
+        if !words.contains(where: { $0.getText() == "Zapfel" }) ||
+                !words.contains(where: { $0.getText() == "Shrank" }) ||
+                !words.contains(where: { $0.getText() == "Kleidung" }) ||
+                !words.contains(where: { $0.getText() == "Hemd" }) {
             XCTFail("Missing word")
         }
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Language {
+open class Language {
     var id: Int
     var name: String
 

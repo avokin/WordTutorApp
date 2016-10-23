@@ -5,8 +5,8 @@
 
 import Foundation
 
-public class JsonParser {
-    public static func parseWord(text: String) -> Word? {
+open class JsonParser {
+    open static func parseWord(_ text: String) -> Word? {
         do {
             let word = try Word(json: text)
             return word

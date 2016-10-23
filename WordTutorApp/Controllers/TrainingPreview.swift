@@ -13,15 +13,15 @@ class TrainingPreview: WordListController {
         return training!.getGroup(groupIndex);
     }
 
-    @available(iOS 5.0, *) override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
-        if segue.destinationViewController is CategoryController {
-            let wordListController = segue.destinationViewController as! CategoryController
+    @available(iOS 5.0, *) override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.destination is CategoryController {
+            let wordListController = segue.destination as! CategoryController
             wordListController.category = sender as! Category
         }
 
-        if segue.destinationViewController is TrainingController {
-            let trainingController = segue.destinationViewController as! TrainingController
+        if segue.destination is TrainingController {
+            let trainingController = segue.destination as! TrainingController
             trainingController.training = training
             trainingController.groupNumber = groupIndex
         }

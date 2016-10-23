@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class WordRelation {
+open class WordRelation {
     var sourceWordId: Int
     var relatedWordId: Int
     var relationType: Int

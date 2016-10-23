@@ -22,29 +22,29 @@ class CategoriesController: UITableViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         }
 
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Category")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Category")
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return modelProvider.getCategories().count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Category", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Category", for: indexPath)
 
-        let category = modelProvider.getCategories()[indexPath.row]
+        let category = modelProvider.getCategories()[(indexPath as NSIndexPath).row]
         cell.textLabel!.text = category.name
 
         return cell
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let category = modelProvider.getCategories()[indexPath.row]
-        self.performSegueWithIdentifier("Category", sender: category)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let category = modelProvider.getCategories()[(indexPath as NSIndexPath).row]
+        self.performSegue(withIdentifier: "Category", sender: category)
     }
 
-    @available(iOS 5.0, *) override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let wordListController = segue.destinationViewController as! CategoryController
+    @available(iOS 5.0, *) override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let wordListController = segue.destination as! CategoryController
         wordListController.category = sender as! Category
     }
 }

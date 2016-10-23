@@ -39,7 +39,7 @@ class WordController: UITableViewController {
         }
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == translations_section {
             return word!.translations.count
         } else if section == related_words_section {
@@ -54,11 +54,11 @@ class WordController: UITableViewController {
         }
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return self.section_count
     }
 
-    override internal func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override internal func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == translations_section {
             return "Translations"
         }
@@ -71,22 +71,22 @@ class WordController: UITableViewController {
         return "Comment"
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
-        if indexPath.section == translations_section {
-            cell = tableView.dequeueReusableCellWithIdentifier("Word", forIndexPath: indexPath)
-            cell.textLabel!.text = word!.translations[indexPath.row].text
-            cell.tag = word!.translations[indexPath.row].id
-        } else if indexPath.section == related_words_section {
-            cell = tableView.dequeueReusableCellWithIdentifier("Word", forIndexPath: indexPath)
-            cell.textLabel!.text = word!.synonyms[indexPath.row].text
-            cell.tag = word!.synonyms[indexPath.row].id
-        } else if indexPath.section == categories_section {
-            cell = tableView.dequeueReusableCellWithIdentifier("Category", forIndexPath: indexPath)
-            cell.textLabel!.text = word!.categories[indexPath.row].name
-            cell.tag = word!.categories[indexPath.row].id
+        if (indexPath as NSIndexPath).section == translations_section {
+            cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
+            cell.textLabel!.text = word!.translations[(indexPath as NSIndexPath).row].text
+            cell.tag = word!.translations[(indexPath as NSIndexPath).row].id
+        } else if (indexPath as NSIndexPath).section == related_words_section {
+            cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
+            cell.textLabel!.text = word!.synonyms[(indexPath as NSIndexPath).row].text
+            cell.tag = word!.synonyms[(indexPath as NSIndexPath).row].id
+        } else if (indexPath as NSIndexPath).section == categories_section {
+            cell = tableView.dequeueReusableCell(withIdentifier: "Category", for: indexPath)
+            cell.textLabel!.text = word!.categories[(indexPath as NSIndexPath).row].name
+            cell.tag = word!.categories[(indexPath as NSIndexPath).row].id
         } else {
-            cell = tableView.dequeueReusableCellWithIdentifier("Other", forIndexPath: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "Other", for: indexPath)
             cell.textLabel!.text = word!.comment
             cell.tag = 0
         }
@@ -94,12 +94,12 @@ class WordController: UITableViewController {
         return cell
     }
 
-    @available(iOS 5.0, *) override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.destinationViewController is CategoryController {
-            let categoryWordsController = segue.destinationViewController as! CategoryController
+    @available(iOS 5.0, *) override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is CategoryController {
+            let categoryWordsController = segue.destination as! CategoryController
             categoryWordsController.category = Category.ids[(sender as! UITableViewCell).tag]
         } else {
-            let wordController = segue.destinationViewController as! WordController
+            let wordController = segue.destination as! WordController
             wordController.word = Word.ids[(sender as! UITableViewCell).tag]
         }
     }
