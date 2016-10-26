@@ -31,10 +31,11 @@ class WordTrainingController: UIViewController {
     }
     
     @IBAction func forgotAction(_ sender: AnyObject) {
-        if lblTranslations.text == "" {
-            lblTranslations.text = word!.getTranslations()
-        } else {
-            initTest()
-        }
+        lblTranslations.text = word!.getTranslations()
+
+        let now = Date()
+        let calendar = Calendar.current
+        word!.timeToCheck = calendar.date(byAdding: .day, value: 1, to: now)!
+        word!.successCount = 0
     }
 }

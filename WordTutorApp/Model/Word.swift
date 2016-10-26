@@ -16,6 +16,7 @@ open class Word {
     var customIntField1: Int = 0
     var customStringField1: String = ""
     var languageId: Int = 0
+    var successCount: Int = 0
     var timeToCheck = Date()
 
     var language: Language?
@@ -59,6 +60,8 @@ open class Word {
             } else if "time_to_check" == keyName {
                 let string = value as! String
                 self.timeToCheck = dateFormatter.date(from: string)!
+            } else if "success_count" == keyName {
+                self.successCount = (value as! NSNumber).intValue
             }
         }
         Word.ids[self.id] = self
