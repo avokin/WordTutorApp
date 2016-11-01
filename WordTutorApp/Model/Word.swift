@@ -27,6 +27,8 @@ open class Word {
     var synonyms: [Word] = []
     var categories: [Category] = []
 
+    var _isUpdated = false
+
     open static var ids: [Int: Word] = [Int: Word]()
 
     init(dictionary: NSMutableDictionary) {
@@ -118,10 +120,24 @@ open class Word {
     open func setSuccessCount(value: Int) {
         successCount = value
         dictionary["success_count"] = NSNumber(value: value)
+        _isUpdated = true
     }
 
     open func setTimeToCheck(value: Date) {
         timeToCheck = value
         dictionary["time_to_check"] = JsonParser.getDateFormatter().string(from: value)
+        _isUpdated = true
+    }
+
+    public func getSuccessCount() -> Int {
+        return successCount
+    }
+
+    public func getTimeToCheck() -> Date {
+        return timeToCheck
+    }
+
+    public func isUpdated() -> Bool {
+        return _isUpdated
     }
 }

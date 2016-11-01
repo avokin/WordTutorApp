@@ -6,7 +6,7 @@
 import Foundation
 
 open class DataProvider {
-    open static let HOST = "http://word-tutor.herokuapp.com/"
+    open static let HOST = "http://localhost:3000/"
 
     static let DATA_FILE_NAME = "data.json"
 
@@ -31,6 +31,7 @@ open class DataProvider {
     }
 
     open func getWordsOfDestinationLanguage() -> [Word] {
+        // ToDo: filter
         var result = [Word]()
         for word in getWords() {
             if word.getLanguageId() == 3 {
@@ -172,12 +173,22 @@ open class DataProvider {
         }
     }
 
+
+
     fileprivate func requestData() {
         self.readFromFile()
 
         let url = URL(string: DataProvider.HOST + "export/export.json")
         let request = NSMutableURLRequest(url: url!)
+
+        let updatedWords = words!.filter{$0.isUpdated()}
+        let updatedTexts = updatedWords.map{"{\"id\": \($0.id), \"success_count\": \($0.getSuccessCount()), \"time_to_check\": \"\(JsonParser.getDateFormatter().string(from: $0.getTimeToCheck()))\"}"}
+        let updatedText = updatedTexts.joined(separator: ", ")
+        let requestBodyText = "{\"updatedWords\": [\(updatedText)]}"
+
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = requestBodyText.data(using: String.Encoding.utf8)
+        request.httpMethod = "POST"
         request.setValue(LoginHelper.getInstance().getAuthorizationToken(), forHTTPHeaderField: "AUTHORIZATION")
 
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
