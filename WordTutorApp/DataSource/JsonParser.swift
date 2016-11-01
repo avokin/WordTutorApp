@@ -15,4 +15,10 @@ open class JsonParser {
         }
         return nil
     }
+
+    open static func serialize(objects: [Serializable], arrayName: String) -> String {
+        let serialized = objects.map{$0.serialize()}
+        let arrayContent = serialized.joined(separator: ",")
+        return "\"\(arrayName)\": [\(arrayContent)]"
+    }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class Word {
+open class Word : Serializable {
     open var id: Int = 0
     var text: String = ""
     var comment: String = ""
@@ -118,5 +118,9 @@ open class Word {
 
     open func getTranslations() -> String {
         return translations.map{$0.text}.joined(separator: "\n")
+    }
+
+    public func serialize() -> String {
+        return "{\"id\": \(id), \"text\": \"\(text)\", \"comment\": \"\(comment)\", \"customStringField1\": \"\(customStringField1)\", \"typeId\": \(typeId), \"customIntField1\": \(customIntField1), \"languageId\": \(languageId), \"successCount\": \(successCount), \"timeToCheck\": \"\(timeToCheck)\"}"
     }
 }

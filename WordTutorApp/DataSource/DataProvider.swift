@@ -8,6 +8,8 @@ import Foundation
 open class DataProvider {
     open static let HOST = "http://word-tutor.herokuapp.com/"
 
+    static let DATA_FILE_NAME = "data.json"
+
     fileprivate static var instance: DataProvider? = nil
 
     open var serviceResponse: (() -> Void)? = nil
@@ -80,7 +82,35 @@ open class DataProvider {
         }
     }
 
+    open func readFromFile() {
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let path = dir.appendingPathComponent(DATA_FILE_NAME)
+
+            do {
+                let text2 = try String(contentsOf: path, encoding: String.Encoding.utf8)
+            }
+            catch  {
+                print("Error reading data: \(error)")
+            }
+        }
+    }
+
+    open func saveToFile() {
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let path = dir.appendingPathComponent(DATA_FILE_NAME)
+            let content = JsonParser.serialize(objects: self.words!, arrayName: "words")
+
+            do {
+                try content.write(to: path, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("Error writing data: \(error)")
+            }
+        }
+    }
+
     fileprivate func requestData() {
+        self.readFromFile()
+
         let url = URL(string: DataProvider.HOST + "export/export.json")
         let request = NSMutableURLRequest(url: url!)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -143,6 +173,8 @@ open class DataProvider {
                     WordCategory.create(user_word_id, categoryId: user_category_id)
                 }
             }
+
+            self.saveToFile()
 
             if self.serviceResponse != nil {
                 self.serviceResponse!()
