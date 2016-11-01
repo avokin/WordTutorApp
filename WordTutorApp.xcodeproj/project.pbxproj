@@ -20,7 +20,6 @@
 		AC38F67E50F9564E2633B125 /* CategoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F18365031D6E24E09B05 /* CategoryTest.swift */; };
 		AC38F69E4A394D3B58679D95 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F304233567688509DF0F /* DataProvider.swift */; };
 		AC38F713891CF27563A1E500 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FE810575E14E6894C472 /* CategoryController.swift */; };
-		AC38F90B7AF4933C84EBC2B0 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F48391DEE077BE56971B /* Serializable.swift */; };
 		AC38F98D8FB10F0AEC9B4C2D /* WordTrainingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FDAD55196A4C88156E09 /* WordTrainingController.swift */; };
 		AC38F999FB8D3EC62BCF000E /* GermanUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1F074B9F99521C36A66 /* GermanUtil.swift */; };
 		AC38F9E0046EC7B599EA8E0A /* WordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F27A56453F1B6CE679C3 /* WordTest.swift */; };
@@ -66,7 +65,6 @@
 		AC38F2AB9A6B5A643B61BBCA /* WordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordController.swift; sourceTree = "<group>"; };
 		AC38F304233567688509DF0F /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		AC38F329F064F441B06FC82D /* WordCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCategory.swift; sourceTree = "<group>"; };
-		AC38F48391DEE077BE56971B /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		AC38F526A09D9912FE4BB35E /* Training.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		AC38F54A5AC22026898ADE11 /* JsonParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParserTest.swift; sourceTree = "<group>"; };
 		AC38F56429553EC9BAA9764D /* CategoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 				AC38F81C9DEEDDCBF0020590 /* Category.swift */,
 				AC38F329F064F441B06FC82D /* WordCategory.swift */,
 				AC38F526A09D9912FE4BB35E /* Training.swift */,
-				AC38F48391DEE077BE56971B /* Serializable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -394,7 +391,6 @@
 				AC38F713891CF27563A1E500 /* CategoryController.swift in Sources */,
 				AC38F98D8FB10F0AEC9B4C2D /* WordTrainingController.swift in Sources */,
 				AC38FED19AE3DD0E47874A97 /* TrainingController.swift in Sources */,
-				AC38F90B7AF4933C84EBC2B0 /* Serializable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

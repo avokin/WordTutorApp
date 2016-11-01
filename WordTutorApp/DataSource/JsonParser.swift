@@ -6,19 +6,14 @@
 import Foundation
 
 open class JsonParser {
-    open static func parseWord(_ text: String) -> Word? {
-        do {
-            let word = try Word(json: text)
-            return word
-        } catch {
-            print(error)
-        }
-        return nil
-    }
+    private static let dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    private static var dateFormatter: DateFormatter?
 
-    open static func serialize(objects: [Serializable], arrayName: String) -> String {
-        let serialized = objects.map{$0.serialize()}
-        let arrayContent = serialized.joined(separator: ",")
-        return "\"\(arrayName)\": [\(arrayContent)]"
+    public static func getDateFormatter() -> DateFormatter {
+        if dateFormatter == nil {
+            dateFormatter = DateFormatter()
+            dateFormatter!.dateFormat = dateFormat
+        }
+        return dateFormatter!
     }
 }

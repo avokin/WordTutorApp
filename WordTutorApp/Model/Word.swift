@@ -8,7 +8,9 @@
 
 import Foundation
 
-open class Word : Serializable {
+open class Word {
+    var dictionary: NSMutableDictionary = NSMutableDictionary()
+
     open var id: Int = 0
     var text: String = ""
     var comment: String = ""
@@ -27,16 +29,8 @@ open class Word : Serializable {
 
     open static var ids: [Int: Word] = [Int: Word]()
 
-    convenience init(json: String) throws {
-        let jsonData = json.data(using: String.Encoding.utf8, allowLossyConversion: false)
-        let jsonDictionary = try JSONSerialization.jsonObject(with: jsonData!, options: []) as! NSDictionary
-        self.init(dictionary: jsonDictionary)
-    }
-
-    init(dictionary: NSDictionary) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-
+    init(dictionary: NSMutableDictionary) {
+        self.dictionary = dictionary
         for (key, value) in dictionary {
             let keyName = key as! String
             if value is NSNull {
@@ -59,7 +53,7 @@ open class Word : Serializable {
                 self.customStringField1 = value as! String
             } else if "time_to_check" == keyName {
                 let string = value as! String
-                self.timeToCheck = dateFormatter.date(from: string)!
+                self.timeToCheck = JsonParser.getDateFormatter().date(from: string)!
             } else if "success_count" == keyName {
                 self.successCount = (value as! NSNumber).intValue
             }
@@ -71,6 +65,7 @@ open class Word : Serializable {
         self.init(id: id, text: text, translation: nil)
     }
 
+    // ToDo: remove and read from test json file
     init(id: Int, text: String, translation: Word?) {
         self.id = id
         self.text = text
@@ -120,7 +115,13 @@ open class Word : Serializable {
         return translations.map{$0.text}.joined(separator: "\n")
     }
 
-    public func serialize() -> String {
-        return "{\"id\": \(id), \"text\": \"\(text)\", \"comment\": \"\(comment)\", \"customStringField1\": \"\(customStringField1)\", \"typeId\": \(typeId), \"customIntField1\": \(customIntField1), \"languageId\": \(languageId), \"successCount\": \(successCount), \"timeToCheck\": \"\(timeToCheck)\"}"
+    open func setSuccessCount(value: Int) {
+        successCount = value
+        dictionary["success_count"] = NSNumber(value: value)
+    }
+
+    open func setTimeToCheck(value: Date) {
+        timeToCheck = value
+        dictionary["time_to_check"] = JsonParser.getDateFormatter().string(from: value)
     }
 }

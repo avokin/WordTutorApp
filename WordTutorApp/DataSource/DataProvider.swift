@@ -14,6 +14,8 @@ open class DataProvider {
 
     open var serviceResponse: (() -> Void)? = nil
 
+    var dictionary = NSMutableDictionary()
+
     var words: [Word]? = nil
     var categories: [Category]? = nil
     var trainings: [Training]? = nil
@@ -84,10 +86,11 @@ open class DataProvider {
 
     open func readFromFile() {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let path = dir.appendingPathComponent(DATA_FILE_NAME)
+            let path = dir.appendingPathComponent(DataProvider.DATA_FILE_NAME)
 
             do {
-                let text2 = try String(contentsOf: path, encoding: String.Encoding.utf8)
+                let data = try Data(contentsOf: path)
+                parseData(data: data)
             }
             catch  {
                 print("Error reading data: \(error)")
@@ -97,13 +100,74 @@ open class DataProvider {
 
     open func saveToFile() {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let path = dir.appendingPathComponent(DATA_FILE_NAME)
-            let content = JsonParser.serialize(objects: self.words!, arrayName: "words")
+            let path = dir.appendingPathComponent(DataProvider.DATA_FILE_NAME)
 
             do {
-                try content.write(to: path, atomically: true, encoding: String.Encoding.utf8)
+                let content = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+                try content.write(to: path)
             } catch {
                 print("Error writing data: \(error)")
+            }
+        }
+    }
+
+    func parseData(data: Data) {
+        let jsonDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! NSDictionary
+
+        self.words = [Word]()
+        if (jsonDictionary["error"] != nil) {
+            print(jsonDictionary["error"])
+            LoginHelper.getInstance().setAuthorizationToken(nil)
+            return
+        }
+        if (jsonDictionary["words"] != nil) {
+            let array = NSMutableArray()
+            self.dictionary["words"] = array
+
+            let words_json = jsonDictionary["words"] as! NSArray;
+            for word_dictionary in words_json {
+                let wordMutableDictionary = NSMutableDictionary(dictionary: word_dictionary as! NSDictionary)
+                array.add(wordMutableDictionary)
+                self.words!.append(Word(dictionary: wordMutableDictionary))
+            }
+        }
+        if (jsonDictionary["categories"] != nil) {
+            self.dictionary["categories"] = jsonDictionary["categories"]
+            self.categories = [Category]()
+            let categories_json = jsonDictionary["categories"] as! NSArray;
+            for category_dictionary in categories_json {
+                self.categories!.append(Category(dictionary: category_dictionary as! NSDictionary))
+            }
+        }
+
+        if (jsonDictionary["word_relations"] != nil) {
+            self.dictionary["word_relations"] = jsonDictionary["word_relations"]
+            let word_relations_json = jsonDictionary["word_relations"] as! NSArray;
+            for word_relation_dictionary in (word_relations_json as? [[String:Any]])! {
+                let source_word_id = (word_relation_dictionary["source_user_word_id"] as! NSNumber).intValue
+                let related_word_id = (word_relation_dictionary["related_user_word_id"] as! NSNumber).intValue
+                let relation_type = (word_relation_dictionary["relation_type"] as! NSNumber).intValue
+
+                let source_word = Word.ids[source_word_id]!
+                let related_word = Word.ids[related_word_id]!
+
+                if relation_type == 1 {
+                    source_word.translations.append(related_word)
+                    related_word.translations.append(source_word)
+                } else {
+                    source_word.synonyms.append(related_word)
+                    related_word.synonyms.append(source_word)
+                }
+            }
+        }
+
+        if (jsonDictionary["word_categories"] != nil) {
+            self.dictionary["word_categories"] = jsonDictionary["word_categories"]
+            let word_categories = jsonDictionary["word_categories"] as! NSArray;
+            for word_category_dictionary in (word_categories as? [[String:Any]])! {
+                let user_word_id = (word_category_dictionary["user_word_id"] as! NSNumber).intValue
+                let user_category_id = (word_category_dictionary["user_category_id"] as! NSNumber).intValue
+                WordCategory.create(user_word_id, categoryId: user_category_id)
             }
         }
     }
@@ -121,58 +185,8 @@ open class DataProvider {
                 print(error!.localizedDescription)
                 return;
             }
-            let responseBody = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            let JSONData = responseBody!.data(using: String.Encoding.utf8.rawValue, allowLossyConversion: false)
-            let jsonDictionary = try! JSONSerialization.jsonObject(with: JSONData!, options: []) as! NSDictionary
 
-            self.words = [Word]()
-            if (jsonDictionary["error"] != nil) {
-                print(jsonDictionary["error"])
-                LoginHelper.getInstance().setAuthorizationToken(nil)
-                return
-            }
-            if (jsonDictionary["words"] != nil) {
-                let words_json = jsonDictionary["words"] as! NSArray;
-                for word_dictionary in words_json {
-                    self.words!.append(Word(dictionary: word_dictionary as! NSDictionary))
-                }
-            }
-            if (jsonDictionary["categories"] != nil) {
-                self.categories = [Category]()
-                let categories_json = jsonDictionary["categories"] as! NSArray;
-                for category_dictionary in categories_json {
-                    self.categories!.append(Category(dictionary: category_dictionary as! NSDictionary))
-                }
-            }
-
-            if (jsonDictionary["word_relations"] != nil) {
-                let word_relations_json = jsonDictionary["word_relations"] as! NSArray;
-                for word_relation_dictionary in (word_relations_json as? [[String:Any]])! {
-                    let source_word_id = (word_relation_dictionary["source_user_word_id"] as! NSNumber).intValue
-                    let related_word_id = (word_relation_dictionary["related_user_word_id"] as! NSNumber).intValue
-                    let relation_type = (word_relation_dictionary["relation_type"] as! NSNumber).intValue
-
-                    let source_word = Word.ids[source_word_id]!
-                    let related_word = Word.ids[related_word_id]!
-
-                    if relation_type == 1 {
-                        source_word.translations.append(related_word)
-                        related_word.translations.append(source_word)
-                    } else {
-                        source_word.synonyms.append(related_word)
-                        related_word.synonyms.append(source_word)
-                    }
-                }
-            }
-
-            if (jsonDictionary["word_categories"] != nil) {
-                let word_categories = jsonDictionary["word_categories"] as! NSArray;
-                for word_category_dictionary in (word_categories as? [[String:Any]])! {
-                    let user_word_id = (word_category_dictionary["user_word_id"] as! NSNumber).intValue
-                    let user_category_id = (word_category_dictionary["user_category_id"] as! NSNumber).intValue
-                    WordCategory.create(user_word_id, categoryId: user_category_id)
-                }
-            }
+            self.parseData(data: data!)
 
             self.saveToFile()
 
