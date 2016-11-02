@@ -220,10 +220,6 @@ open class DataProvider {
 
         let url = testBundle.url(forResource: "data", withExtension: "json")
 
-        do {
-            readFromFile(url: url!)
-        } catch {
-            print(error)
-        }
+        readFromFile(url: url!)
     }
 }
