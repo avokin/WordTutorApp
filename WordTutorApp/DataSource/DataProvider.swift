@@ -85,17 +85,20 @@ open class DataProvider {
         }
     }
 
+    open func readFromFile(url: URL) {
+        do {
+            let data = try Data(contentsOf: url)
+            parseData(data: data)
+        }
+        catch  {
+            print("Error reading data: \(error)")
+        }
+    }
+
     open func readFromFile() {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let path = dir.appendingPathComponent(DataProvider.DATA_FILE_NAME)
-
-            do {
-                let data = try Data(contentsOf: path)
-                parseData(data: data)
-            }
-            catch  {
-                print("Error reading data: \(error)")
-            }
+            let url = dir.appendingPathComponent(DataProvider.DATA_FILE_NAME)
+            readFromFile(url: url)
         }
     }
 
@@ -173,8 +176,6 @@ open class DataProvider {
         }
     }
 
-
-
     fileprivate func requestData() {
         self.readFromFile()
 
@@ -210,32 +211,19 @@ open class DataProvider {
     }
 
     fileprivate func loadTestData() {
-        words!.append(Word(id: 1, text: "Zapfel", translation: Word(id: 2, text: "шишка")))
-        words!.append(Word(id: 3, text: "Hund", translation: Word(id: 4, text: "собака")))
-        words!.append(Word(id: 5, text: "Fenster", translation: Word(id: 6, text: "окно")))
-        words!.append(Word(id: 7, text: "Kind", translation: Word(id: 8, text: "ребенок")))
-        words!.append(Word(id: 9, text: "Lampe", translation: Word(id: 10, text: "лампа")))
-        words!.append(Word(id: 11, text: "Zug", translation: Word(id: 12, text: "поезд")))
-        words!.append(Word(id: 13, text: "not", translation: Word(id: 14, text: "экстренный")))
-        words!.append(Word(id: 15, text: "Wohnung", translation: Word(id: 16, text: "квартира")))
-        words!.append(Word(id: 17, text: "Shrank", translation: Word(id: 18, text: "шкаф")))
-        words!.append(Word(id: 19, text: "Kleidung", translation: Word(id: 20, text: "одежда")))
-        words!.append(Word(id: 21, text: "Hemd", translation: Word(id: 22, text: "рубашка")))
-        words!.append(Word(id: 23, text: "Baum", translation: Word(id: 24, text: "дерево")))
-        words!.append(Word(id: 25, text: "Katz", translation: Word(id: 26, text: "кот")))
-        words!.append(Word(id: 27, text: "Küh", translation: Word(id: 28, text: "корова")))
+        var testBundle = Bundle.main
+        for bundle in Bundle.allBundles {
+            if bundle.bundleIdentifier != nil && bundle.bundleIdentifier!.hasSuffix("Test") {
+                testBundle = bundle
+            }
+        }
 
-        categories!.append(Category(id: 1, name: "Haus"))
-        categories!.append(Category(id: 2, name: "Tiere"))
-        categories!.append(Category(id: 3, name: "Herb"))
+        let url = testBundle.url(forResource: "data", withExtension: "json")
 
-        WordCategory.create(1, categoryId: 1)
-        WordCategory.create(17, categoryId: 1)
-        WordCategory.create(19, categoryId: 1)
-        WordCategory.create(21, categoryId: 1)
-        WordCategory.create(3, categoryId: 2)
-        WordCategory.create(25, categoryId: 2)
-        WordCategory.create(1, categoryId: 3)
-        WordCategory.create(23, categoryId: 3)
+        do {
+            readFromFile(url: url!)
+        } catch {
+            print(error)
+        }
     }
 }

@@ -8,11 +8,5 @@ import XCTest
 import WordTutorApp
 
 class WordTest : XCTestCase {
-    func testSerialize() {
-        let words = DataProvider.getInstance().getWords()
-        let first = words[0]
 
-        let json = first.serialize()
-        XCTAssertEqual("", json)
-    }
 }

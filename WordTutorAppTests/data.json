@@ -1,0 +1,244 @@
+{
+  "words": [
+    {
+      "id": 1,
+      "text": "Zapfel"
+    },
+    {
+      "id": 2,
+      "text": "шишка"
+    },
+    {
+      "id": 3,
+      "text": "Hund"
+    },
+    {
+      "id": 4,
+      "text": "собака"
+    },
+
+    {
+      "id": 5,
+      "text": "Fenster"
+    },
+    {
+      "id": 6,
+      "text": "окно"
+    },
+    {
+      "id": 7,
+      "text": "Kind"
+    },
+    {
+      "id": 8,
+      "text": "ребенок"
+    },
+
+    {
+      "id": 9,
+      "text": "Lampe"
+    },
+    {
+      "id": 10,
+      "text": "лампа"
+    },
+    {
+      "id": 11,
+      "text": "Zug"
+    },
+    {
+      "id": 12,
+      "text": "поезд"
+    },
+
+    {
+      "id": 13,
+      "text": "not"
+    },
+    {
+      "id": 14,
+      "text": "экстренный"
+    },
+    {
+      "id": 15,
+      "text": "Wohnung"
+    },
+    {
+      "id": 16,
+      "text": "квартира"
+    },
+
+    {
+      "id": 17,
+      "text": "Schrank"
+    },
+    {
+      "id": 18,
+      "text": "шкаф"
+    },
+    {
+      "id": 19,
+      "text": "Kleidung"
+    },
+    {
+      "id": 20,
+      "text": "одежда"
+    },
+
+    {
+      "id": 21,
+      "text": "Hemd"
+    },
+    {
+      "id": 22,
+      "text": "рубашка"
+    },
+    {
+      "id": 23,
+      "text": "Baum"
+    },
+    {
+      "id": 24,
+      "text": "дерево"
+    },
+
+    {
+      "id": 25,
+      "text": "Katz"
+    },
+    {
+      "id": 26,
+      "text": "кошка"
+    },
+    {
+      "id": 27,
+      "text": "Küh"
+    },
+    {
+      "id": 28,
+      "text": "корова"
+    }
+  ],
+  "word_relations": [
+    {
+      "source_user_word_id": 1,
+      "related_user_word_id": 2,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 3,
+      "related_user_word_id": 4,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 5,
+      "related_user_word_id": 6,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 7,
+      "related_user_word_id": 8,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 9,
+      "related_user_word_id": 10,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 11,
+      "related_user_word_id": 12,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 13,
+      "related_user_word_id": 14,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 15,
+      "related_user_word_id": 16,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 17,
+      "related_user_word_id": 18,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 19,
+      "related_user_word_id": 20,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 21,
+      "related_user_word_id": 22,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 23,
+      "related_user_word_id": 24,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 25,
+      "related_user_word_id": 26,
+      "relation_type": 1
+    },
+    {
+      "source_user_word_id": 27,
+      "related_user_word_id": 28,
+      "relation_type": 1
+    }
+  ],
+
+  "categories": [
+    {
+      "id": 1,
+      "name": "Haus"
+    },
+    {
+      "id": 2,
+      "name": "Tiere"
+    },
+    {
+      "id": 3,
+      "name": "Herb"
+    }
+  ],
+
+  "word_categories": [
+    {
+      "user_word_id": 1,
+      "user_category_id": 1
+    },
+    {
+      "user_word_id": 17,
+      "user_category_id": 1
+    },
+    {
+      "user_word_id": 19,
+      "user_category_id": 1
+    },
+    {
+      "user_word_id": 21,
+      "user_category_id": 1
+    },
+    {
+      "user_word_id": 3,
+      "user_category_id": 2
+    },
+    {
+      "user_word_id": 25,
+      "user_category_id": 2
+    },
+    {
+      "user_word_id": 1,
+      "user_category_id": 3
+    },
+    {
+      "user_word_id": 23,
+      "user_category_id": 3
+    }
+  ]
+}

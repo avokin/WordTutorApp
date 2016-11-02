@@ -11,10 +11,10 @@
 		AC38F1BA46D05121E139B055 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F81C9DEEDDCBF0020590 /* Category.swift */; };
 		AC38F265E5168B0B2C5C9253 /* WordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F2AB9A6B5A643B61BBCA /* WordController.swift */; };
 		AC38F298E0197CAFFE6B9383 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FC87FEB2020708326767 /* LoginController.swift */; };
-		AC38F3D2B5C461DBF616EDA3 /* JsonParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F54A5AC22026898ADE11 /* JsonParserTest.swift */; };
 		AC38F4BA582BA856414BE77C /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F07C855D3B1093697E74 /* JsonParser.swift */; };
 		AC38F4C7F6934CC0ABC4FA0E /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F56429553EC9BAA9764D /* CategoriesController.swift */; };
 		AC38F50BBF138EF66FAA444F /* WordRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1B5BBE173BE42E001EB /* WordRelation.swift */; };
+		AC38F51422752B6A74378192 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC38FCAD61D570276F0CFAAE /* data.json */; };
 		AC38F518DC4045606C1001F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38F064498111784C5E4B6B /* Main.storyboard */; };
 		AC38F56EE8AEF4A9403C6985 /* TrainingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1AC33D07976E4540E58 /* TrainingTest.swift */; };
 		AC38F67E50F9564E2633B125 /* CategoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F18365031D6E24E09B05 /* CategoryTest.swift */; };
@@ -66,7 +66,6 @@
 		AC38F304233567688509DF0F /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		AC38F329F064F441B06FC82D /* WordCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCategory.swift; sourceTree = "<group>"; };
 		AC38F526A09D9912FE4BB35E /* Training.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
-		AC38F54A5AC22026898ADE11 /* JsonParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParserTest.swift; sourceTree = "<group>"; };
 		AC38F56429553EC9BAA9764D /* CategoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		AC38F6A529793202D1BF0485 /* ReplaceSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceSegue.swift; sourceTree = "<group>"; };
 		AC38F6B215368FD168081158 /* WordListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListController.swift; sourceTree = "<group>"; };
@@ -76,6 +75,7 @@
 		AC38FA02EB68D7CF1279AA10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC38FC4F47F3AB6DC0549DE4 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		AC38FC87FEB2020708326767 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		AC38FCAD61D570276F0CFAAE /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		AC38FDA1929E11A5E94246CF /* GermanNounController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GermanNounController.swift; sourceTree = "<group>"; };
 		AC38FDAD55196A4C88156E09 /* WordTrainingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTrainingController.swift; sourceTree = "<group>"; };
 		AC38FE404810A4B662231527 /* TrainingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingController.swift; sourceTree = "<group>"; };
@@ -233,7 +233,6 @@
 			children = (
 				F4702A0B1A7F27DC00E30A3C /* WordTutorAppTests.swift */,
 				F4702A091A7F27DC00E30A3C /* Supporting Files */,
-				AC38F54A5AC22026898ADE11 /* JsonParserTest.swift */,
 				AC38FB4EC2704E40E4342252 /* Model */,
 			);
 			path = WordTutorAppTests;
@@ -242,6 +241,7 @@
 		F4702A091A7F27DC00E30A3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AC38FCAD61D570276F0CFAAE /* data.json */,
 				F4702A0A1A7F27DC00E30A3C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -356,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC38F51422752B6A74378192 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +400,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4702A0C1A7F27DC00E30A3C /* WordTutorAppTests.swift in Sources */,
-				AC38F3D2B5C461DBF616EDA3 /* JsonParserTest.swift in Sources */,
 				AC38F67E50F9564E2633B125 /* CategoryTest.swift in Sources */,
 				AC38F56EE8AEF4A9403C6985 /* TrainingTest.swift in Sources */,
 				AC38F9E0046EC7B599EA8E0A /* WordTest.swift in Sources */,

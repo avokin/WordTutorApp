@@ -15,7 +15,7 @@ open class CategoryTest: XCTestCase {
 
         XCTAssertEqual(4, words.count)
         if !words.contains(where: { $0.getText() == "Zapfel" }) ||
-                !words.contains(where: { $0.getText() == "Shrank" }) ||
+                !words.contains(where: { $0.getText() == "Schrank" }) ||
                 !words.contains(where: { $0.getText() == "Kleidung" }) ||
                 !words.contains(where: { $0.getText() == "Hemd" }) {
             XCTFail("Missing word")
