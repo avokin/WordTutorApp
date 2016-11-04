@@ -648,6 +648,39 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrainingWord" id="W3W-Zt-Ulw" customClass="TrainingWordCell" customModule="WordTutorApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="136" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W3W-Zt-Ulw" id="Mfw-Q3-f0q">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ready" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zG0-BN-gzu">
+                                            <frame key="frameInset" minX="285" minY="11" width="82" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JZ-dI-Alm">
+                                            <frame key="frameInset" minX="8" minY="11" width="269" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="1JZ-dI-Alm" firstAttribute="leading" secondItem="Mfw-Q3-f0q" secondAttribute="leadingMargin" id="1bT-Zp-iDn"/>
+                                        <constraint firstItem="zG0-BN-gzu" firstAttribute="leading" secondItem="1JZ-dI-Alm" secondAttribute="trailing" constant="48" id="5EF-eO-TlN"/>
+                                        <constraint firstItem="1JZ-dI-Alm" firstAttribute="top" secondItem="Mfw-Q3-f0q" secondAttribute="topMargin" constant="3" id="HAE-Jb-fFU"/>
+                                        <constraint firstItem="zG0-BN-gzu" firstAttribute="top" secondItem="Mfw-Q3-f0q" secondAttribute="topMargin" constant="3" id="NQW-uj-SfJ"/>
+                                        <constraint firstItem="zG0-BN-gzu" firstAttribute="trailing" secondItem="Mfw-Q3-f0q" secondAttribute="trailingMargin" id="rIN-QI-VfF"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="leftLabel" destination="1JZ-dI-Alm" id="44M-xD-rXt"/>
+                                    <outlet property="rightLabel" destination="zG0-BN-gzu" id="nC1-DO-3W6"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="T21-I0-kTj" id="8vm-aa-HGh"/>
@@ -667,7 +700,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvp-PX-0Uh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3386" y="780"/>
+            <point key="canvasLocation" x="3384.8000000000002" y="779.46026986506752"/>
         </scene>
         <!--Word Training Controller-->
         <scene sceneID="QNR-5Z-nd3">
@@ -771,6 +804,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="tWZ-CD-OTO"/>
         <segue reference="HSP-j6-Jz3"/>
-        <segue reference="fGu-A2-mX0"/>
+        <segue reference="6Cj-zg-oBV"/>
     </inferredMetricsTieBreakers>
 </document>

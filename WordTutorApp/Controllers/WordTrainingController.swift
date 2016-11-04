@@ -31,6 +31,7 @@ class WordTrainingController: UIViewController {
     }
 
     @IBAction func rememberAction(_ sender: AnyObject) {
+        word!.setSuccessCount(value: word!.getSuccessCount() + 1)
         (parent as! TrainingController).showNextController()
     }
     
@@ -53,9 +54,6 @@ class WordTrainingController: UIViewController {
         lblTranslations.text = word!.getTranslations()
         lblComment.text = word!.getComment()
 
-        let now = Date()
-        let calendar = Calendar.current
-        word!.timeToCheck = calendar.date(byAdding: .day, value: 1, to: now)!
-        word!.successCount = 0
+        word!.setSuccessCount(value: 0)
     }
 }

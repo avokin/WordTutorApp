@@ -9,8 +9,23 @@ class TrainingPreview: WordListController {
     var training: Training?
     var groupIndex = 0
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+
     override func getWords() -> [Word] {
         return training!.getGroup(groupIndex);
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrainingWord", for: indexPath) as! TrainingWordCell
+
+        let word: Word = words[(indexPath as NSIndexPath).row]
+        cell.leftLabel.text = word.text
+        cell.rightLabel.isHidden = word.timeToCheck > Date()
+
+        return cell
     }
 
     @available(iOS 5.0, *) override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
