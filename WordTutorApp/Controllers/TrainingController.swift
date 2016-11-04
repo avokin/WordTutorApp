@@ -54,6 +54,14 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
         }
     }
 
+    public func showNextController() {
+        currentIndex += 1
+        if currentIndex >= controllers.count {
+            return
+        }
+        setViewControllers([controllers[currentIndex]], direction: .forward, animated: true)
+    }
+
     fileprivate func getWordTrainingController() -> WordTrainingController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WordTrainingController") as! WordTrainingController
     }
@@ -63,6 +71,7 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
     }
 
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        print(currentIndex)
         return currentIndex
     }
 

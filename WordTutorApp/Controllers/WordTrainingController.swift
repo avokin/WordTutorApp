@@ -31,7 +31,7 @@ class WordTrainingController: UIViewController {
     }
 
     @IBAction func rememberAction(_ sender: AnyObject) {
-        initTest()
+        (parent as! TrainingController).showNextController()
     }
     
     @IBAction func forgotAction(_ sender: AnyObject) {
