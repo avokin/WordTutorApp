@@ -35,7 +35,21 @@ class WordTrainingController: UIViewController {
     }
     
     @IBAction func forgotAction(_ sender: AnyObject) {
-        lblGrammar.text = word!.getCustomStringField1()
+        if word!.getTypeId() == 2 {
+            var grammar = ""
+            if word!.getCustomIntField1() == 1 {
+                grammar = "Maskulin"
+            } else if word!.getCustomIntField1() == 2 {
+                grammar = "Neutrum"
+            } else if word!.getCustomIntField1() == 3 {
+                grammar = "Femininum"
+            }
+            if word!.getCustomStringField1().characters.count > 0 {
+                grammar = grammar + " (" + word!.getCustomStringField1() + ")"
+            }
+
+            lblGrammar.text = grammar
+        }
         lblTranslations.text = word!.getTranslations()
         lblComment.text = word!.getComment()
 
