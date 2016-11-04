@@ -11,7 +11,7 @@ import Foundation
 open class Word {
     var dictionary: NSMutableDictionary = NSMutableDictionary()
 
-    open var id: Int = 0
+    var id: Int = 0
     var text: String = ""
     var comment: String = ""
     var typeId: Int = 1
@@ -59,28 +59,6 @@ open class Word {
             } else if "success_count" == keyName {
                 self.successCount = (value as! NSNumber).intValue
             }
-        }
-        Word.ids[self.id] = self
-    }
-
-    convenience init(id: Int, text: String) {
-        self.init(id: id, text: text, translation: nil)
-    }
-
-    // ToDo: remove and read from test json file
-    init(id: Int, text: String, translation: Word?) {
-        self.id = id
-        self.text = text
-        self.synonyms = [Word]()
-
-        self.typeId = 1
-        self.comment = "comment"
-        self.customIntField1 = 1
-        self.customStringField1 = "plural"
-        if translation != nil {
-            self.translations = [translation!]
-        } else {
-            self.translations = [Word]()
         }
         Word.ids[self.id] = self
     }

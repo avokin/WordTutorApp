@@ -17,7 +17,7 @@ class TrainingPreview: WordListController {
         super.prepare(for: segue, sender: sender)
         if segue.destination is CategoryController {
             let wordListController = segue.destination as! CategoryController
-            wordListController.category = sender as! Category
+            wordListController.category = sender as? Category
         }
 
         if segue.destination is TrainingController {

@@ -27,11 +27,11 @@ class LoginController : UIViewController {
             let JSONDictionary = try! JSONSerialization.jsonObject(with: JSONData!, options: []) as! NSDictionary
 
             if (JSONDictionary["error"] != nil) {
-                self.errorLabel.text = JSONDictionary["error"] as! String;
+                self.errorLabel.text = JSONDictionary["error"] as? String;
                 return;
             }
 
-            LoginHelper.getInstance().setAuthorizationToken(JSONDictionary["token"] as! String)
+            LoginHelper.getInstance().setAuthorizationToken(JSONDictionary["token"] as? String)
 
             OperationQueue.main.addOperation {
                 self.performSegue(withIdentifier: "loginSuccessful", sender: self)

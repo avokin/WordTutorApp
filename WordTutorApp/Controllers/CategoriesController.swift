@@ -45,6 +45,6 @@ class CategoriesController: UITableViewController {
 
     @available(iOS 5.0, *) override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let wordListController = segue.destination as! CategoryController
-        wordListController.category = sender as! Category
+        wordListController.category = sender as? Category
     }
 }
