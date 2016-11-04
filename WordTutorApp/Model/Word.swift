@@ -100,7 +100,7 @@ open class Word {
         successCount = value
         dictionary["success_count"] = NSNumber(value: value)
 
-        let index = min(successCount, Word.intervals.count) - 1
+        let index = max(0, min(successCount, Word.intervals.count) - 1)
         let newTimeToCheck = Calendar.current.date(byAdding: .hour, value: Word.intervals[index], to: Date())!
 
         setTimeToCheck(value: newTimeToCheck)

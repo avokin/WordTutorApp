@@ -30,6 +30,30 @@ open class DataProvider {
         return instance!
     }
 
+    public func syncUpdatedWords() {
+        let updatedWords = words!.filter{$0.isUpdated()}
+        let updatedTexts = updatedWords.map{"{\"id\": \($0.id), \"success_count\": \($0.getSuccessCount()), \"time_to_check\": \"\(JsonParser.getDateFormatter().string(from: $0.getTimeToCheck()))\"}"}
+        let updatedText = updatedTexts.joined(separator: ", ")
+        let requestBodyText = "{\"updated_words\": [\(updatedText)]}"
+
+        let url = URL(string: DataProvider.HOST + "api/import.json")
+        let request = NSMutableURLRequest(url: url!)
+
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = requestBodyText.data(using: String.Encoding.utf8)
+        request.httpMethod = "POST"
+        request.setValue(LoginHelper.getInstance().getAuthorizationToken(), forHTTPHeaderField: "AUTHORIZATION")
+
+        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
+            if (error != nil) {
+                print(error!.localizedDescription)
+                return;
+            }
+        })
+
+        task.resume()
+    }
+
     open func getWordsOfDestinationLanguage() -> [Word] {
         // ToDo: filter
         var result = [Word]()
@@ -179,17 +203,10 @@ open class DataProvider {
     fileprivate func requestData() {
         self.readFromFile()
 
-        let url = URL(string: DataProvider.HOST + "export/export.json")
+        let url = URL(string: DataProvider.HOST + "api/export.json")
         let request = NSMutableURLRequest(url: url!)
 
-        let updatedWords = words!.filter{$0.isUpdated()}
-        let updatedTexts = updatedWords.map{"{\"id\": \($0.id), \"success_count\": \($0.getSuccessCount()), \"time_to_check\": \"\(JsonParser.getDateFormatter().string(from: $0.getTimeToCheck()))\"}"}
-        let updatedText = updatedTexts.joined(separator: ", ")
-        let requestBodyText = "{\"updatedWords\": [\(updatedText)]}"
-
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = requestBodyText.data(using: String.Encoding.utf8)
-        request.httpMethod = "POST"
         request.setValue(LoginHelper.getInstance().getAuthorizationToken(), forHTTPHeaderField: "AUTHORIZATION")
 
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
