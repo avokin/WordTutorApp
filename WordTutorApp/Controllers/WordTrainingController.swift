@@ -6,17 +6,17 @@
 import Foundation
 
 class WordTrainingController: UIViewController {
+    @IBOutlet weak var lblWord: UILabel!
+    @IBOutlet weak var lblTranslations: UILabel!
+    @IBOutlet weak var lblGrammar: UILabel!
+    @IBOutlet weak var lblComment: UILabel!
+
     var word: Word?
 
     var wordIndex = 0
     var leftSibling: WordTrainingController?
     var rightSibling: WordTrainingController?
 
-
-    @IBOutlet weak var lblWord: UILabel!
-    @IBOutlet weak var lblTranslations: UILabel!
-    @IBOutlet weak var lblGrammar: UILabel!
-    @IBOutlet weak var lblComment: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
