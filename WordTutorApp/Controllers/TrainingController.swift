@@ -57,9 +57,10 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
     public func showNextController() {
         currentIndex += 1
         if currentIndex >= controllers.count {
-            return
+            navigationController!.popViewController(animated: true)
+        } else {
+            setViewControllers([controllers[currentIndex]], direction: .forward, animated: true)
         }
-        setViewControllers([controllers[currentIndex]], direction: .forward, animated: true)
     }
 
     fileprivate func getWordTrainingController() -> WordTrainingController {
@@ -71,7 +72,6 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
     }
 
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        print(currentIndex)
         return currentIndex
     }
 
