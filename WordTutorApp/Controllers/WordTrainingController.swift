@@ -15,6 +15,8 @@ class WordTrainingController: UIViewController {
 
     @IBOutlet weak var lblWord: UILabel!
     @IBOutlet weak var lblTranslations: UILabel!
+    @IBOutlet weak var lblGrammar: UILabel!
+    @IBOutlet weak var lblComment: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +25,9 @@ class WordTrainingController: UIViewController {
 
     func initTest() {
         lblWord.text = word!.text
+        lblGrammar.text = ""
         lblTranslations.text = ""
+        lblComment.text = ""
     }
 
     @IBAction func rememberAction(_ sender: AnyObject) {
@@ -31,7 +35,9 @@ class WordTrainingController: UIViewController {
     }
     
     @IBAction func forgotAction(_ sender: AnyObject) {
+        lblGrammar.text = word!.getCustomStringField1()
         lblTranslations.text = word!.getTranslations()
+        lblComment.text = word!.getComment()
 
         let now = Date()
         let calendar = Calendar.current
