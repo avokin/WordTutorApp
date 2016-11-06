@@ -30,6 +30,7 @@
 		AC38FB7FC82DF4C2E37E690A /* GermanNounController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FDA1929E11A5E94246CF /* GermanNounController.swift */; };
 		AC38FB8540684F000BCBBB7B /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F80D72B675142209FF64 /* Word.swift */; };
 		AC38FBA403E1656010765087 /* WordCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F329F064F441B06FC82D /* WordCategory.swift */; };
+		AC38FBD98BB29ADEDE6F51E6 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F00EC3E7E1C51203C2DF /* TrainingCell.swift */; };
 		AC38FBEBDF5787736AB64980 /* TrainingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1C6C2BCBE291EFCA42F /* TrainingsController.swift */; };
 		AC38FCA79C4E6498F31C7996 /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F99F4D5C806D72E8BFFF /* LoginHelper.swift */; };
 		AC38FE97BD229242E876F5DF /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FC4F47F3AB6DC0549DE4 /* Language.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC38F00EC3E7E1C51203C2DF /* TrainingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		AC38F07C855D3B1093697E74 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		AC38F0928E5647E3F7EF9ACB /* TrainingPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingPreview.swift; sourceTree = "<group>"; };
 		AC38F18365031D6E24E09B05 /* CategoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTest.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				AC38F6A529793202D1BF0485 /* ReplaceSegue.swift */,
 				AC38FBA5C5060B5137C57D84 /* TrainingWordCell.swift */,
+				AC38F00EC3E7E1C51203C2DF /* TrainingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				AC38F98D8FB10F0AEC9B4C2D /* WordTrainingController.swift in Sources */,
 				AC38FED19AE3DD0E47874A97 /* TrainingController.swift in Sources */,
 				AC38F3E062D86E88B515BDFB /* TrainingWordCell.swift in Sources */,
+				AC38FBD98BB29ADEDE6F51E6 /* TrainingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

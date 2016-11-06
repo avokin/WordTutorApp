@@ -39,8 +39,20 @@ class TrainingsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let training = trainings[(indexPath as NSIndexPath).section]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WordGroup", for: indexPath)
-        cell.textLabel!.text = "  " + training.category.name + " #" + String((indexPath as NSIndexPath).row + 1)
+        let groupNumber = (indexPath as NSIndexPath).row
+        let group = training.getGroup(groupNumber)
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WordGroup", for: indexPath) as! TrainingCell
+        cell.lblTitle!.text = "  " + training.category.name + " #" + String(groupNumber + 1)
+
+        cell.icon.isHidden = true
+        for word in group {
+            if word.getTimeToCheck() < Date() {
+                cell.icon.isHidden = false
+                break;
+            }
+        }
+
         return cell
     }
 

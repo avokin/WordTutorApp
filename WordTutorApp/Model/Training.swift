@@ -23,6 +23,9 @@ open class Training {
 
         let start = number * GROUP_SIZE
         let end = min((number + 1) * GROUP_SIZE, words.count) - 1
+        if end < start {
+            return []
+        }
         return Array(words[start...end])
     }
 
