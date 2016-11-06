@@ -17,8 +17,8 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
     var leftSibling: WordTrainingController?
     var rightSibling: WordTrainingController?
 
-    var isFailed = false
-    var isOpened = false
+    var failClicked = false
+    var okClicked = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,27 +40,33 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
         lblGrammar.text = ""
         lblTranslations.text = ""
         lblComment.text = ""
-        isFailed = false
-        isOpened = false
+        failClicked = false
+        okClicked = false
     }
 
     @IBAction func rememberAction(_ sender: AnyObject) {
-        goToNext(success: !isFailed)
+        if failClicked || okClicked {
+            goToNext(success: !failClicked)
+        } else {
+            okClicked = true
+            openCard()
+        }
     }
 
     @IBAction func failAction(_ sender: AnyObject) {
-        if isOpened {
+        if failClicked || okClicked {
             goToNext(success: false)
         } else {
-            isFailed = true
+            failClicked = true
             openCard()
         }
     }
 
     public func handleTap() {
-        if isFailed {
-            goToNext(success: false)
+        if failClicked || okClicked {
+            goToNext(success: !failClicked)
         } else {
+            failClicked = true
             openCard()
         }
     }
@@ -94,7 +100,5 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
         }
         lblTranslations.text = word!.getTranslations()
         lblComment.text = word!.getComment()
-
-        isOpened = true
     }
 }
