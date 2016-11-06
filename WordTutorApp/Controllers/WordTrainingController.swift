@@ -85,19 +85,38 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
     private func openCard() {
         if word!.getTypeId() == 2 {
             var grammar = ""
+            var gender = ""
             if word!.getCustomIntField1() == 2 {
                 grammar = "m."
+                gender = "der "
             } else if word!.getCustomIntField1() == 3 {
                 grammar = "f."
+                gender = "die "
             } else if word!.getCustomIntField1() == 4 {
                 grammar = "n."
+                gender = "das "
             }
+            var grammarSuffix = ""
             if word!.getCustomStringField1().characters.count > 0 {
-                grammar = grammar + " (" + word!.getCustomStringField1() + ")"
+                grammarSuffix = " (" + word!.getCustomStringField1() + ")"
+                grammar = grammar + grammarSuffix
             }
 
-            lblGrammar.text = grammar
+            let newWordText = NSMutableAttributedString(string: gender + word!.text + grammarSuffix)
+            if gender.characters.count > 0 {
+                let range = NSRange(location: 0,length: gender.characters.count)
+                newWordText.addAttribute(NSForegroundColorAttributeName, value: lblGrammar.textColor, range: range)
+                newWordText.addAttribute(NSFontAttributeName, value: lblGrammar.font, range: range)
+            }
+            if grammarSuffix.characters.count > 0 {
+                let range = NSRange(location: newWordText.length - grammarSuffix.characters.count, length: grammarSuffix.characters.count)
+                newWordText.addAttribute(NSForegroundColorAttributeName, value: lblGrammar.textColor, range: range)
+                newWordText.addAttribute(NSFontAttributeName, value: lblGrammar.font, range: range)
+            }
+
+            lblWord.attributedText = newWordText
         }
+
         lblTranslations.text = word!.getTranslations()
         lblComment.text = word!.getComment()
     }
