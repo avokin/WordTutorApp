@@ -734,14 +734,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72d-CJ-gR4">
-                                <frame key="frameInset" minX="16" minY="617" width="75" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Forgot"/>
-                                <connections>
-                                    <action selector="forgotAction:" destination="wT6-UD-Cff" eventType="touchUpInside" id="ZSi-Tc-t3l"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Translations" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7L8-qO-acd">
                                 <frame key="frameInset" minX="16" minY="113" width="343" height="90"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -761,8 +753,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GS5-vm-obF">
-                                <frame key="frameInset" minX="288" minY="617" width="71" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <frame key="frameInset" minX="254" minY="592" width="105" height="55"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Ok"/>
                                 <connections>
                                     <action selector="rememberAction:" destination="wT6-UD-Cff" eventType="touchUpInside" id="LaU-xF-4VP"/>
@@ -776,8 +768,6 @@
                             <constraint firstItem="FIf-Dg-wW9" firstAttribute="leading" secondItem="YqS-Jz-ekG" secondAttribute="leadingMargin" id="Aps-kf-Fhc"/>
                             <constraint firstItem="FIf-Dg-wW9" firstAttribute="trailing" secondItem="YqS-Jz-ekG" secondAttribute="trailingMargin" id="Coe-SJ-hBI"/>
                             <constraint firstItem="7L8-qO-acd" firstAttribute="top" secondItem="rpy-Zj-2Nm" secondAttribute="bottom" constant="8" id="HAd-nn-MRh"/>
-                            <constraint firstItem="UJb-NY-Ae3" firstAttribute="top" secondItem="72d-CJ-gR4" secondAttribute="bottom" constant="20" id="Joq-9B-2c4"/>
-                            <constraint firstItem="72d-CJ-gR4" firstAttribute="leading" secondItem="YqS-Jz-ekG" secondAttribute="leadingMargin" id="MCD-DE-rOx"/>
                             <constraint firstItem="UJb-NY-Ae3" firstAttribute="top" secondItem="GS5-vm-obF" secondAttribute="bottom" constant="20" id="MsQ-vw-UyX"/>
                             <constraint firstItem="KHw-TS-fNK" firstAttribute="top" secondItem="LMm-eD-nyR" secondAttribute="bottom" constant="8" id="SJ6-a9-sR6"/>
                             <constraint firstItem="rpy-Zj-2Nm" firstAttribute="top" secondItem="KHw-TS-fNK" secondAttribute="bottom" constant="8" id="bav-MZ-GTA"/>
