@@ -17,6 +17,7 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
         super.viewDidLoad()
 
         words = training!.getGroup(groupNumber)
+        shuffle()
 
         for i in 0..<words.count {
             let controller = getWordTrainingController()
@@ -73,5 +74,17 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let current = viewController as! WordTrainingController
         return current.rightSibling;
+    }
+
+    private func shuffle() {
+        if words.count < 2 {
+            return
+        }
+
+        for i in 0..<words.count - 1 {
+            let j = Int(arc4random_uniform(UInt32(words.count - i))) + i
+            guard i != j else { continue }
+            swap(&words[i], &words[j])
+        }
     }
 }
