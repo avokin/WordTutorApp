@@ -47,31 +47,28 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
         (parent as! TrainingController).showNextController()
     }
 
+    @IBAction func failAction(_ sender: AnyObject) {
+        word!.setSuccessCount(value: 0)
+        (parent as! TrainingController).showNextController()
+    }
+    
     public func handleTap() {
-        if !isFailed {
-            isFailed = true
-
-            if word!.getTypeId() == 2 {
-                var grammar = ""
-                if word!.getCustomIntField1() == 1 {
-                    grammar = "Maskulin"
-                } else if word!.getCustomIntField1() == 2 {
-                    grammar = "Neutrum"
-                } else if word!.getCustomIntField1() == 3 {
-                    grammar = "Femininum"
-                }
-                if word!.getCustomStringField1().characters.count > 0 {
-                    grammar = grammar + " (" + word!.getCustomStringField1() + ")"
-                }
-
-                lblGrammar.text = grammar
+        if word!.getTypeId() == 2 {
+            var grammar = ""
+            if word!.getCustomIntField1() == 1 {
+                grammar = "Maskulin"
+            } else if word!.getCustomIntField1() == 2 {
+                grammar = "Neutrum"
+            } else if word!.getCustomIntField1() == 3 {
+                grammar = "Femininum"
             }
-            lblTranslations.text = word!.getTranslations()
-            lblComment.text = word!.getComment()
+            if word!.getCustomStringField1().characters.count > 0 {
+                grammar = grammar + " (" + word!.getCustomStringField1() + ")"
+            }
 
-            word!.setSuccessCount(value: 0)
-        } else {
-            (parent as! TrainingController).showNextController()
+            lblGrammar.text = grammar
         }
+        lblTranslations.text = word!.getTranslations()
+        lblComment.text = word!.getComment()
     }
 }

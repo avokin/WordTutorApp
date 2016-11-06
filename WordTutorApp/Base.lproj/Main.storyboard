@@ -775,12 +775,28 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GS5-vm-obF">
-                                <frame key="frameInset" minX="254" minY="592" width="105" height="55"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGW-zz-lbl">
+                                <frame key="frameInset" minX="192" minY="526" width="167" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.29417128580000002" green="0.7454392997" blue="0.31500018369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Ok"/>
+                                <state key="normal" title="Ok">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="rememberAction:" destination="wT6-UD-Cff" eventType="touchUpInside" id="LaU-xF-4VP"/>
+                                    <action selector="rememberAction:" destination="wT6-UD-Cff" eventType="touchUpInside" id="v1B-Xe-A0j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gk7-MR-lBl">
+                                <frame key="frameInset" minX="17" minY="526" width="167" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.28756250989999999" blue="0.30508172960000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Fail">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="failAction:" destination="wT6-UD-Cff" eventType="touchUpInside" id="TXK-Bu-9He"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -791,11 +807,9 @@
                             <constraint firstItem="FIf-Dg-wW9" firstAttribute="leading" secondItem="YqS-Jz-ekG" secondAttribute="leadingMargin" id="Aps-kf-Fhc"/>
                             <constraint firstItem="FIf-Dg-wW9" firstAttribute="trailing" secondItem="YqS-Jz-ekG" secondAttribute="trailingMargin" id="Coe-SJ-hBI"/>
                             <constraint firstItem="7L8-qO-acd" firstAttribute="top" secondItem="rpy-Zj-2Nm" secondAttribute="bottom" constant="8" id="HAd-nn-MRh"/>
-                            <constraint firstItem="UJb-NY-Ae3" firstAttribute="top" secondItem="GS5-vm-obF" secondAttribute="bottom" constant="20" id="MsQ-vw-UyX"/>
                             <constraint firstItem="KHw-TS-fNK" firstAttribute="top" secondItem="LMm-eD-nyR" secondAttribute="bottom" constant="8" id="SJ6-a9-sR6"/>
                             <constraint firstItem="rpy-Zj-2Nm" firstAttribute="top" secondItem="KHw-TS-fNK" secondAttribute="bottom" constant="8" id="bav-MZ-GTA"/>
                             <constraint firstItem="rpy-Zj-2Nm" firstAttribute="leading" secondItem="YqS-Jz-ekG" secondAttribute="leadingMargin" id="djW-ct-NyA"/>
-                            <constraint firstItem="GS5-vm-obF" firstAttribute="trailing" secondItem="YqS-Jz-ekG" secondAttribute="trailingMargin" id="eAB-cY-x0y"/>
                             <constraint firstItem="7L8-qO-acd" firstAttribute="leading" secondItem="YqS-Jz-ekG" secondAttribute="leadingMargin" id="gNe-el-qhZ"/>
                             <constraint firstItem="rpy-Zj-2Nm" firstAttribute="trailing" secondItem="YqS-Jz-ekG" secondAttribute="trailingMargin" id="hZe-Jp-EzJ"/>
                             <constraint firstItem="7L8-qO-acd" firstAttribute="trailing" secondItem="YqS-Jz-ekG" secondAttribute="trailingMargin" id="sxg-c2-zZg"/>
