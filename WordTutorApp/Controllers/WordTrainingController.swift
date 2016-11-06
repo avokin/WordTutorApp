@@ -85,12 +85,12 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
     private func openCard() {
         if word!.getTypeId() == 2 {
             var grammar = ""
-            if word!.getCustomIntField1() == 1 {
-                grammar = "Maskulin"
-            } else if word!.getCustomIntField1() == 2 {
-                grammar = "Neutrum"
+            if word!.getCustomIntField1() == 2 {
+                grammar = "m."
             } else if word!.getCustomIntField1() == 3 {
-                grammar = "Femininum"
+                grammar = "f."
+            } else if word!.getCustomIntField1() == 4 {
+                grammar = "n."
             }
             if word!.getCustomStringField1().characters.count > 0 {
                 grammar = grammar + " (" + word!.getCustomStringField1() + ")"
