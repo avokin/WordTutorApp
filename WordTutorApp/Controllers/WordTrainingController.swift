@@ -17,13 +17,15 @@ class WordTrainingController: UIViewController {
     var leftSibling: WordTrainingController?
     var rightSibling: WordTrainingController?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
         initTest()
     }
 
+
     func initTest() {
+        (parent as! TrainingController).currentIndex = wordIndex
         lblWord.text = word!.text
         lblGrammar.text = ""
         lblTranslations.text = ""

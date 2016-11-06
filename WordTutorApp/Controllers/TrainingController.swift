@@ -11,8 +11,7 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
     var words = [Word]()
     var controllers = [WordTrainingController]()
 
-    fileprivate var currentIndex: Int = 0
-    fileprivate var pendingIndex: Int?
+    public var currentIndex: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,18 +39,6 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
             animated: false, completion: nil)
 
         self.dataSource = self
-    }
-
-
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        let controller = pendingViewControllers.first! as! WordTrainingController
-        pendingIndex = controller.wordIndex
-    }
-
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if completed {
-            currentIndex = pendingIndex!
-        }
     }
 
     public func showNextController() {
