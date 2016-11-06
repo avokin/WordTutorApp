@@ -10,6 +10,12 @@ class LoginController : UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        LoginHelper.getInstance().setAuthorizationToken(nil)
+    }
+
     @IBAction func loginAction(_ sender: AnyObject) {
         let url = URL(string: DataProvider.HOST + "sessions.json?session[email]=" + usernameField.text! +
                 "&session[password]=" + passwordField.text!)
