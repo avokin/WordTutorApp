@@ -115,12 +115,14 @@ open class DataProvider {
     }
 
     open func readFromFile(url: URL) {
-        do {
-            let data = try Data(contentsOf: url)
-            parseData(data: data)
-        }
-        catch  {
-            print("Error reading data: \(error)")
+        if FileManager.default.fileExists(atPath: url.path) {
+            do {
+                let data = try Data(contentsOf: url)
+                parseData(data: data)
+            }
+            catch  {
+                print("Error reading data: \(error)")
+            }
         }
     }
 
