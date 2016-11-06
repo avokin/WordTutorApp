@@ -109,6 +109,7 @@ open class DataProvider {
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
             loadTestData()
         } else {
+            self.readFromFile()
             syncUpdatedWords(withImport: true)
         }
     }
@@ -205,8 +206,6 @@ open class DataProvider {
     }
 
     fileprivate func requestData() {
-        self.readFromFile()
-
         let url = URL(string: DataProvider.HOST + "api/export.json")
         let request = NSMutableURLRequest(url: url!)
 
@@ -219,6 +218,8 @@ open class DataProvider {
                 return;
             }
 
+            let responseText = String(data: data!, encoding: String.Encoding.utf8)
+            print(responseText)
             self.parseData(data: data!)
 
             self.saveToFile()
