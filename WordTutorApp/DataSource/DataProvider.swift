@@ -30,7 +30,7 @@ open class DataProvider {
         return instance!
     }
 
-    public func syncUpdatedWords() {
+    public func syncUpdatedWords(withImport: Bool) {
         let updatedWords = words!.filter{$0.isUpdated()}
         let updatedTexts = updatedWords.map{"{\"id\": \($0.id), \"success_count\": \($0.getSuccessCount()), \"time_to_check\": \"\(JsonParser.getDateFormatter().string(from: $0.getTimeToCheck()))\"}"}
         let updatedText = updatedTexts.joined(separator: ", ")
@@ -48,6 +48,10 @@ open class DataProvider {
             if (error != nil) {
                 print(error!.localizedDescription)
                 return;
+            }
+
+            if withImport {
+                self.requestData()
             }
         })
 
@@ -105,7 +109,7 @@ open class DataProvider {
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
             loadTestData()
         } else {
-            requestData()
+            syncUpdatedWords(withImport: true)
         }
     }
 

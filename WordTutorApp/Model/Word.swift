@@ -59,6 +59,8 @@ open class Word {
                 self.timeToCheck = JsonParser.getDateFormatter().date(from: string)!
             } else if "success_count" == keyName {
                 self.successCount = (value as! NSNumber).intValue
+            } else if "is_updated" == keyName {
+                self._isUpdated = (value as! String) == "true"
             }
         }
         Word.ids[self.id] = self
@@ -109,7 +111,17 @@ open class Word {
     open func setTimeToCheck(value: Date) {
         timeToCheck = value
         dictionary["time_to_check"] = JsonParser.getDateFormatter().string(from: value)
+        dictionary["is_updated"] = "true"
         _isUpdated = true
+    }
+
+    public func setUpdated(value: Bool) {
+        if value {
+            dictionary["is_updated"] = "true"
+        } else {
+            dictionary["is_updated"] = "false"
+        }
+        _isUpdated = value
     }
 
     public func getSuccessCount() -> Int {

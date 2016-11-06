@@ -57,7 +57,7 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
     public func showNextController() {
         currentIndex += 1
         if currentIndex >= controllers.count {
-            DataProvider.getInstance().syncUpdatedWords()
+            DataProvider.getInstance().syncUpdatedWords(withImport: false)
             navigationController!.popViewController(animated: true)
         } else {
             setViewControllers([controllers[currentIndex]], direction: .forward, animated: true)
