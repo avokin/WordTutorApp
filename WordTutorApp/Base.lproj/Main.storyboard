@@ -146,10 +146,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Dictionary" id="ovY-ud-e84">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="bvR-yD-ToH"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="7xL-Vw-L78"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="extraButton" destination="7xL-Vw-L78" id="vuc-RY-0Zs"/>
                         <outlet property="menuButton" destination="bvR-yD-ToH" id="Rui-eS-C5i"/>
                         <segue destination="bfF-yt-XRS" kind="show" identifier="Word" id="46K-cQ-XNx"/>
                     </connections>
@@ -834,7 +832,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="foL-zu-uHU"/>
-        <segue reference="HSP-j6-Jz3"/>
+        <segue reference="46K-cQ-XNx"/>
         <segue reference="6Cj-zg-oBV"/>
     </inferredMetricsTieBreakers>
 </document>
