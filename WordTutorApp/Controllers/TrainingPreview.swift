@@ -9,6 +9,12 @@ class TrainingPreview: WordListController {
     var training: Training?
     var groupIndex = 0
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        tableView.register(UINib(nibName: "TrainingItemCell", bundle: nil), forCellReuseIdentifier: "TrainingItemCell")
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
@@ -19,11 +25,11 @@ class TrainingPreview: WordListController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TrainingWord", for: indexPath) as! TrainingWordCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrainingItemCell", for: indexPath) as! TrainingCell
 
         let word: Word = words[(indexPath as NSIndexPath).row]
-        cell.leftLabel.text = word.text
-        cell.rightLabel.isHidden = word.timeToCheck > Date()
+        cell.lblTitle.text = word.text
+        cell.icon.isHidden = word.timeToCheck > Date()
 
         return cell
     }
