@@ -18,6 +18,7 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
     var rightSibling: WordTrainingController?
 
     var isFailed = false
+    var isOpened = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,19 +41,42 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
         lblTranslations.text = ""
         lblComment.text = ""
         isFailed = false
+        isOpened = false
     }
 
     @IBAction func rememberAction(_ sender: AnyObject) {
-        word!.setSuccessCount(value: word!.getSuccessCount() + 1)
-        (parent as! TrainingController).showNextController()
+        goToNext(success: !isFailed)
     }
 
     @IBAction func failAction(_ sender: AnyObject) {
-        word!.setSuccessCount(value: 0)
+        if isOpened {
+            goToNext(success: false)
+        } else {
+            isFailed = true
+            openCard()
+        }
+    }
+
+    public func handleTap() {
+        if isFailed {
+            goToNext(success: false)
+        } else {
+            openCard()
+        }
+    }
+
+    private func goToNext(success: Bool) {
+        var newSuccessCount: Int
+        if success {
+            newSuccessCount = word!.getSuccessCount() + 1
+        } else {
+            newSuccessCount = 0
+        }
+        word!.setSuccessCount(value: newSuccessCount)
         (parent as! TrainingController).showNextController()
     }
-    
-    public func handleTap() {
+
+    private func openCard() {
         if word!.getTypeId() == 2 {
             var grammar = ""
             if word!.getCustomIntField1() == 1 {
@@ -70,5 +94,7 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
         }
         lblTranslations.text = word!.getTranslations()
         lblComment.text = word!.getComment()
+
+        isOpened = true
     }
 }
