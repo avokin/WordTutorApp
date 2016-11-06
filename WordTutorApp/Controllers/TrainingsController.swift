@@ -24,6 +24,12 @@ class TrainingsController: UITableViewController {
         DataProvider.getInstance().serviceResponse = serviceResponseCallback
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        tableView.reloadData()
+    }
+
     override internal func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let training = trainings[section]
         return trainings[section].category.name + " (" + String(training.category.getWords().count) + ")"
