@@ -674,7 +674,7 @@
         <!--Group-->
         <scene sceneID="Dst-hw-YnZ">
             <objects>
-                <tableViewController id="T21-I0-kTj" customClass="TrainingPreview" customModule="WordTutorApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="T21-I0-kTj" customClass="TrainingPreviewController" customModule="WordTutorApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wEX-tt-0aj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

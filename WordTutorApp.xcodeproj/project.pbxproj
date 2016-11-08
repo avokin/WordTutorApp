@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		059BECA01DCF9671007AF354 /* TrainingItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059BEC9F1DCF9671007AF354 /* TrainingItemCell.xib */; };
-		AC38F181087379816F93DD26 /* TrainingPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F0928E5647E3F7EF9ACB /* TrainingPreview.swift */; };
+		AC38F181087379816F93DD26 /* TrainingPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F0928E5647E3F7EF9ACB /* TrainingPreviewController.swift */; };
 		AC38F1BA46D05121E139B055 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F81C9DEEDDCBF0020590 /* Category.swift */; };
 		AC38F265E5168B0B2C5C9253 /* WordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F2AB9A6B5A643B61BBCA /* WordController.swift */; };
 		AC38F298E0197CAFFE6B9383 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FC87FEB2020708326767 /* LoginController.swift */; };
@@ -59,7 +59,7 @@
 		059BEC9F1DCF9671007AF354 /* TrainingItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainingItemCell.xib; sourceTree = "<group>"; };
 		AC38F00EC3E7E1C51203C2DF /* TrainingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		AC38F07C855D3B1093697E74 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
-		AC38F0928E5647E3F7EF9ACB /* TrainingPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingPreview.swift; sourceTree = "<group>"; };
+		AC38F0928E5647E3F7EF9ACB /* TrainingPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingPreviewController.swift; sourceTree = "<group>"; };
 		AC38F18365031D6E24E09B05 /* CategoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTest.swift; sourceTree = "<group>"; };
 		AC38F1AC33D07976E4540E58 /* TrainingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingTest.swift; sourceTree = "<group>"; };
 		AC38F1B5BBE173BE42E001EB /* WordRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordRelation.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				AC38FDA1929E11A5E94246CF /* GermanNounController.swift */,
 				AC38FC87FEB2020708326767 /* LoginController.swift */,
 				AC38F1C6C2BCBE291EFCA42F /* TrainingsController.swift */,
-				AC38F0928E5647E3F7EF9ACB /* TrainingPreview.swift */,
+				AC38F0928E5647E3F7EF9ACB /* TrainingPreviewController.swift */,
 				AC38FF7E018A1EB1F2AC9D9B /* AllWordsController.swift */,
 				AC38FE810575E14E6894C472 /* CategoryController.swift */,
 				AC38FDAD55196A4C88156E09 /* WordTrainingController.swift */,
@@ -394,7 +394,7 @@
 				AC38FA68225661CC70F400E3 /* ReplaceSegue.swift in Sources */,
 				AC38FA9F6EB77CFE98F6A2FA /* Training.swift in Sources */,
 				AC38FBEBDF5787736AB64980 /* TrainingsController.swift in Sources */,
-				AC38F181087379816F93DD26 /* TrainingPreview.swift in Sources */,
+				AC38F181087379816F93DD26 /* TrainingPreviewController.swift in Sources */,
 				AC38FFBC7983E5EF09EF7B8D /* AllWordsController.swift in Sources */,
 				AC38F713891CF27563A1E500 /* CategoryController.swift in Sources */,
 				AC38F98D8FB10F0AEC9B4C2D /* WordTrainingController.swift in Sources */,

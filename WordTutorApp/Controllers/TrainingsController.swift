@@ -79,7 +79,7 @@ class TrainingsController: UITableViewController {
         let indexPath = sender as! IndexPath
         let index = (indexPath as NSIndexPath).row
         let training = trainings[(indexPath as NSIndexPath).section]
-        let trainingWordGroupController = segue.destination as! TrainingPreview
+        let trainingWordGroupController = segue.destination as! TrainingPreviewController
 
         trainingWordGroupController.title = training.category.name + " #\(index + 1)"
         trainingWordGroupController.training = training
