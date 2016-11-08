@@ -41,8 +41,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYK-Cd-gUk">
-                                <frame key="frameInset" minX="20" minY="329" width="560" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYK-Cd-gUk">
+                                <frame key="frameInset" minX="16" minY="329" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -68,6 +68,7 @@
                             <constraint firstItem="8YR-bn-qdO" firstAttribute="top" secondItem="nmC-o6-LK7" secondAttribute="bottom" constant="8" id="Th9-DP-jA3"/>
                             <constraint firstItem="rFl-rD-dVF" firstAttribute="leading" secondItem="ZQe-h6-rDZ" secondAttribute="leadingMargin" id="WhU-L4-pti"/>
                             <constraint firstItem="YYK-Cd-gUk" firstAttribute="trailing" secondItem="ZQe-h6-rDZ" secondAttribute="trailingMargin" id="XRi-yV-yFu"/>
+                            <constraint firstItem="YYK-Cd-gUk" firstAttribute="top" secondItem="8YR-bn-qdO" secondAttribute="bottom" constant="8" id="aSy-cM-mx1"/>
                             <constraint firstItem="U59-Hu-Kqj" firstAttribute="leading" secondItem="ZQe-h6-rDZ" secondAttribute="leadingMargin" id="dfH-cN-gKl"/>
                             <constraint firstItem="y4D-s6-ww2" firstAttribute="trailing" secondItem="ZQe-h6-rDZ" secondAttribute="trailingMargin" id="hfT-rm-MBf"/>
                             <constraint firstItem="nmC-o6-LK7" firstAttribute="top" secondItem="rFl-rD-dVF" secondAttribute="bottom" constant="8" id="lVi-Um-g95"/>

@@ -33,7 +33,9 @@ class LoginController : UIViewController {
             let JSONDictionary = try! JSONSerialization.jsonObject(with: JSONData!, options: []) as! NSDictionary
 
             if (JSONDictionary["error"] != nil) {
-                self.errorLabel.text = JSONDictionary["error"] as? String;
+                OperationQueue.main.addOperation {
+                    self.errorLabel.text = JSONDictionary["error"] as? String;
+                }
                 return;
             }
 
