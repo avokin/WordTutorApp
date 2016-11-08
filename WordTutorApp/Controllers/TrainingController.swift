@@ -47,6 +47,14 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
         if currentIndex >= controllers.count {
             DataProvider.getInstance().syncUpdatedWords(withImport: false)
             navigationController!.popViewController(animated: true)
+
+            let alert = UIAlertController(title: "", message: "Good work!", preferredStyle: .alert)
+            navigationController!.topViewController!.present(alert, animated: true, completion: nil)
+
+            let when = DispatchTime.now() + 2
+            DispatchQueue.main.asyncAfter(deadline: when){
+                alert.dismiss(animated: true, completion: nil)
+            }
         } else {
             setViewControllers([controllers[currentIndex]], direction: .forward, animated: true)
         }
