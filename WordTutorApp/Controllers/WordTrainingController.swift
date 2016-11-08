@@ -23,7 +23,7 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap"))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(WordTrainingController.handleTap))
         tap.delegate = self
         view.addGestureRecognizer(tap)
     }
