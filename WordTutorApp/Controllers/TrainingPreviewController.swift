@@ -8,6 +8,7 @@ import Foundation
 class TrainingPreviewController: WordListController {
     var training: Training?
     var groupIndex = 0
+    var directMode = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,31 @@ class TrainingPreviewController: WordListController {
             let trainingController = segue.destination as! TrainingController
             trainingController.training = training
             trainingController.groupNumber = groupIndex
+            trainingController.directMode = directMode
         }
+    }
+
+    @IBAction func startAction(_ sender: AnyObject) {
+        let optionMenu = UIAlertController(title: nil, message: "Choose training mode", preferredStyle: .actionSheet)
+
+        let directAction = UIAlertAction(title: "Deutsch -> Russian", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.directMode = true
+            self.performSegue(withIdentifier: "StartTraining", sender: sender)
+        })
+        let backwardAction = UIAlertAction(title: "Russian -> Deutsch", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.directMode = false
+            self.performSegue(withIdentifier: "StartTraining", sender: sender)
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+        })
+
+        optionMenu.addAction(directAction)
+        optionMenu.addAction(backwardAction)
+        optionMenu.addAction(cancelAction)
+
+        present(optionMenu, animated: true, completion: nil)
     }
 }

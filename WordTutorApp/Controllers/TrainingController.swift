@@ -8,6 +8,8 @@ import Foundation
 class TrainingController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     var training: Training?
     var groupNumber = 0
+    var directMode = true
+
     var words = [Word]()
     var controllers = [WordTrainingController]()
 
@@ -24,6 +26,7 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
             let word = words[i]
             controller.wordIndex = i
             controller.word = word
+            controller.directMode = directMode
             if i > 0 {
                 controller.leftSibling = controllers[i - 1]
                 controllers[i - 1].rightSibling = controller

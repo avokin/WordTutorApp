@@ -523,7 +523,7 @@
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Word" textLabel="hes-zF-mgu" style="IBUITableViewCellStyleDefault" id="19T-Sa-YKM">
-                                <rect key="frame" x="0.0" y="119.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="19T-Sa-YKM" id="xMD-j8-nVk">
                                     <frame key="frameInset" width="375" height="43"/>
@@ -543,7 +543,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Category" textLabel="n1n-Tf-emI" style="IBUITableViewCellStyleDefault" id="0ZA-pI-cxR">
-                                <rect key="frame" x="0.0" y="163.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="164" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0ZA-pI-cxR" id="Y2v-4h-pg5">
                                     <frame key="frameInset" width="375" height="43"/>
@@ -563,7 +563,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Other" textLabel="ype-TI-dt1" style="IBUITableViewCellStyleDefault" id="WLH-fm-P0H">
-                                <rect key="frame" x="0.0" y="207.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="208" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WLH-fm-P0H" id="3Do-lq-0zh">
                                     <frame key="frameInset" width="375" height="43"/>
@@ -687,12 +687,13 @@
                     <navigationItem key="navigationItem" title="Group" id="6XC-Y5-jrK">
                         <barButtonItem key="rightBarButtonItem" title="Start" id="9ty-zM-obD">
                             <connections>
-                                <segue destination="xfr-6s-WfY" kind="show" id="WlR-MQ-Pos"/>
+                                <action selector="startAction:" destination="T21-I0-kTj" id="6vb-p8-1DO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="bfF-yt-XRS" kind="show" identifier="Word" id="HSP-j6-Jz3"/>
+                        <segue destination="xfr-6s-WfY" kind="show" identifier="StartTraining" id="05h-Tr-eC2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvp-PX-0Uh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -711,7 +712,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHw-TS-fNK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Word" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHw-TS-fNK">
                                 <frame key="frameInset" minX="16" minY="34" width="343" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -748,7 +749,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGW-zz-lbl">
-                                <frame key="frameInset" width="46.52%" height="91" maxX="16" maxY="20"/>
+                                <frame key="frameInset" width="46.66%" height="91" maxX="16" maxY="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.29417128580000002" green="0.7454392997" blue="0.31500018369999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>

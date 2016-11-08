@@ -12,7 +12,7 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var lblComment: UILabel!
 
     var word: Word?
-
+    var directMode = true
     var wordIndex = 0
     var leftSibling: WordTrainingController?
     var rightSibling: WordTrainingController?
@@ -36,7 +36,11 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
 
     func initTest() {
         (parent as! TrainingController).currentIndex = wordIndex
-        lblWord.text = word!.text
+        if directMode {
+            lblWord.text = word!.text
+        } else {
+            lblWord.text = word!.getTranslations()
+        }
         lblGrammar.text = ""
         lblTranslations.text = ""
         lblComment.text = ""
@@ -83,6 +87,8 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     private func openCard() {
+        lblWord.text = word!.text
+
         if word!.getTypeId() == 2 {
             var grammar = ""
             var gender = ""
