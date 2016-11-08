@@ -8,6 +8,11 @@ import Foundation
 class CategoryController: WordListController {
     var category: Category? = nil
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = category!.name
+    }
+
     override func getWords() -> [Word] {
         return category!.getWords();
     }
