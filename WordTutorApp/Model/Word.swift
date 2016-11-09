@@ -9,7 +9,7 @@
 import Foundation
 
 open class Word {
-    static let intervals = [6, 24, 3 * 24, 7 * 24, 30 * 24, 3 * 30 * 24]
+    public static let intervals = [6, 24, 3 * 24, 7 * 24, 30 * 24, 3 * 30 * 24]
     var dictionary: NSMutableDictionary = NSMutableDictionary()
 
     var id: Int = 0

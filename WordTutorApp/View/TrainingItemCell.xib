@@ -16,21 +16,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulK-SM-DMO">
-                        <frame key="frameInset" minX="8" minY="50.00%" height="21" maxX="48"/>
+                        <frame key="frameInset" minX="8" minY="50.00%" height="21" maxX="111"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="d3y-WK-Nfj">
-                        <frame key="frameInset" minY="61.54%" width="32" height="30" maxX="8"/>
+                        <frame key="frameInset" minY="46.15%" width="32" height="30" maxX="8"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     </imageView>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Hi-wX-Wmu">
+                        <frame key="frameInset" minX="272" minY="20" width="55" height="2"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </progressView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="icon" destination="d3y-WK-Nfj" id="e3s-lU-2g9"/>
                 <outlet property="lblTitle" destination="ulK-SM-DMO" id="3Kr-Jb-GgM"/>
+                <outlet property="pbStatus" destination="5Hi-wX-Wmu" id="lVl-b1-oZb"/>
             </connections>
             <point key="canvasLocation" x="283.5" y="-30"/>
         </tableViewCell>

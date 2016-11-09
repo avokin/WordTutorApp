@@ -60,6 +60,7 @@ class TrainingsController: UITableViewController {
                 break;
             }
         }
+        cell.pbStatus.isHidden = true
 
         return cell
     }

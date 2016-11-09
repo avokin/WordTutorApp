@@ -31,6 +31,8 @@ class TrainingPreviewController: WordListController {
         let word: Word = words[(indexPath as NSIndexPath).row]
         cell.lblTitle.text = word.text
         cell.icon.isHidden = word.timeToCheck > Date()
+        let progressValue: Float = Float(word.successCount) / Float(Word.intervals.count)
+        cell.pbStatus.progress = progressValue
 
         return cell
     }
