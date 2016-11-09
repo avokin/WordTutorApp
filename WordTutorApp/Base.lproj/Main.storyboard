@@ -152,10 +152,24 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="bvR-yD-ToH" id="Rui-eS-C5i"/>
+                        <outlet property="searchDisplayController" destination="R9n-uX-QxK" id="c3J-73-NBu"/>
                         <segue destination="bfF-yt-XRS" kind="show" identifier="Word" id="46K-cQ-XNx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHq-4Y-pqk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchBar contentMode="redraw" id="jFc-TW-bjm">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <searchDisplayController id="R9n-uX-QxK">
+                    <connections>
+                        <outlet property="delegate" destination="RaP-X2-i0v" id="CK1-Ch-caQ"/>
+                        <outlet property="searchContentsController" destination="RaP-X2-i0v" id="EZQ-hj-ZOl"/>
+                        <outlet property="searchResultsDataSource" destination="RaP-X2-i0v" id="wfa-cb-uMi"/>
+                        <outlet property="searchResultsDelegate" destination="RaP-X2-i0v" id="ii0-h8-FB4"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2577" y="-686"/>
         </scene>
@@ -659,10 +673,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Trainings" id="nUF-Td-OQw">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="bit-xD-9ZC"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="rJR-gS-UXN"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="extraButton" destination="rJR-gS-UXN" id="5uN-s4-bwX"/>
                         <outlet property="menuButton" destination="bit-xD-9ZC" id="6Gk-IW-4m7"/>
                         <segue destination="T21-I0-kTj" kind="show" identifier="TrainingWordGroup" id="X37-BE-VcL"/>
                     </connections>
@@ -807,7 +819,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="foL-zu-uHU"/>
-        <segue reference="HSP-j6-Jz3"/>
+        <segue reference="46K-cQ-XNx"/>
         <segue reference="6Cj-zg-oBV"/>
     </inferredMetricsTieBreakers>
 </document>

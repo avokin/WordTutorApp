@@ -17,10 +17,6 @@ class TrainingsController: UITableViewController {
         menuButton.target = revealViewController()
         menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
 
-        revealViewController().rightViewRevealWidth = 150
-        extraButton.target = revealViewController()
-        extraButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
-
         DataProvider.getInstance().serviceResponse = serviceResponseCallback
 
         tableView.register(UINib(nibName: "TrainingItemCell", bundle: nil), forCellReuseIdentifier: "TrainingItemCell")
