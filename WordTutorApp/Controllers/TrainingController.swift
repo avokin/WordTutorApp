@@ -13,11 +13,13 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
     var words = [Word]()
     var controllers = [WordTrainingController]()
 
-    public var currentIndex: Int = 0
+    public var currentIndex = 0
+    private var successCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        successCount = 0
         words = training!.getGroup(groupNumber)
         shuffle()
 
@@ -45,16 +47,19 @@ class TrainingController: UIPageViewController, UIPageViewControllerDataSource, 
         self.dataSource = self
     }
 
-    public func showNextController() {
+    public func showNextController(success: Bool) {
+        if success {
+            successCount += 1
+        }
         currentIndex += 1
         if currentIndex >= controllers.count {
             DataProvider.getInstance().syncUpdatedWords(withImport: false)
             navigationController!.popViewController(animated: true)
 
-            let alert = UIAlertController(title: "", message: "Good work!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "", message: "\(successCount) correct answers from \(words.count) questions", preferredStyle: .alert)
             navigationController!.topViewController!.present(alert, animated: true, completion: nil)
 
-            let when = DispatchTime.now() + 2
+            let when = DispatchTime.now() + 3
             DispatchQueue.main.asyncAfter(deadline: when){
                 alert.dismiss(animated: true, completion: nil)
             }

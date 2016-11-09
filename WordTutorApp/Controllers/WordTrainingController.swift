@@ -83,7 +83,7 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
             newSuccessCount = 0
         }
         word!.setSuccessCount(value: newSuccessCount)
-        (parent as! TrainingController).showNextController()
+        (parent as! TrainingController).showNextController(success: success)
     }
 
     private func openCard() {
