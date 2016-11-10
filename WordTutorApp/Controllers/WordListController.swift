@@ -9,13 +9,10 @@
 import UIKit
 
 class WordListController: UITableViewController {
-    var words = [Word]()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Word")
-        words = self.getWords()
     }
 
     func getWords() -> [Word] {
@@ -23,20 +20,20 @@ class WordListController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return words.count
+        return getWords().count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
 
-        let word: Word = words[(indexPath as NSIndexPath).row]
+        let word: Word = getWords()[(indexPath as NSIndexPath).row]
         cell.textLabel!.text = word.text
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let word: Word = words[(indexPath as NSIndexPath).row]
+        let word: Word = getWords()[(indexPath as NSIndexPath).row]
         self.performSegue(withIdentifier: "Word", sender: word)
     }
 

@@ -7,13 +7,15 @@ import Foundation
 
 class CategoryController: WordListController {
     var category: Category? = nil
+    var words = [Word]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = category!.name
+        title = category!.name
+        words = category!.getWords()
     }
 
     override func getWords() -> [Word] {
-        return category!.getWords();
+        return words;
     }
 }

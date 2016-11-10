@@ -9,10 +9,12 @@ class TrainingPreviewController: WordListController {
     var training: Training?
     var groupIndex = 0
     var directMode = true
+    var words = [Word]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        words = training!.getGroup(groupIndex);
         tableView.register(UINib(nibName: "TrainingItemCell", bundle: nil), forCellReuseIdentifier: "TrainingItemCell")
     }
 
@@ -22,7 +24,7 @@ class TrainingPreviewController: WordListController {
     }
 
     override func getWords() -> [Word] {
-        return training!.getGroup(groupIndex);
+        return words
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
