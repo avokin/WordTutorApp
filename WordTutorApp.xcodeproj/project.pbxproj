@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		059BECA01DCF9671007AF354 /* TrainingItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059BEC9F1DCF9671007AF354 /* TrainingItemCell.xib */; };
+		054CD98E1DD51BE500DB5D76 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054CD98D1DD51BE500DB5D76 /* CategoryTableViewCell.xib */; };
+		054CD9901DD51C4F00DB5D76 /* TrainingWordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054CD98F1DD51C4F00DB5D76 /* TrainingWordTableViewCell.xib */; };
+		059BECA01DCF9671007AF354 /* TrainingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059BEC9F1DCF9671007AF354 /* TrainingTableViewCell.xib */; };
 		AC38F181087379816F93DD26 /* TrainingPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F0928E5647E3F7EF9ACB /* TrainingPreviewController.swift */; };
 		AC38F1BA46D05121E139B055 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F81C9DEEDDCBF0020590 /* Category.swift */; };
 		AC38F265E5168B0B2C5C9253 /* WordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F2AB9A6B5A643B61BBCA /* WordController.swift */; };
@@ -18,6 +20,7 @@
 		AC38F51422752B6A74378192 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC38FCAD61D570276F0CFAAE /* data.json */; };
 		AC38F518DC4045606C1001F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38F064498111784C5E4B6B /* Main.storyboard */; };
 		AC38F56EE8AEF4A9403C6985 /* TrainingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1AC33D07976E4540E58 /* TrainingTest.swift */; };
+		AC38F5B41EE7714B6E39B6A4 /* TrainingWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F522E5B29618B4ACBFC8 /* TrainingWordCell.swift */; };
 		AC38F67E50F9564E2633B125 /* CategoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F18365031D6E24E09B05 /* CategoryTest.swift */; };
 		AC38F69E4A394D3B58679D95 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F304233567688509DF0F /* DataProvider.swift */; };
 		AC38F713891CF27563A1E500 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FE810575E14E6894C472 /* CategoryController.swift */; };
@@ -56,7 +59,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		059BEC9F1DCF9671007AF354 /* TrainingItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainingItemCell.xib; sourceTree = "<group>"; };
+		054CD98D1DD51BE500DB5D76 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		054CD98F1DD51C4F00DB5D76 /* TrainingWordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainingWordTableViewCell.xib; sourceTree = "<group>"; };
+		059BEC9F1DCF9671007AF354 /* TrainingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainingTableViewCell.xib; sourceTree = "<group>"; };
 		AC38F00EC3E7E1C51203C2DF /* TrainingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		AC38F07C855D3B1093697E74 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		AC38F0928E5647E3F7EF9ACB /* TrainingPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingPreviewController.swift; sourceTree = "<group>"; };
@@ -69,6 +74,7 @@
 		AC38F2AB9A6B5A643B61BBCA /* WordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordController.swift; sourceTree = "<group>"; };
 		AC38F304233567688509DF0F /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		AC38F329F064F441B06FC82D /* WordCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCategory.swift; sourceTree = "<group>"; };
+		AC38F522E5B29618B4ACBFC8 /* TrainingWordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingWordCell.swift; sourceTree = "<group>"; };
 		AC38F526A09D9912FE4BB35E /* Training.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		AC38F56429553EC9BAA9764D /* CategoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		AC38F6A529793202D1BF0485 /* ReplaceSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceSegue.swift; sourceTree = "<group>"; };
@@ -134,7 +140,10 @@
 			children = (
 				AC38F6A529793202D1BF0485 /* ReplaceSegue.swift */,
 				AC38F00EC3E7E1C51203C2DF /* TrainingCell.swift */,
-				059BEC9F1DCF9671007AF354 /* TrainingItemCell.xib */,
+				059BEC9F1DCF9671007AF354 /* TrainingTableViewCell.xib */,
+				054CD98D1DD51BE500DB5D76 /* CategoryTableViewCell.xib */,
+				054CD98F1DD51C4F00DB5D76 /* TrainingWordTableViewCell.xib */,
+				AC38F522E5B29618B4ACBFC8 /* TrainingWordCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,7 +362,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4702A001A7F27DC00E30A3C /* LaunchScreen.xib in Resources */,
-				059BECA01DCF9671007AF354 /* TrainingItemCell.xib in Resources */,
+				054CD98E1DD51BE500DB5D76 /* CategoryTableViewCell.xib in Resources */,
+				059BECA01DCF9671007AF354 /* TrainingTableViewCell.xib in Resources */,
+				054CD9901DD51C4F00DB5D76 /* TrainingWordTableViewCell.xib in Resources */,
 				F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */,
 				AC38F518DC4045606C1001F9 /* Main.storyboard in Resources */,
 			);
@@ -400,6 +411,7 @@
 				AC38F98D8FB10F0AEC9B4C2D /* WordTrainingController.swift in Sources */,
 				AC38FED19AE3DD0E47874A97 /* TrainingController.swift in Sources */,
 				AC38FBD98BB29ADEDE6F51E6 /* TrainingCell.swift in Sources */,
+				AC38F5B41EE7714B6E39B6A4 /* TrainingWordCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

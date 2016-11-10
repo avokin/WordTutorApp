@@ -22,7 +22,7 @@ class CategoriesController: UITableViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         }
 
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Category")
+        tableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "Category")
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,6 +34,7 @@ class CategoriesController: UITableViewController {
 
         let category = modelProvider.getCategories()[(indexPath as NSIndexPath).row]
         cell.textLabel!.text = category.name
+        cell.detailTextLabel!.text = "\(10)"
 
         return cell
     }
