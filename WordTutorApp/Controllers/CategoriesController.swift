@@ -34,7 +34,7 @@ class CategoriesController: UITableViewController {
 
         let category = modelProvider.getCategories()[(indexPath as NSIndexPath).row]
         cell.textLabel!.text = category.name
-        cell.detailTextLabel!.text = "\(10)"
+        cell.detailTextLabel!.text = "\(category.getWords().count)"
 
         return cell
     }
