@@ -121,6 +121,7 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
                 return createRemovableLabelCell(text: translations[row], indexPath: indexPath, selector: #selector(removeTranslationPressed(sender:)))
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldWithButtonTableViewCell", for: indexPath) as! TextFieldWithButtonTableViewCell
+            cell.button.removeTarget(nil, action: nil, for: .allEvents)
             cell.button.addTarget(self, action: #selector(addTranslationPressed(sender:)), for: .touchUpInside)
             cell.button.setTitle("Add", for: .normal)
             return cell
@@ -130,6 +131,7 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
                 return createRemovableLabelCell(text: categories[row], indexPath: indexPath, selector: #selector(removeCategoryPressed(sender:)))
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldWithButtonTableViewCell", for: indexPath) as! TextFieldWithButtonTableViewCell
+            cell.button.removeTarget(nil, action: nil, for: .allEvents)
             cell.button.addTarget(self, action: #selector(addCategoryPressed(sender:)), for: .touchUpInside)
             cell.button.setTitle("Add", for: .normal)
             return cell
@@ -147,6 +149,8 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
 
         cell.button.tag = row
         cell.button.setTitle("Remove", for: .normal)
+
+        cell.button.removeTarget(nil, action: nil, for: .allEvents)
         cell.button.addTarget(self, action: selector, for: .touchUpInside)
         return cell
     }
