@@ -7,6 +7,12 @@ import Foundation
 
 class AddWordController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var customIntField: UIPickerView!
+
+    var translations = [String]()
+    var partOfSpeech = 2
+    var customIntField1 = 2
+    var customStringField1 = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,8 +23,13 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
 
         tableView.register(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
         tableView.register(UINib(nibName: "GermanNounGrammarTableViewCell", bundle: nil), forCellReuseIdentifier: "GermanNounGrammarTableViewCell")
+        tableView.register(UINib(nibName: "GrammarTableViewCell", bundle: nil), forCellReuseIdentifier: "GrammarTableViewCell")
         tableView.register(UINib(nibName: "TextFieldWithButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldWithButtonTableViewCell")
         tableView.register(UINib(nibName: "LabelWithButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "LabelWithButtonTableViewCell")
+
+        translations = ["собака", "псина", "пес"]
+        customIntField1 = 2
+        customStringField1 = "-en"
     }
 
     override internal func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -44,7 +55,7 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
         } else if section == 1 {
             return 1
         }
-        return 3
+        return translations.count + 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,28 +65,70 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
         if section == 0 {
             return tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath)
         } else if section == 1 {
-            if row == 0 {
-                return tableView.dequeueReusableCell(withIdentifier: "GermanNounGrammarTableViewCell", for: indexPath)
+            if partOfSpeech == 2 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "GermanNounGrammarTableViewCell", for: indexPath) as! GermanNounGrammarTableViewCell
+                cell.scPartOfSpeech.selectedSegmentIndex = partOfSpeech - 1
+                cell.scGender.selectedSegmentIndex = customIntField1 - 1
+                cell.txtPlural.text = customStringField1
+
+                cell.scGender.addTarget(self, action: #selector(customIntField1Changed(sender:)), for: .valueChanged)
+                cell.scPartOfSpeech.addTarget(self, action: #selector(partOfSpeechChanged(sender:)), for: .valueChanged)
+
+                return cell
             } else {
-                return tableView.dequeueReusableCell(withIdentifier: "GermanNounGrammarTableViewCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "GrammarTableViewCell", for: indexPath) as! GrammarTableViewCell
+                cell.scPartOfSpeech.selectedSegmentIndex = partOfSpeech - 1
+                cell.scPartOfSpeech.addTarget(self, action: #selector(partOfSpeechChanged(sender:)), for: .valueChanged)
+
+                return cell
             }
         }
         if section == 2 {
-            if row < 2 {
+            if row < translations.count {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "LabelWithButtonTableViewCell", for: indexPath) as! LabelWithButtonTableViewCell
+                cell.tag = row
+
+                cell.label.text = translations[row]
+
+                cell.button.tag = row
                 cell.button.setTitle("Remove", for: .normal)
+                cell.button.addTarget(self, action: #selector(removeTranslationPressed(sender:)), for: .touchUpInside)
                 return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldWithButtonTableViewCell", for: indexPath) as! TextFieldWithButtonTableViewCell
+            cell.button.addTarget(self, action: #selector(addTranslationPressed(sender:)), for: .touchUpInside)
             cell.button.setTitle("Add", for: .normal)
             return cell
         }
         return tableView.dequeueReusableCell(withIdentifier: "GermanNounTableViewCell", for: indexPath)
     }
 
+    func partOfSpeechChanged(sender: UISegmentedControl!) {
+        partOfSpeech = sender.selectedSegmentIndex + 1
+        tableView.reloadData()
+    }
+
+    func customIntField1Changed(sender: UISegmentedControl!) {
+        customIntField1 = sender.selectedSegmentIndex + 1
+        tableView.reloadData()
+    }
+
+    func addTranslationPressed(sender: UIButton!) {
+        let cell = sender.superview!.superview! as! TextFieldWithButtonTableViewCell
+        if cell.textField.text != nil && cell.textField.text!.characters.count > 0 {
+            translations.append(cell.textField.text!)
+            cell.textField.text = ""
+            tableView.reloadData()
+        }
+    }
+
+    func removeTranslationPressed(sender: UIButton!) {
+        translations.remove(at: sender.tag)
+        tableView.reloadData()
+    }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 1 {
+        if indexPath.section == 1 && partOfSpeech == 2 {
             return 117
         }
         return 44;
