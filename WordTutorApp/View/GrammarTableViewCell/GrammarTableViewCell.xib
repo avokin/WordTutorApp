@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordTypeTableViewCell" id="s3D-wU-1qL" customClass="GrammarTableViewCell" customModule="WordTutorApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s3D-wU-1qL" id="AWJ-fm-Kwv">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BCm-Ib-ipv">
+                        <rect key="frame" x="8" y="8" width="359" height="29"/>
+                        <segments>
+                            <segment title="Unknown"/>
+                            <segment title="Noun"/>
+                            <segment title="Verb"/>
+                        </segments>
+                    </segmentedControl>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="BCm-Ib-ipv" secondAttribute="bottom" constant="7" id="FuL-Hr-9UP"/>
+                    <constraint firstItem="BCm-Ib-ipv" firstAttribute="top" secondItem="AWJ-fm-Kwv" secondAttribute="top" constant="8" id="M9D-3l-83g"/>
+                    <constraint firstAttribute="trailing" secondItem="BCm-Ib-ipv" secondAttribute="trailing" constant="8" id="RUg-fQ-3iU"/>
+                    <constraint firstItem="BCm-Ib-ipv" firstAttribute="leading" secondItem="AWJ-fm-Kwv" secondAttribute="leading" constant="8" id="YUd-4U-MYh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="scPartOfSpeech" destination="BCm-Ib-ipv" id="VBO-T2-c4X"/>
+            </connections>
+            <point key="canvasLocation" x="89.5" y="117"/>
+        </tableViewCell>
+    </objects>
+</document>

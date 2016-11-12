@@ -22,7 +22,7 @@ class CategoriesController: UITableViewController {
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         }
 
-        tableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "Category")
+        tableView.register(UINib(nibName: "CategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoryTableViewCell")
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,7 +30,7 @@ class CategoriesController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Category", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTableViewCell", for: indexPath)
 
         let category = modelProvider.getCategories()[(indexPath as NSIndexPath).row]
         cell.textLabel!.text = category.name

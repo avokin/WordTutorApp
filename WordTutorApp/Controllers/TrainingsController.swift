@@ -19,7 +19,7 @@ class TrainingsController: UITableViewController {
 
         DataProvider.getInstance().serviceResponse = serviceResponseCallback
 
-        tableView.register(UINib(nibName: "TrainingTableViewCell", bundle: nil), forCellReuseIdentifier: "Training")
+        tableView.register(UINib(nibName: "TrainingTableViewCell", bundle: nil), forCellReuseIdentifier: "TrainingTableViewCell")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +46,7 @@ class TrainingsController: UITableViewController {
         let groupNumber = (indexPath as NSIndexPath).row
         let group = training.getGroup(groupNumber)
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Training", for: indexPath) as! TrainingCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrainingTableViewCell", for: indexPath) as! TrainingTableViewCell
         cell.lblTitle!.text = "  " + training.category.name + " #" + String(groupNumber + 1)
 
         cell.icon.isHidden = true

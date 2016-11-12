@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GermanNounGrammarTableViewCell" rowHeight="117" id="CQC-z7-UId" customClass="GermanNounGrammarTableViewCell" customModule="WordTutorApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="446" height="117"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CQC-z7-UId" id="1eI-HT-u0e">
+                <rect key="frame" x="0.0" y="0.0" width="446" height="116"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M7U-Ql-r5v">
+                        <rect key="frame" x="8" y="44" width="430" height="29"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <segments>
+                            <segment title="Unknown"/>
+                            <segment title="der"/>
+                            <segment title="die"/>
+                            <segment title="das"/>
+                        </segments>
+                    </segmentedControl>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3nf-19-7gf">
+                        <rect key="frame" x="8" y="8" width="430" height="29"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <segments>
+                            <segment title="Another"/>
+                            <segment title="Noun"/>
+                            <segment title="Verb"/>
+                        </segments>
+                    </segmentedControl>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Plural" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PKM-Wm-DGb">
+                        <rect key="frame" x="8" y="80" width="430" height="30"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="scGender" destination="M7U-Ql-r5v" id="f12-Xh-FtT"/>
+                <outlet property="scPartOfSpeech" destination="3nf-19-7gf" id="8r4-pG-doI"/>
+                <outlet property="txtPlural" destination="PKM-Wm-DGb" id="muN-M3-8bq"/>
+            </connections>
+            <point key="canvasLocation" x="48" y="-96.5"/>
+        </tableViewCell>
+    </objects>
+</document>

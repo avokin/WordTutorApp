@@ -8,21 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		054CD98E1DD51BE500DB5D76 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054CD98D1DD51BE500DB5D76 /* CategoryTableViewCell.xib */; };
-		054CD9901DD51C4F00DB5D76 /* TrainingWordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054CD98F1DD51C4F00DB5D76 /* TrainingWordTableViewCell.xib */; };
-		059BECA01DCF9671007AF354 /* TrainingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059BEC9F1DCF9671007AF354 /* TrainingTableViewCell.xib */; };
+		AC38F016DD3106D2400635FA /* LabelWithButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC38F97879F45E89BC24B861 /* LabelWithButtonTableViewCell.xib */; };
+		AC38F06B3729D7A183FE4CB4 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC38FB8CD155BA502D835F4F /* TextFieldTableViewCell.xib */; };
+		AC38F162EDBFF5BC99CAAB41 /* AddWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F7094F70207A86DBC0A7 /* AddWordController.swift */; };
 		AC38F181087379816F93DD26 /* TrainingPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F0928E5647E3F7EF9ACB /* TrainingPreviewController.swift */; };
+		AC38F1B06B5DC1038D595F20 /* GrammarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F25606FC84712901A745 /* GrammarTableViewCell.swift */; };
 		AC38F1BA46D05121E139B055 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F81C9DEEDDCBF0020590 /* Category.swift */; };
 		AC38F265E5168B0B2C5C9253 /* WordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F2AB9A6B5A643B61BBCA /* WordController.swift */; };
+		AC38F290ED855C515C528131 /* LabelWithButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FC67DA1EDCED1CB6474F /* LabelWithButtonTableViewCell.swift */; };
 		AC38F298E0197CAFFE6B9383 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FC87FEB2020708326767 /* LoginController.swift */; };
+		AC38F454B8B8B12C74009868 /* TrainingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FE74DA7C2B94C05F8551 /* TrainingTableViewCell.swift */; };
+		AC38F4B99CDD2A69CE058843 /* GermanNounGrammarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC38F64E90E5D199D14FFD04 /* GermanNounGrammarTableViewCell.xib */; };
 		AC38F4BA582BA856414BE77C /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F07C855D3B1093697E74 /* JsonParser.swift */; };
 		AC38F4C7F6934CC0ABC4FA0E /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F56429553EC9BAA9764D /* CategoriesController.swift */; };
+		AC38F4CA3BF0C9CC02C13D6F /* TrainingWordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC38FFCE4982A8FA8CC86266 /* TrainingWordTableViewCell.xib */; };
 		AC38F50BBF138EF66FAA444F /* WordRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1B5BBE173BE42E001EB /* WordRelation.swift */; };
 		AC38F51422752B6A74378192 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC38FCAD61D570276F0CFAAE /* data.json */; };
 		AC38F518DC4045606C1001F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC38F064498111784C5E4B6B /* Main.storyboard */; };
 		AC38F56EE8AEF4A9403C6985 /* TrainingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1AC33D07976E4540E58 /* TrainingTest.swift */; };
-		AC38F5B41EE7714B6E39B6A4 /* TrainingWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F522E5B29618B4ACBFC8 /* TrainingWordCell.swift */; };
 		AC38F67E50F9564E2633B125 /* CategoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F18365031D6E24E09B05 /* CategoryTest.swift */; };
 		AC38F69E4A394D3B58679D95 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F304233567688509DF0F /* DataProvider.swift */; };
+		AC38F6B908877877976F8B93 /* GermanNounGrammarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FF872A4920AC4111E8CE /* GermanNounGrammarTableViewCell.swift */; };
 		AC38F713891CF27563A1E500 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FE810575E14E6894C472 /* CategoryController.swift */; };
 		AC38F98D8FB10F0AEC9B4C2D /* WordTrainingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FDAD55196A4C88156E09 /* WordTrainingController.swift */; };
 		AC38F999FB8D3EC62BCF000E /* GermanUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1F074B9F99521C36A66 /* GermanUtil.swift */; };
@@ -33,11 +39,16 @@
 		AC38FB7FC82DF4C2E37E690A /* GermanNounController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FDA1929E11A5E94246CF /* GermanNounController.swift */; };
 		AC38FB8540684F000BCBBB7B /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F80D72B675142209FF64 /* Word.swift */; };
 		AC38FBA403E1656010765087 /* WordCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F329F064F441B06FC82D /* WordCategory.swift */; };
-		AC38FBD98BB29ADEDE6F51E6 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F00EC3E7E1C51203C2DF /* TrainingCell.swift */; };
 		AC38FBEBDF5787736AB64980 /* TrainingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1C6C2BCBE291EFCA42F /* TrainingsController.swift */; };
+		AC38FCA24A0418A95C8FB63B /* TextFieldWithButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FB94205F969C9C8719DC /* TextFieldWithButtonTableViewCell.swift */; };
 		AC38FCA79C4E6498F31C7996 /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F99F4D5C806D72E8BFFF /* LoginHelper.swift */; };
+		AC38FCE36A02FD302E98AA86 /* TrainingWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F392F06F7602C59619B9 /* TrainingWordTableViewCell.swift */; };
+		AC38FD575C674BDE48451440 /* TrainingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC38FFD6B78C9BD26CABAC22 /* TrainingTableViewCell.xib */; };
+		AC38FDBFD353EAE628B8102D /* GrammarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC38FED9AAF67FEFDF7F5FAA /* GrammarTableViewCell.xib */; };
+		AC38FE82230502EDF2DBF9CC /* TextFieldWithButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC38FB2613C5184DE798F982 /* TextFieldWithButtonTableViewCell.xib */; };
 		AC38FE97BD229242E876F5DF /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FC4F47F3AB6DC0549DE4 /* Language.swift */; };
 		AC38FED19AE3DD0E47874A97 /* TrainingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FE404810A4B662231527 /* TrainingController.swift */; };
+		AC38FFA30D44B3AF93C80770 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38F1510A5EC5A6AD960B77 /* TextFieldTableViewCell.swift */; };
 		AC38FFBC7983E5EF09EF7B8D /* AllWordsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC38FF7E018A1EB1F2AC9D9B /* AllWordsController.swift */; };
 		F47029F61A7F27DB00E30A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47029F51A7F27DB00E30A3C /* AppDelegate.swift */; };
 		F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47029FC1A7F27DB00E30A3C /* Images.xcassets */; };
@@ -60,37 +71,48 @@
 
 /* Begin PBXFileReference section */
 		054CD98D1DD51BE500DB5D76 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
-		054CD98F1DD51C4F00DB5D76 /* TrainingWordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainingWordTableViewCell.xib; sourceTree = "<group>"; };
-		059BEC9F1DCF9671007AF354 /* TrainingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainingTableViewCell.xib; sourceTree = "<group>"; };
-		AC38F00EC3E7E1C51203C2DF /* TrainingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		AC38F07C855D3B1093697E74 /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		AC38F0928E5647E3F7EF9ACB /* TrainingPreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingPreviewController.swift; sourceTree = "<group>"; };
+		AC38F1510A5EC5A6AD960B77 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		AC38F18365031D6E24E09B05 /* CategoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTest.swift; sourceTree = "<group>"; };
 		AC38F1AC33D07976E4540E58 /* TrainingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingTest.swift; sourceTree = "<group>"; };
 		AC38F1B5BBE173BE42E001EB /* WordRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordRelation.swift; sourceTree = "<group>"; };
 		AC38F1C6C2BCBE291EFCA42F /* TrainingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingsController.swift; sourceTree = "<group>"; };
 		AC38F1F074B9F99521C36A66 /* GermanUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GermanUtil.swift; sourceTree = "<group>"; };
+		AC38F25606FC84712901A745 /* GrammarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrammarTableViewCell.swift; sourceTree = "<group>"; };
 		AC38F27A56453F1B6CE679C3 /* WordTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTest.swift; sourceTree = "<group>"; };
 		AC38F2AB9A6B5A643B61BBCA /* WordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordController.swift; sourceTree = "<group>"; };
 		AC38F304233567688509DF0F /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		AC38F329F064F441B06FC82D /* WordCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCategory.swift; sourceTree = "<group>"; };
-		AC38F522E5B29618B4ACBFC8 /* TrainingWordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingWordCell.swift; sourceTree = "<group>"; };
+		AC38F392F06F7602C59619B9 /* TrainingWordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingWordTableViewCell.swift; sourceTree = "<group>"; };
 		AC38F526A09D9912FE4BB35E /* Training.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		AC38F56429553EC9BAA9764D /* CategoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
+		AC38F64E90E5D199D14FFD04 /* GermanNounGrammarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GermanNounGrammarTableViewCell.xib; sourceTree = "<group>"; };
 		AC38F6A529793202D1BF0485 /* ReplaceSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceSegue.swift; sourceTree = "<group>"; };
 		AC38F6B215368FD168081158 /* WordListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListController.swift; sourceTree = "<group>"; };
+		AC38F7094F70207A86DBC0A7 /* AddWordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWordController.swift; sourceTree = "<group>"; };
 		AC38F80D72B675142209FF64 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		AC38F81C9DEEDDCBF0020590 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		AC38F97879F45E89BC24B861 /* LabelWithButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelWithButtonTableViewCell.xib; sourceTree = "<group>"; };
 		AC38F99F4D5C806D72E8BFFF /* LoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginHelper.swift; sourceTree = "<group>"; };
 		AC38FA02EB68D7CF1279AA10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC38FB2613C5184DE798F982 /* TextFieldWithButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldWithButtonTableViewCell.xib; sourceTree = "<group>"; };
+		AC38FB8CD155BA502D835F4F /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		AC38FB94205F969C9C8719DC /* TextFieldWithButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldWithButtonTableViewCell.swift; sourceTree = "<group>"; };
 		AC38FC4F47F3AB6DC0549DE4 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		AC38FC67DA1EDCED1CB6474F /* LabelWithButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithButtonTableViewCell.swift; sourceTree = "<group>"; };
 		AC38FC87FEB2020708326767 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		AC38FCAD61D570276F0CFAAE /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		AC38FDA1929E11A5E94246CF /* GermanNounController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GermanNounController.swift; sourceTree = "<group>"; };
 		AC38FDAD55196A4C88156E09 /* WordTrainingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTrainingController.swift; sourceTree = "<group>"; };
 		AC38FE404810A4B662231527 /* TrainingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingController.swift; sourceTree = "<group>"; };
+		AC38FE74DA7C2B94C05F8551 /* TrainingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingTableViewCell.swift; sourceTree = "<group>"; };
 		AC38FE810575E14E6894C472 /* CategoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
+		AC38FED9AAF67FEFDF7F5FAA /* GrammarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GrammarTableViewCell.xib; sourceTree = "<group>"; };
 		AC38FF7E018A1EB1F2AC9D9B /* AllWordsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllWordsController.swift; sourceTree = "<group>"; };
+		AC38FF872A4920AC4111E8CE /* GermanNounGrammarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GermanNounGrammarTableViewCell.swift; sourceTree = "<group>"; };
+		AC38FFCE4982A8FA8CC86266 /* TrainingWordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingWordTableViewCell.xib; sourceTree = "<group>"; };
+		AC38FFD6B78C9BD26CABAC22 /* TrainingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingTableViewCell.xib; sourceTree = "<group>"; };
 		F47029F01A7F27DB00E30A3C /* WordTutorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordTutorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47029F41A7F27DB00E30A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		F47029F51A7F27DB00E30A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,11 +161,14 @@
 			isa = PBXGroup;
 			children = (
 				AC38F6A529793202D1BF0485 /* ReplaceSegue.swift */,
-				AC38F00EC3E7E1C51203C2DF /* TrainingCell.swift */,
-				059BEC9F1DCF9671007AF354 /* TrainingTableViewCell.xib */,
 				054CD98D1DD51BE500DB5D76 /* CategoryTableViewCell.xib */,
-				054CD98F1DD51C4F00DB5D76 /* TrainingWordTableViewCell.xib */,
-				AC38F522E5B29618B4ACBFC8 /* TrainingWordCell.swift */,
+				AC38FCA4E03208D4BF122FF8 /* TextFieldWithButtonTableViewCell */,
+				AC38FA076B363A146026F159 /* LabelWithButtonTableViewCell */,
+				AC38F8B20E4CDCECD8960776 /* GermanNounGrammarTableViewCell */,
+				AC38FC94D0EAFAC59B54BBF9 /* GrammarTableViewCell */,
+				AC38FF8C3B66A16D177FE9AA /* TextFieldTableViewCell */,
+				AC38FE217F0CAF318F88709A /* TrainingTableViewCell */,
+				AC38F991805FA96C4B06F321 /* TrainingWordTableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,8 +187,36 @@
 				AC38FE810575E14E6894C472 /* CategoryController.swift */,
 				AC38FDAD55196A4C88156E09 /* WordTrainingController.swift */,
 				AC38FE404810A4B662231527 /* TrainingController.swift */,
+				AC38F7094F70207A86DBC0A7 /* AddWordController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AC38F8B20E4CDCECD8960776 /* GermanNounGrammarTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC38FF872A4920AC4111E8CE /* GermanNounGrammarTableViewCell.swift */,
+				AC38F64E90E5D199D14FFD04 /* GermanNounGrammarTableViewCell.xib */,
+			);
+			path = GermanNounGrammarTableViewCell;
+			sourceTree = "<group>";
+		};
+		AC38F991805FA96C4B06F321 /* TrainingWordTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC38FFCE4982A8FA8CC86266 /* TrainingWordTableViewCell.xib */,
+				AC38F392F06F7602C59619B9 /* TrainingWordTableViewCell.swift */,
+			);
+			path = TrainingWordTableViewCell;
+			sourceTree = "<group>";
+		};
+		AC38FA076B363A146026F159 /* LabelWithButtonTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC38FC67DA1EDCED1CB6474F /* LabelWithButtonTableViewCell.swift */,
+				AC38F97879F45E89BC24B861 /* LabelWithButtonTableViewCell.xib */,
+			);
+			path = LabelWithButtonTableViewCell;
 			sourceTree = "<group>";
 		};
 		AC38FB4EC2704E40E4342252 /* Model */ = {
@@ -176,12 +229,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		AC38FC94D0EAFAC59B54BBF9 /* GrammarTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC38F25606FC84712901A745 /* GrammarTableViewCell.swift */,
+				AC38FED9AAF67FEFDF7F5FAA /* GrammarTableViewCell.xib */,
+			);
+			path = GrammarTableViewCell;
+			sourceTree = "<group>";
+		};
+		AC38FCA4E03208D4BF122FF8 /* TextFieldWithButtonTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC38FB2613C5184DE798F982 /* TextFieldWithButtonTableViewCell.xib */,
+				AC38FB94205F969C9C8719DC /* TextFieldWithButtonTableViewCell.swift */,
+			);
+			path = TextFieldWithButtonTableViewCell;
+			sourceTree = "<group>";
+		};
 		AC38FCC00687DBD6ED583C0F /* Languages */ = {
 			isa = PBXGroup;
 			children = (
 				AC38F1F074B9F99521C36A66 /* GermanUtil.swift */,
 			);
 			path = Languages;
+			sourceTree = "<group>";
+		};
+		AC38FE217F0CAF318F88709A /* TrainingTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC38FFD6B78C9BD26CABAC22 /* TrainingTableViewCell.xib */,
+				AC38FE74DA7C2B94C05F8551 /* TrainingTableViewCell.swift */,
+			);
+			path = TrainingTableViewCell;
 			sourceTree = "<group>";
 		};
 		AC38FEED7314AA3589566B7F /* Model */ = {
@@ -195,6 +275,15 @@
 				AC38F526A09D9912FE4BB35E /* Training.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AC38FF8C3B66A16D177FE9AA /* TextFieldTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC38F1510A5EC5A6AD960B77 /* TextFieldTableViewCell.swift */,
+				AC38FB8CD155BA502D835F4F /* TextFieldTableViewCell.xib */,
+			);
+			path = TextFieldTableViewCell;
 			sourceTree = "<group>";
 		};
 		F47029E71A7F27DB00E30A3C = {
@@ -363,10 +452,15 @@
 			files = (
 				F4702A001A7F27DC00E30A3C /* LaunchScreen.xib in Resources */,
 				054CD98E1DD51BE500DB5D76 /* CategoryTableViewCell.xib in Resources */,
-				059BECA01DCF9671007AF354 /* TrainingTableViewCell.xib in Resources */,
-				054CD9901DD51C4F00DB5D76 /* TrainingWordTableViewCell.xib in Resources */,
 				F47029FD1A7F27DB00E30A3C /* Images.xcassets in Resources */,
 				AC38F518DC4045606C1001F9 /* Main.storyboard in Resources */,
+				AC38FE82230502EDF2DBF9CC /* TextFieldWithButtonTableViewCell.xib in Resources */,
+				AC38F016DD3106D2400635FA /* LabelWithButtonTableViewCell.xib in Resources */,
+				AC38F4B99CDD2A69CE058843 /* GermanNounGrammarTableViewCell.xib in Resources */,
+				AC38FDBFD353EAE628B8102D /* GrammarTableViewCell.xib in Resources */,
+				AC38F06B3729D7A183FE4CB4 /* TextFieldTableViewCell.xib in Resources */,
+				AC38FD575C674BDE48451440 /* TrainingTableViewCell.xib in Resources */,
+				AC38F4CA3BF0C9CC02C13D6F /* TrainingWordTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,8 +504,14 @@
 				AC38F713891CF27563A1E500 /* CategoryController.swift in Sources */,
 				AC38F98D8FB10F0AEC9B4C2D /* WordTrainingController.swift in Sources */,
 				AC38FED19AE3DD0E47874A97 /* TrainingController.swift in Sources */,
-				AC38FBD98BB29ADEDE6F51E6 /* TrainingCell.swift in Sources */,
-				AC38F5B41EE7714B6E39B6A4 /* TrainingWordCell.swift in Sources */,
+				AC38F162EDBFF5BC99CAAB41 /* AddWordController.swift in Sources */,
+				AC38FCA24A0418A95C8FB63B /* TextFieldWithButtonTableViewCell.swift in Sources */,
+				AC38F290ED855C515C528131 /* LabelWithButtonTableViewCell.swift in Sources */,
+				AC38F6B908877877976F8B93 /* GermanNounGrammarTableViewCell.swift in Sources */,
+				AC38F1B06B5DC1038D595F20 /* GrammarTableViewCell.swift in Sources */,
+				AC38FFA30D44B3AF93C80770 /* TextFieldTableViewCell.swift in Sources */,
+				AC38F454B8B8B12C74009868 /* TrainingTableViewCell.swift in Sources */,
+				AC38FCE36A02FD302E98AA86 /* TrainingWordTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

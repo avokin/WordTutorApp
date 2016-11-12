@@ -5,7 +5,7 @@
 
 import Foundation
 
-class TrainingWordCell: UITableViewCell {
+class TrainingWordTableViewCell: UITableViewCell {
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var pbStatus: UIProgressView!

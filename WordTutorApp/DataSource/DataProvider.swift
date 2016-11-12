@@ -6,7 +6,7 @@
 import Foundation
 
 open class DataProvider {
-    open static let HOST = "http://localhost:3000/"
+    open static let HOST = "http://word-tutor.herokuapp.com/"
 
     static let DATA_FILE_NAME = "data.json"
 
@@ -221,7 +221,6 @@ open class DataProvider {
             }
 
             let responseText = String(data: data!, encoding: String.Encoding.utf8)
-            print(responseText)
             self.parseData(data: data!)
 
             self.saveToFile()
