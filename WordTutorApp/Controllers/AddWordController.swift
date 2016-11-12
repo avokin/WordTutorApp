@@ -9,9 +9,17 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var customIntField: UIPickerView!
 
     var translations = [String]()
+    var categories = [String]()
     var partOfSpeech = 2
     var customIntField1 = 2
     var customStringField1 = ""
+
+    let wordSection = 0
+    let grammarSection = 1
+    let translationsSection = 2
+    let categoriesSection = 3
+    let relatedWordsSection = 4
+    let commentSection = 5
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,43 +36,68 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
         tableView.register(UINib(nibName: "LabelWithButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "LabelWithButtonTableViewCell")
 
         translations = ["собака", "псина", "пес"]
+        categories = ["Lektion 01", "Wohnung"]
         customIntField1 = 2
         customStringField1 = "-en"
     }
 
     override internal func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        if section == wordSection {
             return "Word"
         }
-        if section == 1 {
+        if section == grammarSection {
             return "Grammar"
         }
-        if section == 2 {
+        if section == translationsSection {
             return "Translations"
         }
+        if section == categoriesSection {
+            return "Categories"
+        }
+        if section == relatedWordsSection {
+            return "Related words"
+        }
+        if section == commentSection {
+            return "Comment"
+        }
+
         return nil
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else if section == 1 {
+        if section == wordSection {
             return 1
         }
-        return translations.count + 1
+        if section == grammarSection {
+            return 1
+        }
+        if section == translationsSection {
+            return translations.count + 1
+        }
+        if section == categoriesSection {
+            return categories.count + 1
+        }
+        if section == relatedWordsSection {
+            return 1
+        }
+        if section == commentSection {
+            return 1
+        }
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = (indexPath as NSIndexPath).section
         let row = (indexPath as NSIndexPath).row
 
-        if section == 0 {
+        if section == wordSection {
             return tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath)
-        } else if section == 1 {
+        }
+        if section == grammarSection {
             if partOfSpeech == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "GermanNounGrammarTableViewCell", for: indexPath) as! GermanNounGrammarTableViewCell
                 cell.scPartOfSpeech.selectedSegmentIndex = partOfSpeech - 1
@@ -83,24 +116,39 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
                 return cell
             }
         }
-        if section == 2 {
+        if section == translationsSection {
             if row < translations.count {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "LabelWithButtonTableViewCell", for: indexPath) as! LabelWithButtonTableViewCell
-                cell.tag = row
-
-                cell.label.text = translations[row]
-
-                cell.button.tag = row
-                cell.button.setTitle("Remove", for: .normal)
-                cell.button.addTarget(self, action: #selector(removeTranslationPressed(sender:)), for: .touchUpInside)
-                return cell
+                return createRemovableLabelCell(text: translations[row], indexPath: indexPath, selector: #selector(removeTranslationPressed(sender:)))
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldWithButtonTableViewCell", for: indexPath) as! TextFieldWithButtonTableViewCell
             cell.button.addTarget(self, action: #selector(addTranslationPressed(sender:)), for: .touchUpInside)
             cell.button.setTitle("Add", for: .normal)
             return cell
         }
-        return tableView.dequeueReusableCell(withIdentifier: "GermanNounTableViewCell", for: indexPath)
+        if section == categoriesSection {
+            if row < categories.count {
+                return createRemovableLabelCell(text: categories[row], indexPath: indexPath, selector: #selector(removeCategoryPressed(sender:)))
+            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldWithButtonTableViewCell", for: indexPath) as! TextFieldWithButtonTableViewCell
+            cell.button.addTarget(self, action: #selector(addCategoryPressed(sender:)), for: .touchUpInside)
+            cell.button.setTitle("Add", for: .normal)
+            return cell
+        }
+        return tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath)
+    }
+
+    func createRemovableLabelCell(text: String, indexPath: IndexPath, selector: Selector) -> UITableViewCell {
+        let row = (indexPath as NSIndexPath).row
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelWithButtonTableViewCell", for: indexPath) as! LabelWithButtonTableViewCell
+        cell.tag = row
+
+        cell.label.text = text
+
+        cell.button.tag = row
+        cell.button.setTitle("Remove", for: .normal)
+        cell.button.addTarget(self, action: selector, for: .touchUpInside)
+        return cell
     }
 
     func partOfSpeechChanged(sender: UISegmentedControl!) {
@@ -124,6 +172,20 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
 
     func removeTranslationPressed(sender: UIButton!) {
         translations.remove(at: sender.tag)
+        tableView.reloadData()
+    }
+
+    func addCategoryPressed(sender: UIButton!) {
+        let cell = sender.superview!.superview! as! TextFieldWithButtonTableViewCell
+        if cell.textField.text != nil && cell.textField.text!.characters.count > 0 {
+            categories.append(cell.textField.text!)
+            cell.textField.text = ""
+            tableView.reloadData()
+        }
+    }
+
+    func removeCategoryPressed(sender: UIButton!) {
+        categories.remove(at: sender.tag)
         tableView.reloadData()
     }
 

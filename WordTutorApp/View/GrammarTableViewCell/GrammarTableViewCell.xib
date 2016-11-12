@@ -18,21 +18,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BCm-Ib-ipv">
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BCm-Ib-ipv">
                         <rect key="frame" x="8" y="8" width="359" height="29"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <segments>
-                            <segment title="Unknown"/>
+                            <segment title="Unspecified"/>
                             <segment title="Noun"/>
                             <segment title="Verb"/>
                         </segments>
+                        <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                     </segmentedControl>
                 </subviews>
-                <constraints>
-                    <constraint firstAttribute="bottom" secondItem="BCm-Ib-ipv" secondAttribute="bottom" constant="7" id="FuL-Hr-9UP"/>
-                    <constraint firstItem="BCm-Ib-ipv" firstAttribute="top" secondItem="AWJ-fm-Kwv" secondAttribute="top" constant="8" id="M9D-3l-83g"/>
-                    <constraint firstAttribute="trailing" secondItem="BCm-Ib-ipv" secondAttribute="trailing" constant="8" id="RUg-fQ-3iU"/>
-                    <constraint firstItem="BCm-Ib-ipv" firstAttribute="leading" secondItem="AWJ-fm-Kwv" secondAttribute="leading" constant="8" id="YUd-4U-MYh"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="scPartOfSpeech" destination="BCm-Ib-ipv" id="VBO-T2-c4X"/>
