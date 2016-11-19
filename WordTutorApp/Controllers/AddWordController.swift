@@ -6,7 +6,7 @@
 import Foundation
 
 class AddWordController: UITableViewController, UITextFieldDelegate {
-    @IBOutlet weak var customIntField: UIPickerView!
+    var wordCell: TextFieldTableViewCell?
 
     var translations = [String]()
     var categories = [String]()
@@ -95,7 +95,8 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
         let row = (indexPath as NSIndexPath).row
 
         if section == wordSection {
-            return tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath)
+            wordCell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
+            return wordCell!
         }
         if section == grammarSection {
             if partOfSpeech == 2 {
@@ -203,5 +204,22 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+
+    @IBAction func loadWord(_ sender: Any) {
+        let word = wordCell!.textField.text
+        if word == nil || word!.characters.count == 0 {
+            return
+        }
+        DataProvider.getInstance().requestWord(word: word!, callback: {(jsonDict: NSDictionary) in
+                    self.translations = jsonDict["translations"] as! Array
+                    self.partOfSpeech = (jsonDict["type_id"] as! NSNumber).intValue
+                    self.customIntField1 = (jsonDict["custom_int_field1"] as! NSNumber).intValue
+                    self.customStringField1 = jsonDict["custom_string_field1"] as! String
+
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                })
     }
 }

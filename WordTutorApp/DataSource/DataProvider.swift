@@ -6,7 +6,7 @@
 import Foundation
 
 open class DataProvider {
-    open static let HOST = "http://word-tutor.herokuapp.com/"
+    open static let HOST = "http://localhost:3000/"
 
     static let DATA_FILE_NAME = "data.json"
 
@@ -28,6 +28,29 @@ open class DataProvider {
             instance = DataProvider()
         }
         return instance!
+    }
+
+    public func requestWord(word: String, callback: @escaping (_ jsonDict: NSDictionary) -> Swift.Void) {
+        let requestBodyText = "{\"query\": \"\(word)\"}"
+
+        let url = URL(string: DataProvider.HOST + "api/word.json")
+        let request = NSMutableURLRequest(url: url!)
+
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        request.httpBody = requestBodyText.data(using: String.Encoding.utf8)
+
+        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
+            if (error != nil) {
+                print(error!.localizedDescription)
+                return;
+            }
+
+            let jsonDictionary = try! JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
+            callback(jsonDictionary)
+        })
+
+        task.resume()
     }
 
     public func syncUpdatedWords(withImport: Bool) {
