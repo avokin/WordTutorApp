@@ -168,7 +168,6 @@ open class DataProvider {
 
         self.words = [Word]()
         if (jsonDictionary["error"] != nil) {
-            print(jsonDictionary["error"])
             LoginHelper.getInstance().setAuthorizationToken(nil)
             return
         }
@@ -237,9 +236,7 @@ open class DataProvider {
                 return;
             }
 
-            let responseText = String(data: data!, encoding: String.Encoding.utf8)
             self.parseData(data: data!)
-
             self.saveToFile()
 
             if self.serviceResponse != nil {
@@ -259,7 +256,6 @@ open class DataProvider {
         }
 
         let url = testBundle.url(forResource: "data", withExtension: "json")
-
         readFromFile(url: url!)
     }
 }
