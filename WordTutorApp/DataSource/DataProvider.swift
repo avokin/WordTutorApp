@@ -31,14 +31,8 @@ open class DataProvider {
     }
 
     public func requestWord(word: String, callback: @escaping (_ jsonDict: NSDictionary) -> Swift.Void) {
-        let requestBodyText = "{\"query\": \"\(word)\"}"
-
-        let url = URL(string: DataProvider.HOST + "api/word.json")
+        let url = URL(string: DataProvider.HOST + "api/word.json?query=\(word)")
         let request = NSMutableURLRequest(url: url!)
-
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
-        request.httpBody = requestBodyText.data(using: String.Encoding.utf8)
 
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
             if (error != nil) {
