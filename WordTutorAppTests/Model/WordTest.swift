@@ -7,6 +7,12 @@ import UIKit
 import XCTest
 import WordTutorApp
 
-class WordTest : XCTestCase {
+public class WordTest : XCTestCase {
+    func testGetWords() {
+        let words = DataProvider.getInstance().getWords()
 
+        let word = Word.findByText(text: words[2].getText())
+        XCTAssertNotNil(word)
+        XCTAssertEqual(words[2].getId(), word!.getId())
+    }
 }

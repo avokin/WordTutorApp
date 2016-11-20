@@ -63,11 +63,21 @@ open class Word {
                 self._isUpdated = (value as! String) == "true"
             }
         }
-        Word.ids[self.id] = self
+        register()
+    }
+
+    public func register() {
+        if self.id > 0 {
+            Word.ids[self.id] = self
+        }
     }
 
     open func getText() -> String {
         return self.text
+    }
+
+    public func setText(text: String) {
+        self.text = text
     }
 
     open func getId() -> Int {
@@ -82,6 +92,10 @@ open class Word {
         return self.typeId
     }
 
+    public func setTypeId(typeId: Int) {
+        self.typeId = typeId
+    }
+
     open func getComment() -> String {
         return self.comment
     }
@@ -90,8 +104,16 @@ open class Word {
         return self.customIntField1
     }
 
+    public func setCustomIntField1(customIntField1: Int) {
+        self.customIntField1 = customIntField1
+    }
+
     open func getCustomStringField1() -> String {
         return self.customStringField1
+    }
+
+    public func setCustomStringField1(customStringField1: String) {
+        self.customStringField1 = customStringField1
     }
 
     open func getTranslations() -> String {
@@ -134,5 +156,22 @@ open class Word {
 
     public func isUpdated() -> Bool {
         return _isUpdated
+    }
+
+    public func serialize() -> String {
+        let translationList = translations.map{$0.text}.joined(separator: ";")
+        let synonymList = synonyms.map{$0.text}.joined(separator: ";")
+        let categoryList = categories.map{$0.name}.joined(separator: ";")
+        return "{\"id\": \(id), \"text\": \"\(text)\", \"comment\": \"\(comment)\", \"language_id\": 3, \"custom_string_field1\": \"\(customStringField1)\", \"type_id\": \(typeId), \"custom_int_field1\": \(customIntField1), \"translation_0\": \"\(translationList)\", \"category_0\": \"\(categoryList)\", \"synonym_0\": \"\(synonymList)\"}"
+    }
+
+    // ToDo: add here language
+    public static func findByText(text: String) -> Word? {
+        for word in Word.ids.values {
+            if word.text == text {
+                return word
+            }
+        }
+        return nil
     }
 }

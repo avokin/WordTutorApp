@@ -47,6 +47,28 @@ open class DataProvider {
         task.resume()
     }
 
+    public func addWord(word: Word, callback: @escaping (_ jsonDict: NSDictionary) -> Swift.Void) {
+        let url = URL(string: DataProvider.HOST + "api/add_word.json")
+        let request = NSMutableURLRequest(url: url!)
+        request.httpBody = word.serialize().data(using: String.Encoding.utf8)
+        request.httpMethod = "POST"
+        request.setValue(LoginHelper.getInstance().getAuthorizationToken(), forHTTPHeaderField: "AUTHORIZATION")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
+            if (error != nil) {
+                print(error!.localizedDescription)
+                return;
+            }
+
+            let s = String(data: data!, encoding: String.Encoding.utf8)
+            let jsonDictionary = try! JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
+            callback(jsonDictionary)
+        })
+
+        task.resume()
+    }
+
     public func syncUpdatedWords(withImport: Bool) {
         let updatedWords = words!.filter{$0.isUpdated()}
         let updatedTexts = updatedWords.map{"{\"id\": \($0.id), \"success_count\": \($0.getSuccessCount()), \"time_to_check\": \"\(JsonParser.getDateFormatter().string(from: $0.getTimeToCheck()))\"}"}

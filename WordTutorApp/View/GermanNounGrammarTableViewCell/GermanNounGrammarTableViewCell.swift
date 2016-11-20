@@ -5,8 +5,7 @@
 
 import Foundation
 
-class GermanNounGrammarTableViewCell: UITableViewCell {
-    @IBOutlet weak var scPartOfSpeech: UISegmentedControl!
+class GermanNounGrammarTableViewCell: GrammarTableViewCell {
     @IBOutlet weak var scGender: UISegmentedControl!
     @IBOutlet weak var txtPlural: UITextField!
 }

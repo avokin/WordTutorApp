@@ -7,12 +7,9 @@ import Foundation
 
 class AddWordController: UITableViewController, UITextFieldDelegate {
     var wordCell: TextFieldTableViewCell?
+    var grammarCell: GrammarTableViewCell?
 
-    var translations = [String]()
-    var categories = [String]()
-    var partOfSpeech = 2
-    var customIntField1 = 2
-    var customStringField1 = ""
+    var word = Word(dictionary: NSMutableDictionary())
 
     let wordSection = 0
     let grammarSection = 1
@@ -34,11 +31,6 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
         tableView.register(UINib(nibName: "GrammarTableViewCell", bundle: nil), forCellReuseIdentifier: "GrammarTableViewCell")
         tableView.register(UINib(nibName: "TextFieldWithButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldWithButtonTableViewCell")
         tableView.register(UINib(nibName: "LabelWithButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "LabelWithButtonTableViewCell")
-
-        translations = ["собака", "псина", "пес"]
-        categories = ["Lektion 01", "Wohnung"]
-        customIntField1 = 2
-        customStringField1 = "-en"
     }
 
     override internal func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -76,10 +68,10 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
             return 1
         }
         if section == translationsSection {
-            return translations.count + 1
+            return word.translations.count + 1
         }
         if section == categoriesSection {
-            return categories.count + 1
+            return word.categories.count + 1
         }
         if section == relatedWordsSection {
             return 1
@@ -99,27 +91,29 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
             return wordCell!
         }
         if section == grammarSection {
-            if partOfSpeech == 2 {
+            if word.typeId == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "GermanNounGrammarTableViewCell", for: indexPath) as! GermanNounGrammarTableViewCell
-                cell.scPartOfSpeech.selectedSegmentIndex = partOfSpeech - 1
-                cell.scGender.selectedSegmentIndex = customIntField1 - 1
-                cell.txtPlural.text = customStringField1
+                cell.scPartOfSpeech.selectedSegmentIndex = word.typeId - 1
+                cell.scGender.selectedSegmentIndex = word.customIntField1 - 1
+                cell.txtPlural.text = word.customStringField1
 
                 cell.scGender.addTarget(self, action: #selector(customIntField1Changed(sender:)), for: .valueChanged)
                 cell.scPartOfSpeech.addTarget(self, action: #selector(partOfSpeechChanged(sender:)), for: .valueChanged)
 
+                grammarCell = cell;
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "GrammarTableViewCell", for: indexPath) as! GrammarTableViewCell
-                cell.scPartOfSpeech.selectedSegmentIndex = partOfSpeech - 1
+                cell.scPartOfSpeech.selectedSegmentIndex = word.typeId - 1
                 cell.scPartOfSpeech.addTarget(self, action: #selector(partOfSpeechChanged(sender:)), for: .valueChanged)
 
+                grammarCell = cell;
                 return cell
             }
         }
         if section == translationsSection {
-            if row < translations.count {
-                return createRemovableLabelCell(text: translations[row], indexPath: indexPath, selector: #selector(removeTranslationPressed(sender:)))
+            if row < word.translations.count {
+                return createRemovableLabelCell(text: word.translations[row].text, indexPath: indexPath, selector: #selector(removeTranslationPressed(sender:)))
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldWithButtonTableViewCell", for: indexPath) as! TextFieldWithButtonTableViewCell
             cell.button.removeTarget(nil, action: nil, for: .allEvents)
@@ -128,8 +122,8 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
             return cell
         }
         if section == categoriesSection {
-            if row < categories.count {
-                return createRemovableLabelCell(text: categories[row], indexPath: indexPath, selector: #selector(removeCategoryPressed(sender:)))
+            if row < word.categories.count {
+                return createRemovableLabelCell(text: word.categories[row].name, indexPath: indexPath, selector: #selector(removeCategoryPressed(sender:)))
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldWithButtonTableViewCell", for: indexPath) as! TextFieldWithButtonTableViewCell
             cell.button.removeTarget(nil, action: nil, for: .allEvents)
@@ -157,45 +151,50 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
     }
 
     func partOfSpeechChanged(sender: UISegmentedControl!) {
-        partOfSpeech = sender.selectedSegmentIndex + 1
+        word.setTypeId(typeId: sender.selectedSegmentIndex + 1)
         tableView.reloadData()
     }
 
     func customIntField1Changed(sender: UISegmentedControl!) {
-        customIntField1 = sender.selectedSegmentIndex + 1
+        word.setCustomIntField1(customIntField1: sender.selectedSegmentIndex + 1)
         tableView.reloadData()
     }
 
     func addTranslationPressed(sender: UIButton!) {
         let cell = sender.superview!.superview! as! TextFieldWithButtonTableViewCell
         if cell.textField.text != nil && cell.textField.text!.characters.count > 0 {
-            translations.append(cell.textField.text!)
+            let translationWord = Word(dictionary: NSMutableDictionary())
+            translationWord.setText(text: cell.textField.text!)
+            word.translations.append(translationWord)
             cell.textField.text = ""
             tableView.reloadData()
         }
     }
 
     func removeTranslationPressed(sender: UIButton!) {
-        translations.remove(at: sender.tag)
+        word.translations.remove(at: sender.tag)
         tableView.reloadData()
     }
 
     func addCategoryPressed(sender: UIButton!) {
         let cell = sender.superview!.superview! as! TextFieldWithButtonTableViewCell
         if cell.textField.text != nil && cell.textField.text!.characters.count > 0 {
-            categories.append(cell.textField.text!)
+            // ToDo: make method find
+            let category = Category(dictionary: NSMutableDictionary())
+            category.name = cell.textField.text!
+            word.categories.append(category)
             cell.textField.text = ""
             tableView.reloadData()
         }
     }
 
     func removeCategoryPressed(sender: UIButton!) {
-        categories.remove(at: sender.tag)
+        word.categories.remove(at: sender.tag)
         tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 1 && partOfSpeech == 2 {
+        if indexPath.section == 1 && word.getTypeId() == 2 {
             return 117
         }
         return 44;
@@ -206,16 +205,32 @@ class AddWordController: UITableViewController, UITextFieldDelegate {
         return true
     }
 
+    @IBAction func saveWord(_ sender: Any) {
+        word.setText(text: wordCell!.textField.text!)
+        word.typeId = grammarCell!.scPartOfSpeech.selectedSegmentIndex
+
+        DataProvider.getInstance().addWord(word: word, callback: {(jsonDict: NSDictionary) in
+                    print(jsonDict)
+                })
+    }
+    
     @IBAction func loadWord(_ sender: Any) {
-        let word = wordCell!.textField.text
-        if word == nil || word!.characters.count == 0 {
+        word.setText(text: wordCell!.textField.text!)
+        if word.getText().characters.count == 0 {
             return
         }
-        DataProvider.getInstance().requestWord(word: word!, callback: {(jsonDict: NSDictionary) in
-                    self.translations = jsonDict["translations"] as! Array
-                    self.partOfSpeech = (jsonDict["type_id"] as! NSNumber).intValue
-                    self.customIntField1 = (jsonDict["custom_int_field1"] as! NSNumber).intValue
-                    self.customStringField1 = jsonDict["custom_string_field1"] as! String
+        DataProvider.getInstance().requestWord(word: word.text, callback: {(jsonDict: NSDictionary) in
+                    let translationStrings = jsonDict["translations"]
+                    let translations = translationStrings as! Array<String>
+                    for s: String in translations {
+                        let translationWord = Word(dictionary: NSMutableDictionary())
+                        translationWord.setText(text: s)
+                        self.word.translations.append(translationWord)
+                    }
+
+                    self.word.typeId = (jsonDict["type_id"] as! NSNumber).intValue
+                    self.word.customIntField1 = (jsonDict["custom_int_field1"] as! NSNumber).intValue
+                    self.word.customStringField1 = jsonDict["custom_string_field1"] as! String
 
                     DispatchQueue.main.async {
                         self.tableView.reloadData()

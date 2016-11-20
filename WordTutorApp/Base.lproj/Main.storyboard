@@ -155,7 +155,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Word" id="nxf-79-rQs">
                         <rightBarButtonItems>
-                            <barButtonItem title="Save" id="o5F-Z2-7Ax"/>
+                            <barButtonItem title="Save" id="o5F-Z2-7Ax">
+                                <connections>
+                                    <action selector="saveWord:" destination="u12-pI-hHH" id="swh-DE-Rbl"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Load" id="ipO-gC-HuF">
                                 <connections>
                                     <action selector="loadWord:" destination="u12-pI-hHH" id="04V-Ya-KqB"/>
