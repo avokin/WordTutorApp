@@ -70,7 +70,6 @@ class WordTrainingController: UIViewController, UIGestureRecognizerDelegate {
         if failClicked || okClicked {
             goToNext(success: !failClicked)
         } else {
-            failClicked = true
             openCard()
         }
     }
