@@ -413,6 +413,7 @@
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = S2XS892B4S;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
